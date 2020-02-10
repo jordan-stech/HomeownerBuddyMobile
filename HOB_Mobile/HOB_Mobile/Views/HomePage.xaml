@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HOB_Mobile.Models.HomePage"
+             BackgroundColor="#005691">
+    
+    <StackLayout
+        Margin="10, 10, 10, 10"
+        Orientation="Vertical">
+
+        <Frame
+            Padding="0, 0, 0, 10"
+            OutlineColor="#005691"
+            HasShadow="True">
+
+            <SearchBar
+                Placeholder="Search home issues..."
+                CancelButtonColor="#005691"
+                PlaceholderColor="#005691"
+                TextColor="#005691"
+                HorizontalTextAlignment="Start" />
+
+        </Frame>
+
+        <StackLayout Padding="0, 40, 0, 0">
+
+            <Label 
+                TextColor="White"
+                FontSize="25"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Text="Welcome to the Homeowner Buddy, NAME" />
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+                
+                <Label 
+                TextColor="White"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Text="Address:" />
+
+                <Label 
+                TextColor="White"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Text="1389 Chambers Rd" />
+
+            </StackLayout>
+
+            <Button
+                Margin="0, 40, 0, 10"
+                Padding="5, 20, 5, 20"
+                BorderWidth="2"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="20"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Help Me Diagnose an Issue" />
+
+            <Button
+                Margin="0, 0, 0, 10"
+                Padding="5, 20, 5, 20"
+                BorderWidth="2"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="20"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Maintenance Remainders" />
+
+            <Button
+                Margin="0, 0, 0, 10"
+                Padding="5, 20, 5, 20"
+                BorderWidth="2"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="20"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Contact Service Providers" />
+
+            <Button 
+                Padding="5, 20, 5, 20"
+                BorderWidth="2"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="20"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Settings" />
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HOB_Mobile.Android", "HOB_M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HOB_Mobile.iOS", "HOB_Mobile\HOB_Mobile.iOS\HOB_Mobile.iOS.csproj", "{D600779D-FC27-4101-890E-947F6F98700D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HOB_Mobile", "HOB_Mobile\HOB_Mobile\HOB_Mobile.csproj", "{908E089C-1528-41AC-B01F-2D657A3D7131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HOB_Mobile", "HOB_Mobile\HOB_Mobile\HOB_Mobile.csproj", "{908E089C-1528-41AC-B01F-2D657A3D7131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

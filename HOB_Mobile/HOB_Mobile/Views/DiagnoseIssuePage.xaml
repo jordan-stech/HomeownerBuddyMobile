@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HOB_Mobile.Models.DiagnoseIssuePage"
+             BackgroundColor="#005691">
+
+    <StackLayout
+        Margin="10, 30, 10, 10"
+        Orientation="Vertical">
+
+        <StackLayout Padding="0, 20, 0, 0">
+
+            <Label 
+                TextColor="White"
+                FontSize="25"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Text="Where is your home issue located?" />
+
+        </StackLayout>
+
+        <StackLayout
+            Margin="0, 50, 0, 0"
+            HorizontalOptions="Center"
+            Orientation="Horizontal">
+
+            <StackLayout
+                Margin="0, 0 , 70, 0"
+                Orientation="Vertical">
+
+                <Label 
+                    TextColor="White"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Exterior" />
+
+                <Image Source=""/>
+
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Vertical">
+
+                <Label 
+                    TextColor="White"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Interior" />
+
+                <Image Source=""/>
+
+            </StackLayout>
+
+        </StackLayout>
+        
+    </StackLayout>
+    
+</ContentPage>
