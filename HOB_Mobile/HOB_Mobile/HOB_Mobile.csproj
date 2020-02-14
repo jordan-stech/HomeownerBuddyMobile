@@ -46,8 +46,8 @@
     <Compile Update="Views\DiagnoseIssuePage.xaml.cs">
       <DependentUpon>DiagnoseIssuePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
+    <Compile Update="Views\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MaintenanceReminderPage.xaml.cs">
       <DependentUpon>MaintenanceReminderPage.xaml</DependentUpon>
@@ -71,9 +71,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MaintenanceReminderPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SettingsPage.xaml">

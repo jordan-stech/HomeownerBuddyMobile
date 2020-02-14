@@ -4,18 +4,100 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.Views.RegisterPage">
-    
-    <ContentPage.Content>
-        
-        <StackLayout>
+             NavigationPage.HasBackButton="false"
+             x:Class="HOB_Mobile.Views.RegisterPage"
+             BackgroundColor="#005691">
+
+    <StackLayout
+        Margin="10, 10, 10, 10"
+        Orientation="Vertical">
+
+        <Image x:Name="habitat_humanity_logo"/>
+
+        <StackLayout
+            Padding="5, 5, 5, 0"
+            Orientation="Vertical">
+
+            <Label 
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Home Code" />
             
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame
+                Padding="15, 5, 15, 5"
+                HeightRequest="50"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="40">
+                
+                <Entry
+                    TextColor="White"
+                    Keyboard="Telephone"
+                    Placeholder="Enter your home code"
+                    PlaceholderColor="White"/>
+                
+            </Frame>
+
+            <Label 
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="First Name" />
+            
+            <Frame
+                Padding="15, 5, 15, 5"
+                HeightRequest="50"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="40">
+                
+                <Entry 
+                    TextColor="White"
+                    Keyboard="Text"
+                    Placeholder="Enter your first name"
+                    PlaceholderColor="White"/>
+                
+            </Frame>
+
+            <Label 
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Last Name" />
+            
+            <Frame
+                Padding="15, 5, 15, 5"
+                HeightRequest="50"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="40">
+                
+                <Entry
+                    TextColor="White"
+                    Keyboard="Text"
+                    Placeholder="Enter your last name"
+                    PlaceholderColor="White"/>
+                
+            </Frame>
+            
+            <Button
+                x:Name="register_button"
+                IsVisible="True"
+                Clicked="handleRegisterButtonClick"
+                Margin="0, 50, 0, 0"
+                Padding="5, 5, 5, 5"
+                BorderWidth="2"
+                BorderColor="White"
+                BackgroundColor="#53B949"
+                CornerRadius="20"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Register" />
             
         </StackLayout>
         
-    </ContentPage.Content>
-    
+    </StackLayout>
+
 </ContentPage>

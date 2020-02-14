@@ -20,7 +20,7 @@ namespace HOB_Mobile
             InitializeComponent();
 
             // Launch login page
-            MainPage = new NavigationPage(new Views.LoginPage());
+            MainPage = new NavigationPage(new Views.RegisterPage());
         }
 
         protected override void OnStart()

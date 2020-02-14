@@ -24,7 +24,15 @@ namespace HOB_Mobile.Views
          */
         private void SetUpImages()
         {
-            logout_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.logout_icon.png");
+            unregister_device.Source = ImageSource.FromResource("HOB_Mobile.Resources.logout_icon.png");
+        }
+
+        /*
+         * Listener for "Unregister" button
+         */
+        private void handleUnregisterDeviceButtonClick(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
         }
     }
 }

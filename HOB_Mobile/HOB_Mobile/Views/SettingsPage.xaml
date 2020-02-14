@@ -19,14 +19,14 @@
 
                 <Label 
                     TextColor="White"
-                    FontSize="15"
+                    FontSize="20"
                     FontAttributes="Bold"
                     Text="Account" />
             
                 <Frame
                     Margin="0, 0, 0, 20"
-                    Padding="15, 5, 0, 5"
-                    HeightRequest="50"
+                    Padding="15, 10, 0, 5"
+                    HeightRequest="60"
                     BorderColor="White"
                     BackgroundColor="#53B949">
 
@@ -34,28 +34,30 @@
                         Orientation="Horizontal">
 
                         <StackLayout
+                            Padding="0, 0, 40, 0"
                             Orientation="Vertical">
                             
                             <Label 
                                 TextColor="Black"
-                                FontSize="15"
+                                FontSize="18"
                                 HorizontalTextAlignment="Start"
                                 FontAttributes="Bold"
-                                Text="Logout"/>
+                                Text="Unregister Home"/>
 
                             <Label 
                                 TextColor="White"
-                                FontSize="12"
+                                FontSize="15"
                                 HorizontalTextAlignment="Start"
-                                Text="Logout from the Habitat Homeowner Buddy"/>
+                                Text="Unregister house from the application"/>
 
                         </StackLayout>
 
-                        <Image
-                            x:Name="logout_image"
-                            HorizontalOptions="End"
-                            HeightRequest="30"
-                            WidthRequest="30"/>
+                        <ImageButton
+                            x:Name="unregister_device"
+                            Clicked="handleUnregisterDeviceButtonClick"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            HorizontalOptions="End"/>
 
                     </StackLayout>
                     
@@ -63,14 +65,14 @@
 
                 <Label 
                     TextColor="White"
-                    FontSize="15"
+                    FontSize="20"
                     FontAttributes="Bold"
                     Text="Emergency" />
                 
                 <Frame
                     Margin="0, 0, 0, 20"
-                    Padding="15, 5, 0, 5"
-                    HeightRequest="50"
+                    Padding="15, 10, 0, 5"
+                    HeightRequest="60"
                     BorderColor="White"
                     BackgroundColor="#53B949">
 
@@ -82,14 +84,14 @@
 
                             <Label 
                                 TextColor="Black"
-                                FontSize="15"
+                                FontSize="18"
                                 HorizontalTextAlignment="Start"
                                 FontAttributes="Bold"
                                 Text="(XXX) XXX-XXXX"/>
 
                             <Label 
                                 TextColor="White"
-                                FontSize="12"
+                                FontSize="15"
                                 HorizontalTextAlignment="Start"
                                 Text="Call this number in case of an emergency"/>
 
@@ -100,13 +102,13 @@
 
                 <Label 
                     TextColor="White"
-                    FontSize="15"
+                    FontSize="20"
                     FontAttributes="Bold"
                     Text="Notifications" />
                 
                 <Frame
-                    Padding="15, 5, 0, 5"
-                    HeightRequest="50"
+                    Padding="15, 10, 0, 5"
+                    HeightRequest="60"
                     BorderColor="White"
                     BackgroundColor="#53B949">
 
@@ -114,12 +116,13 @@
                         Orientation="Horizontal">
 
                         <StackLayout
+                            Padding="0, 0, 120, 0"
                             HorizontalOptions="Start"
                             Orientation="Vertical">
 
                             <Label 
                                 TextColor="Black"
-                                FontSize="15"
+                                FontSize="18"
                                 FontAttributes="Bold"
                                 Text="Turn On/Off"/>
 
@@ -131,7 +134,6 @@
                         </StackLayout>
 
                         <Switch
-                            Margin="120, 0, 0, 0"
                             OnColor="LightGray"
                             ThumbColor="Gray" 
                             IsToggled="true"
@@ -143,14 +145,14 @@
                 <Label 
                     Margin="0, 40, 0, 0"
                     TextColor="White"
-                    FontSize="15"
+                    FontSize="18"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
                     Text="Version 1.0.0"/>
 
                 <Label 
                     TextColor="White"
-                    FontSize="15"
+                    FontSize="18"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
                     Text="Released On: 14 Feb 2020"/>
@@ -158,7 +160,7 @@
                 <Label
                     Margin="0, 20, 0, 0"
                     TextColor="LightGray"
-                    FontSize="12"
+                    FontSize="15"
                     HorizontalTextAlignment="Center"
                     Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved."/>
 
