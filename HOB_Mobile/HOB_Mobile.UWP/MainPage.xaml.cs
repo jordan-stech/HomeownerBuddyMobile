@@ -15,9 +15,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace HOB_Mobile.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class LoginPage
     {
-        public MainPage()
+        public LoginPage()
         {
             this.InitializeComponent();
 

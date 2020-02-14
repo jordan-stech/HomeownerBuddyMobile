@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <None Remove="Resources\habitat_midohio_logo.jpg" />
+    <None Remove="Resources\house_inside.png" />
+    <None Remove="Resources\house_outside.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,20 +31,52 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\habitat_midohio_logo.jpg" />
+    <EmbeddedResource Include="Resources\habitat_midohio_logo.jpg" />
+    <EmbeddedResource Include="Resources\house_inside.png" />
+    <EmbeddedResource Include="Resources\house_outside.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ActionPlanPage.xaml.cs">
+      <DependentUpon>ActionPlanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ContactServiceProviderPage.xaml.cs">
+      <DependentUpon>ContactServiceProviderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DiagnoseIssuePage.xaml.cs">
+      <DependentUpon>DiagnoseIssuePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MaintenanceReminderPage.xaml.cs">
+      <DependentUpon>MaintenanceReminderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\ActionPlanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContactServiceProviderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DiagnoseIssuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MaintenanceReminderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

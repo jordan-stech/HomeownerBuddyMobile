@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.Models.DiagnoseIssuePage"
+             x:Class="HOB_Mobile.Views.DiagnoseIssuePage"
              BackgroundColor="#005691">
 
     <StackLayout
-        Margin="10, 30, 10, 10"
+        Margin="10, 20, 10, 10"
         Orientation="Vertical">
 
         <StackLayout Padding="0, 20, 0, 0">
@@ -32,27 +32,35 @@
                 Orientation="Vertical">
 
                 <Label 
-                    TextColor="White"
+                    TextColor="#53B949"
                     FontSize="25"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
                     Text="Exterior" />
 
-                <Image Source=""/>
-
+                <Image 
+                    x:Name="exterior_home_issue_image"
+                    Margin="0, 10, 0 , 0"
+                    HeightRequest="100"
+                    WidthRequest="100"/>
+                
             </StackLayout>
 
             <StackLayout
                 Orientation="Vertical">
 
                 <Label 
-                    TextColor="White"
+                    TextColor="#53B949"
                     FontSize="25"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
                     Text="Interior" />
 
-                <Image Source=""/>
+                <Image 
+                    x:Name="interior_home_issue_image"
+                    Margin="0, 10, 0 , 0"
+                    HeightRequest="100"
+                    WidthRequest="100"/>
 
             </StackLayout>
 

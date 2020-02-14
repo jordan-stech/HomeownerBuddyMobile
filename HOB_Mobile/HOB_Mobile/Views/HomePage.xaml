@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.Models.HomePage"
+             x:Class="HOB_Mobile.Views.HomePage"
              BackgroundColor="#005691">
     
     <StackLayout
@@ -25,7 +25,7 @@
 
         </Frame>
 
-        <StackLayout Padding="0, 40, 0, 0">
+        <StackLayout Padding="0, 20, 0, 0">
 
             <Label 
                 TextColor="White"
@@ -35,7 +35,7 @@
                 Text="Welcome to the Homeowner Buddy, NAME" />
 
             <StackLayout
-                Margin="0, 50, 0, 0"
+                Margin="0, 20, 0, 0"
                 HorizontalOptions="Center"
                 Orientation="Horizontal">
                 
@@ -56,6 +56,7 @@
             </StackLayout>
 
             <Button
+                Clicked="handleHelpMeDiagnoseAnIssueButtonClick"
                 Margin="0, 40, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -68,6 +69,7 @@
                 Text="Help Me Diagnose an Issue" />
 
             <Button
+                Clicked="handleMaintenanceRemindersButtonClick"
                 Margin="0, 0, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -77,9 +79,10 @@
                 TextColor="White"
                 FontSize="20"
                 FontAttributes="Bold"
-                Text="Maintenance Remainders" />
+                Text="Maintenance Reminders" />
 
             <Button
+                Clicked="handleContactServiceProvidersButtonClick"
                 Margin="0, 0, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -91,7 +94,8 @@
                 FontAttributes="Bold"
                 Text="Contact Service Providers" />
 
-            <Button 
+            <Button
+                Clicked="handleSettingsButtonClick"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
                 BorderColor="White"
@@ -105,4 +109,5 @@
         </StackLayout>
 
     </StackLayout>
+    
 </ContentPage>

@@ -1,26 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace HOB_Mobile
+namespace HOB_Mobile.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+
+    public partial class LoginPage : ContentPage
     {
-        public MainPage()
+        public LoginPage()
         {
             InitializeComponent();
+
+            SetUpLoginPageHabitatHumanityLogo();
         }
 
-        private void Entry_Focused(object sender, FocusEventArgs e)
+        /*
+         * Listener for "Login" button
+         */
+        private void handleLoginButtonClick(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new HomePage());
+        }
 
+        /*
+         * Listener for "Register" button
+         */
+        private void handleRegisterButtonClick(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
+
+        /*
+         * Handle logo display
+         */
+        private void SetUpLoginPageHabitatHumanityLogo()
+        {
+            habitat_humanity_logo.Source = ImageSource.FromResource("HOB_Mobile.Resources.habitat_midohio_logo.jpg");
         }
     }
 }

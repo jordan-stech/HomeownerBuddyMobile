@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HOB_Mobile.Views.Settings"
+             BackgroundColor="#005691">
+    
+    <ContentPage.Content>
+
+        <StackLayout
+            Margin="10, 20, 10, 10"
+            Orientation="Vertical">
+
+            <StackLayout
+                Padding="5, 5, 5, 0"
+                Orientation="Vertical">
+
+                <Label 
+                    TextColor="White"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    Text="Account" />
+            
+                <Frame
+                    Margin="0, 0, 0, 20"
+                    Padding="15, 5, 0, 5"
+                    HeightRequest="50"
+                    BorderColor="White"
+                    BackgroundColor="#53B949">
+
+                    <StackLayout
+                        Orientation="Horizontal">
+
+                        <StackLayout
+                            Orientation="Vertical">
+                            
+                            <Label 
+                                TextColor="Black"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                FontAttributes="Bold"
+                                Text="Logout"/>
+
+                            <Label 
+                                TextColor="White"
+                                FontSize="12"
+                                HorizontalTextAlignment="Start"
+                                Text="Logout from the Habitat Homeowner Buddy"/>
+
+                        </StackLayout>
+
+                        <Image
+                            x:Name="logout_image"
+                            HorizontalOptions="End"
+                            HeightRequest="30"
+                            WidthRequest="30"/>
+
+                    </StackLayout>
+                    
+                </Frame>
+
+                <Label 
+                    TextColor="White"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    Text="Emergency" />
+                
+                <Frame
+                    Margin="0, 0, 0, 20"
+                    Padding="15, 5, 0, 5"
+                    HeightRequest="50"
+                    BorderColor="White"
+                    BackgroundColor="#53B949">
+
+                    <StackLayout
+                        Orientation="Horizontal">
+
+                        <StackLayout
+                            Orientation="Vertical">
+
+                            <Label 
+                                TextColor="Black"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                FontAttributes="Bold"
+                                Text="(XXX) XXX-XXXX"/>
+
+                            <Label 
+                                TextColor="White"
+                                FontSize="12"
+                                HorizontalTextAlignment="Start"
+                                Text="Call this number in case of an emergency"/>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Label 
+                    TextColor="White"
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    Text="Notifications" />
+                
+                <Frame
+                    Padding="15, 5, 0, 5"
+                    HeightRequest="50"
+                    BorderColor="White"
+                    BackgroundColor="#53B949">
+
+                    <StackLayout
+                        Orientation="Horizontal">
+
+                        <StackLayout
+                            HorizontalOptions="Start"
+                            Orientation="Vertical">
+
+                            <Label 
+                                TextColor="Black"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                Text="Turn On/Off"/>
+
+                            <Label 
+                                TextColor="White"
+                                FontSize="15"
+                                Text="Receive task reminders"/>
+
+                        </StackLayout>
+
+                        <Switch
+                            Margin="120, 0, 0, 0"
+                            OnColor="LightGray"
+                            ThumbColor="Gray" 
+                            IsToggled="true"
+                            HorizontalOptions="End"/>
+
+                    </StackLayout>
+                </Frame>
+
+                <Label 
+                    Margin="0, 40, 0, 0"
+                    TextColor="White"
+                    FontSize="15"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Version 1.0.0"/>
+
+                <Label 
+                    TextColor="White"
+                    FontSize="15"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Released On: 14 Feb 2020"/>
+
+                <Label
+                    Margin="0, 20, 0, 0"
+                    TextColor="LightGray"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved."/>
+
+            </StackLayout>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>

@@ -4,22 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.MainPage"
+             NavigationPage.HasBackButton="false"
+             x:Class="HOB_Mobile.Views.LoginPage"
              BackgroundColor="#005691">
 
     <StackLayout
-        Margin="10, 30, 10, 10"
+        Margin="10, 10, 10, 10"
         Orientation="Vertical">
 
-        <Image Source=""/>
+        <Image x:Name="habitat_humanity_logo"/>
 
-        <StackLayout Padding="0, 10, 0, 0">
+        <StackLayout
+            Padding="5, 5, 5, 0"
+            Orientation="Vertical">
 
             <Label 
                 TextColor="White"
                 FontSize="15"
                 FontAttributes="Bold"
                 Text="Home Code" />
+            
             <Frame
                 Padding="15, 5, 15, 5"
                 HeightRequest="50"
@@ -32,6 +36,7 @@
                     Keyboard="Telephone"
                     Placeholder="Enter your home code"
                     PlaceholderColor="White"/>
+                
             </Frame>
 
             <Label 
@@ -39,6 +44,7 @@
                 FontSize="15"
                 FontAttributes="Bold"
                 Text="First Name" />
+            
             <Frame
                 Padding="15, 5, 15, 5"
                 HeightRequest="50"
@@ -51,6 +57,7 @@
                     Keyboard="Text"
                     Placeholder="Enter your first name"
                     PlaceholderColor="White"/>
+                
             </Frame>
 
             <Label 
@@ -58,6 +65,7 @@
                 FontSize="15"
                 FontAttributes="Bold"
                 Text="Last Name" />
+            
             <Frame
                 Padding="15, 5, 15, 5"
                 HeightRequest="50"
@@ -70,10 +78,14 @@
                     Keyboard="Text"
                     Placeholder="Enter your last name"
                     PlaceholderColor="White"/>
+                
             </Frame>
             
             <Button
-                Margin="0, 40, 0, 10"
+                x:Name="login_button"
+                IsVisible="True"
+                Clicked="handleLoginButtonClick"
+                Margin="0, 30, 0, 10"
                 Padding="5, 5, 5, 5"
                 BorderWidth="2"
                 BorderColor="White"
@@ -84,7 +96,10 @@
                 FontAttributes="Bold"
                 Text="Login" />
             
-            <Button 
+            <Button
+                x:Name="register_button"
+                IsVisible="True"
+                Clicked="handleRegisterButtonClick"
                 Padding="5, 5, 5, 5"
                 BorderWidth="2"
                 BorderColor="White"
