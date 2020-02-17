@@ -9,19 +9,25 @@ using Xamarin.Forms.Xaml;
 
 namespace HOB_Mobile.Views
 {
+    //homeowner_buddy_username
+    //homeowner_buddy_user_address
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class HomePage : ContentPage
     {
-        public HomePage()
+        public HomePage(string userFirstName)
         {
             InitializeComponent();
+
+            // Display user's first name in the home page
+            homeowner_buddy_username.Text = userFirstName;         
         }
 
         /*
          * Listener for "Help Me Diagnose an Issue" button
          */
-        private void handleHelpMeDiagnoseAnIssueButtonClick(object sender, EventArgs e)
+        private void HandleHelpMeDiagnoseAnIssueButtonClick(object sender, EventArgs e)
         {
             Navigation.PushAsync(new DiagnoseIssuePage());
         }
@@ -29,7 +35,7 @@ namespace HOB_Mobile.Views
         /*
          * Listener for "Maintenance Reminders" button
          */
-        private void handleMaintenanceRemindersButtonClick(object sender, EventArgs e)
+        private void HandleMaintenanceRemindersButtonClick(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MaintenanceReminder());
         }
@@ -37,7 +43,7 @@ namespace HOB_Mobile.Views
         /*
          * Listener for "Contact Service Providers" button
          */
-        private void handleContactServiceProvidersButtonClick(object sender, EventArgs e)
+        private void HandleContactServiceProvidersButtonClick(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ContactServiceProvider());
         }
@@ -45,7 +51,7 @@ namespace HOB_Mobile.Views
         /*
         * Listener for "Settings" button
         */
-        private void handleSettingsButtonClick(object sender, EventArgs e)
+        private void HandleSettingsButtonClick(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Settings());
         }

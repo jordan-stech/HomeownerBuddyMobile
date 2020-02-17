@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HOB_Mobile.Views
+
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
@@ -21,9 +22,13 @@ namespace HOB_Mobile.Views
         /*
          * Listener for "Register" button
          */
-        private void handleRegisterButtonClick(object sender, EventArgs e)
+        private void HandleRegisterButtonClick(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HomePage());
+            string userHomeCode = homeowner_buddy_home_code.Text;
+            string userFirstName = homeowner_buddy_first_name.Text;
+            string userLastName = homeowner_buddy_last_name.Text;
+
+            Navigation.PushAsync(new HomePage(userFirstName));
         }
 
         /*

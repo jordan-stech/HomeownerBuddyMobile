@@ -54,7 +54,7 @@
 
                         <ImageButton
                             x:Name="unregister_device"
-                            Clicked="handleUnregisterDeviceButtonClick"
+                            Clicked="HandleUnregisterDeviceButtonClick"
                             HeightRequest="50"
                             WidthRequest="50"
                             HorizontalOptions="End"/>

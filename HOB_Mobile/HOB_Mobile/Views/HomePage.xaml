@@ -27,12 +27,28 @@
 
         <StackLayout Padding="0, 20, 0, 0">
 
-            <Label 
-                TextColor="White"
-                FontSize="25"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="Welcome to the Homeowner Buddy, NAME" />
+            <Label
+                HorizontalTextAlignment="Center">
+
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            TextColor="White"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            Text="Welcome to the Homeowner Buddy, " />
+
+                        <Span 
+                            x:Name="homeowner_buddy_username"
+                            TextColor="#53B949"
+                            FontSize="25"
+                            FontAttributes="Bold"
+                            Text=""/>
+                        
+                    </FormattedString>
+                </Label.FormattedText>
+                
+            </Label>
 
             <StackLayout
                 Margin="0, 20, 0, 0"
@@ -40,23 +56,22 @@
                 Orientation="Horizontal">
                 
                 <Label 
-                TextColor="White"
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="Address:" />
+                    TextColor="White"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Address:" />
 
-                <Label 
-                TextColor="White"
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="1389 Chambers Rd" />
+                <Label
+                    x:Name="homeowner_buddy_user_address"
+                    TextColor="White"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center" />
 
             </StackLayout>
 
             <Button
-                Clicked="handleHelpMeDiagnoseAnIssueButtonClick"
+                Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
                 Margin="0, 40, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -69,7 +84,7 @@
                 Text="Help Me Diagnose an Issue" />
 
             <Button
-                Clicked="handleMaintenanceRemindersButtonClick"
+                Clicked="HandleMaintenanceRemindersButtonClick"
                 Margin="0, 0, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -82,7 +97,7 @@
                 Text="Maintenance Reminders" />
 
             <Button
-                Clicked="handleContactServiceProvidersButtonClick"
+                Clicked="HandleContactServiceProvidersButtonClick"
                 Margin="0, 0, 0, 10"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
@@ -95,7 +110,7 @@
                 Text="Contact Service Providers" />
 
             <Button
-                Clicked="handleSettingsButtonClick"
+                Clicked="HandleSettingsButtonClick"
                 Padding="5, 20, 5, 20"
                 BorderWidth="2"
                 BorderColor="White"

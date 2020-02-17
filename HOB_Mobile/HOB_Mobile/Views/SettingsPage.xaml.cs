@@ -30,9 +30,17 @@ namespace HOB_Mobile.Views
         /*
          * Listener for "Unregister" button
          */
-        private void handleUnregisterDeviceButtonClick(object sender, EventArgs e)
+        private async void HandleUnregisterDeviceButtonClick(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            // Display alert to confirm if user wants to unregister the device
+            bool answer = await DisplayAlert("Unregister Device", "Are you sure you want to unregister this device?", "Yes", "No");
+
+            if (answer == true)
+            {
+                // Unregister device and then return to register page
+
+                Navigation.PushAsync(new RegisterPage());
+            }
         }
     }
 }
