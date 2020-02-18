@@ -12,32 +12,27 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
-            SetUpExteriorAndInteriorHomeImages();
+            SetUpHomeIssueImages();
         }
 
         /*
-         * Handle the display of exterior and interior images
+         * Handle the display of images in the home page
          */
-        private void SetUpExteriorAndInteriorHomeImages()
+        private void SetUpHomeIssueImages()
         {
-            exterior_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.house_outside.png");
-            interior_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.house_inside.png");
-        }
-
-        /*
-         * Listener for "Interior Issue" button
-         */
-        private void HandleInteriorIssueButtonClick(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new InteriorIssue());
-        }
-
-        /*
-         * Listener for "Interior Issue" button
-         */
-        private void HandleExteriorIssueButtonClick(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ExteriorIssue());
+            kitchen_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.kitchen.png");
+            plumbing_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.plumbing.png");
+            bedroom_home_issue_page.Source = ImageSource.FromResource("HOB_Mobile.Resources.bedroom.png");
+            bathroom_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.bathroom.png");
+            laundry_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.laundry.png");
+            exterior_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.exterior.png");
+            closet_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.closet.png");
+            hallway_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.hallway.png");
+            living_room_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.living_room.png");
+            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
+            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
+            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
+            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
         }
     }
 }

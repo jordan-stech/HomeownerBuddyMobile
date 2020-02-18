@@ -20,10 +20,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\bathroom.png" />
+    <None Remove="Resources\bedroom.png" />
+    <None Remove="Resources\closet.png" />
+    <None Remove="Resources\exterior.png" />
     <None Remove="Resources\habitat_midohio_logo.jpg" />
-    <None Remove="Resources\house_inside.png" />
-    <None Remove="Resources\house_outside.png" />
+    <None Remove="Resources\hallway.png" />
+    <None Remove="Resources\kitchen.png" />
+    <None Remove="Resources\laundry.png" />
+    <None Remove="Resources\living_room.png" />
     <None Remove="Resources\logout_icon.png" />
+    <None Remove="Resources\plumbing.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,10 +39,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\bathroom.png" />
+    <EmbeddedResource Include="Resources\bedroom.png" />
+    <EmbeddedResource Include="Resources\closet.png" />
     <EmbeddedResource Include="Resources\habitat_midohio_logo.jpg" />
-    <EmbeddedResource Include="Resources\house_inside.png" />
-    <EmbeddedResource Include="Resources\house_outside.png" />
+    <EmbeddedResource Include="Resources\exterior.png" />
+    <EmbeddedResource Include="Resources\hallway.png" />
+    <EmbeddedResource Include="Resources\kitchen.png" />
+    <EmbeddedResource Include="Resources\laundry.png" />
+    <EmbeddedResource Include="Resources\living_room.png" />
     <EmbeddedResource Include="Resources\logout_icon.png" />
+    <EmbeddedResource Include="Resources\plumbing.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,13 +83,7 @@
     <EmbeddedResource Update="Views\DiagnoseIssuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ExteriorIssuePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\InteriorIssuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MaintenanceReminderPage.xaml">

@@ -7,69 +7,301 @@
              x:Class="HOB_Mobile.Views.DiagnoseIssuePage"
              BackgroundColor="#005691">
 
-    <StackLayout
-        Margin="10, 20, 10, 10"
-        Orientation="Vertical">
-
-        <StackLayout Padding="0, 20, 0, 0">
-
-            <Label 
-                TextColor="White"
-                FontSize="25"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="Where is your home issue located?" />
-
-        </StackLayout>
+    <ScrollView>
 
         <StackLayout
-            Margin="0, 50, 0, 0"
-            HorizontalOptions="Center"
-            Orientation="Horizontal">
+            Margin="10, 20, 10, 10"
+            Orientation="Vertical">
 
-            <StackLayout
-                Margin="0, 0 , 70, 0"
-                Orientation="Vertical">
+            <StackLayout Padding="0, 20, 0, 0">
 
                 <Label 
-                    TextColor="#53B949"
+                    TextColor="White"
                     FontSize="25"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
-                    Text="Exterior" />
+                    Text="Where is your home issue located?" />
 
-                <ImageButton
-                    x:Name="exterior_home_issue_image"
-                    Clicked="HandleExteriorIssueButtonClick"
-                    BackgroundColor="Transparent"
-                    Margin="0, 10, 0 , 0"
-                    HeightRequest="100"
-                    WidthRequest="100"/>
-                
             </StackLayout>
 
             <StackLayout
-                Orientation="Vertical">
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
 
-                <Label 
-                    TextColor="#53B949"
-                    FontSize="25"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Interior" />
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
 
-                <ImageButton
-                    x:Name="interior_home_issue_image"
-                    Clicked="HandleInteriorIssueButtonClick"
-                    BackgroundColor="Transparent"
-                    Margin="0, 10, 0 , 0"
-                    HeightRequest="100"
-                    WidthRequest="100"/>
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Kitchen" />
+
+                    <ImageButton
+                        x:Name="kitchen_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Plumbing" />
+
+                    <ImageButton
+                        x:Name="plumbing_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Electrical" />
+
+                    <ImageButton
+                        x:Name="electrical_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="HVAC" />
+
+                    <ImageButton
+                        x:Name="hvac_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Living Room" />
+
+                    <ImageButton
+                        x:Name="living_room_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Bathroom" />
+
+                    <ImageButton
+                        x:Name="bathroom_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Closet" />
+
+                    <ImageButton
+                        x:Name="closet_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Laundry" />
+
+                    <ImageButton
+                        x:Name="laundry_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Hallway" />
+
+                    <ImageButton
+                        x:Name="hallway_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Exterior" />
+
+                    <ImageButton
+                        x:Name="exterior_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0, 50, 0, 0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
+
+                <StackLayout
+                    Margin="0, 0 , 70, 0"
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Bedroom" />
+
+                    <ImageButton
+                        x:Name="bedroom_home_issue_page"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Vertical">
+
+                    <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Misc." />
+
+                    <ImageButton
+                        x:Name="misc_home_issue_image"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
+
+                </StackLayout>
 
             </StackLayout>
 
         </StackLayout>
-        
-    </StackLayout>
-    
+
+    </ScrollView>
+
 </ContentPage>
