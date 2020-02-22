@@ -28,7 +28,13 @@ namespace HOB_Mobile.Views
             string userFirstName = homeowner_buddy_first_name.Text;
             string userLastName = homeowner_buddy_last_name.Text;
 
-            Navigation.PushAsync(new HomePage(userFirstName));
+            if (userHomeCode == null || userFirstName == null || userLastName == null)
+            {
+                DisplayAlert("", "All fields are required", "OK");
+            } else
+            {
+                Navigation.PushAsync(new HomePage(userFirstName));
+            }
         }
 
         /*

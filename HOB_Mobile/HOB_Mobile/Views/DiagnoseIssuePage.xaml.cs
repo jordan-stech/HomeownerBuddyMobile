@@ -16,6 +16,14 @@ namespace HOB_Mobile.Views
         }
 
         /*
+         * Listener for "Home Issue Location" button
+         */
+        private void HandleLocationOfHomeIssueImageClick(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ActionPlan());
+        }
+
+        /*
          * Handle the display of images in the home page
          */
         private void SetUpHomeIssueImages()
