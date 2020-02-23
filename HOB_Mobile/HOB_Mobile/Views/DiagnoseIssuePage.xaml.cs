@@ -37,6 +37,9 @@ namespace HOB_Mobile.Views
             closet_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.closet.png");
             hallway_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.hallway.png");
             living_room_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.living_room.png");
+            misc_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.misc.png");
+            hvac_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.HVAC.png");
+            electrical_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.electric.png");
             //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
             //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
             //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");

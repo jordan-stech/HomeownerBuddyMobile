@@ -21,15 +21,20 @@
 
   <ItemGroup>
     <None Remove="Resources\bathroom.png" />
+    <None Remove="Resources\bed.png" />
     <None Remove="Resources\bedroom.png" />
     <None Remove="Resources\closet.png" />
+    <None Remove="Resources\electric.png" />
     <None Remove="Resources\exterior.png" />
     <None Remove="Resources\habitat_midohio_logo.jpg" />
     <None Remove="Resources\hallway.png" />
+    <None Remove="Resources\HVAC.png" />
     <None Remove="Resources\kitchen.png" />
     <None Remove="Resources\laundry.png" />
     <None Remove="Resources\living_room.png" />
+    <None Remove="Resources\living_room.svg" />
     <None Remove="Resources\logout_icon.png" />
+    <None Remove="Resources\misc.png" />
     <None Remove="Resources\plumbing.png" />
   </ItemGroup>
 
@@ -42,13 +47,16 @@
     <EmbeddedResource Include="Resources\bathroom.png" />
     <EmbeddedResource Include="Resources\bedroom.png" />
     <EmbeddedResource Include="Resources\closet.png" />
+    <EmbeddedResource Include="Resources\electric.png" />
     <EmbeddedResource Include="Resources\habitat_midohio_logo.jpg" />
     <EmbeddedResource Include="Resources\exterior.png" />
     <EmbeddedResource Include="Resources\hallway.png" />
+    <EmbeddedResource Include="Resources\HVAC.png" />
     <EmbeddedResource Include="Resources\kitchen.png" />
     <EmbeddedResource Include="Resources\laundry.png" />
     <EmbeddedResource Include="Resources\living_room.png" />
     <EmbeddedResource Include="Resources\logout_icon.png" />
+    <EmbeddedResource Include="Resources\misc.png" />
     <EmbeddedResource Include="Resources\plumbing.png" />
   </ItemGroup>
 
