@@ -40,10 +40,6 @@ namespace HOB_Mobile.Views
             misc_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.misc.png");
             hvac_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.HVAC.png");
             electrical_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.electric.png");
-            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
-            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
-            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
-            //.Source = ImageSource.FromResource("HOB_Mobile.Resources..png");
         }
     }
 }
