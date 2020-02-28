@@ -9,8 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace HOB_Mobile.Views
 {
-    //homeowner_buddy_username
-    //homeowner_buddy_user_address
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
@@ -21,7 +19,7 @@ namespace HOB_Mobile.Views
             InitializeComponent();
 
             // Display user's first name in the home page
-            homeowner_buddy_username.Text = userFirstName;         
+            homeowner_buddy_username.Text = userFirstName;
         }
 
         /*
