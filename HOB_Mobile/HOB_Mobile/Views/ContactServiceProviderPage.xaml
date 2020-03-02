@@ -24,6 +24,19 @@
 
             </ScrollView>
 
+            <ListView x:Name="ListServiceProvider">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding name}"></Label>
+                                <Label Text="{Binding service}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
 
     </StackLayout>
