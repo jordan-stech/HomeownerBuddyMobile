@@ -298,10 +298,10 @@
                         FontSize="25"
                         HorizontalTextAlignment="Center"
                         FontAttributes="Bold"
-                        Text="Misc." />
+                        Text="Basement" />
 
                     <ImageButton
-                        x:Name="misc_home_issue_image"
+                        x:Name="basement_home_issue_image"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -309,6 +309,26 @@
                         WidthRequest="100"/>
 
                 </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                    Orientation="Vertical">
+
+                <Label 
+                        TextColor="#53B949"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Misc." />
+
+                <ImageButton
+                        x:Name="misc_home_issue_image"
+                        Clicked="HandleLocationOfHomeIssueImageClick"
+                        BackgroundColor="Transparent"
+                        Margin="0, 10, 0 , 0"
+                        HeightRequest="100"
+                        WidthRequest="100"/>
 
             </StackLayout>
 

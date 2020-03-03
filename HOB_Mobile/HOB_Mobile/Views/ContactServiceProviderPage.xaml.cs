@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,11 +18,14 @@ namespace HOB_Mobile.Views
 
         public async void GetProviders()
         {
+            string apiUrl = null;
+            if (Device.RuntimePlatform == Device.Android) apiUrl = "http://10.0.2.2:5001/api/ServiceProviderAPI";
+            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "http://localhost:5001/api/ServiceProviderAPI";
+
             var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("https://localhost:44362/api/ServiceProviderModel");
+            var response = await httpClient.GetStringAsync(apiUrl);
             var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(response);
             ListServiceProvider.ItemsSource = serviceProviders;
-            
         }
     }
 }
