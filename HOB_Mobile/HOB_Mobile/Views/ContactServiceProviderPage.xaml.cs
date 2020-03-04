@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace HOB_Mobile.Views
 {
@@ -22,10 +24,28 @@ namespace HOB_Mobile.Views
 
         public async void GetProviders()
         {
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("https://localhost:44362/api/ServiceProviderModel");
-            var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(response);
-            ListServiceProvider.ItemsSource = serviceProviders;
+            
+            
+
+            
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            
+            HttpClient httpClient = new HttpClient(clientHandler);
+            var uri = new Uri(string.Format("https://10.0.2.2:5001/api/ServiceProviderAPI", string.Empty));
+            var response = await httpClient.GetAsync(uri);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
+                ListServiceProvider.ItemsSource = serviceProviders;
+            } else
+            {
+                Debug.WriteLine("sad");
+            }
+           
             
         }
     }
