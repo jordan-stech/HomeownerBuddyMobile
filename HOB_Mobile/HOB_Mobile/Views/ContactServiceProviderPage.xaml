@@ -11,9 +11,7 @@
             Margin="10, 20, 10, 10"
             Orientation="Vertical">
 
-        <StackLayout Padding="0, 20, 0, 0">
-
-            <Label 
+        <St           <Label 
                     TextColor="White"
                     FontSize="25"
                     HorizontalTextAlignment="Center"
@@ -31,13 +29,14 @@
                             <StackLayout>
                                 <Label Text="{Binding name}"></Label>
                                 <Label Text="{Binding service}"></Label>
+                                <Label Text="{Binding phone_number}"></Label>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-        </StackLayout>
+        </St>
 
     </StackLayout>
 
