@@ -16,21 +16,21 @@ namespace HOB_Mobile.Views
         public ContactServiceProvider()
         {
             InitializeComponent();
-            GetProviders();
+            GetServiceProviders();
         }
 
-        public async void GetProviders()
+        public async void GetServiceProviders()
         {
-            
-            
-
-            
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
-            
             HttpClient httpClient = new HttpClient(clientHandler);
-            var uri = new Uri(string.Format("https://10.0.2.2:5001/api/ServiceProviderAPI", string.Empty));
+
+            String apiUrl = null;
+            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/ServiceProviderAPI";
+            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/ServiceProviderAPI";
+
+            var uri = new Uri(string.Format(apiUrl, string.Empty));
             var response = await httpClient.GetAsync(uri);
             
             if (response.IsSuccessStatusCode)
@@ -40,19 +40,8 @@ namespace HOB_Mobile.Views
                 ListServiceProvider.ItemsSource = serviceProviders;
             } else
             {
-                Debug.WriteLine("sad");
+                Debug.WriteLine("Response not successful");
             }
-           
-            
-
-            //String apiUrl = null;
-            //if (Device.RuntimePlatform == Device.Android) apiUrl = "http://10.0.2.2:5001/api/ServiceProviderAPI";
-            //else if (Device.RuntimePlatform == Device.iOS) apiUrl = "http://localhost:5001/api/ServiceProviderAPI";
-
-            //var httpClient = new ();
-            //var response = await httpClient.GetStringAsync(apiUrl);
-            //var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(response);
-            //ListServiceProvider.ItemsSource = serviceProviders;
         }
     }
 }
