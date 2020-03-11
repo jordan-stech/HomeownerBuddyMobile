@@ -313,7 +313,8 @@
             </StackLayout>
 
             <StackLayout
-                    Orientation="Vertical">
+                Margin="0, 10, 0 , 40"
+                Orientation="Vertical">
 
                 <Label 
                         TextColor="#53B949"
@@ -326,7 +327,6 @@
                         x:Name="misc_home_issue_image"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
-                        Margin="0, 10, 0 , 0"
                         HeightRequest="100"
                         WidthRequest="100"/>
 
