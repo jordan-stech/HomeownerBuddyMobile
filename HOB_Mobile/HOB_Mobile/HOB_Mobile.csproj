@@ -11,10 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
     <Compile Remove="NewFolder1\**" />
     <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="Models\**" />
     <EmbeddedResource Remove="NewFolder1\**" />
     <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="Models\**" />
     <None Remove="NewFolder1\**" />
     <None Remove="NewFolder\**" />
   </ItemGroup>
@@ -101,9 +104,5 @@
     <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
