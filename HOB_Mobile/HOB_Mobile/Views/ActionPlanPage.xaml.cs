@@ -51,9 +51,9 @@ namespace HOB_Mobile.Views
                 System.Diagnostics.Debug.Write("JSON Response is: " + content);
 
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
-                var actionPlans = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
+                var actionPlans = JsonConvert.DeserializeObject<List<ContentModel>>(content);
 
-                //ActionPlanPlaylist.ItemsSource = actionPlans;
+                actionPlans = actionPlans;
             }
             else
             {
