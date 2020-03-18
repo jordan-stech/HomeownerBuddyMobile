@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\basement.png" />
     <None Remove="Resources\bathroom.png" />
     <None Remove="Resources\bed.png" />
     <None Remove="Resources\bedroom.png" />
@@ -45,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\basement.png" />
     <EmbeddedResource Include="Resources\bathroom.png" />
     <EmbeddedResource Include="Resources\bedroom.png" />
     <EmbeddedResource Include="Resources\closet.png" />
