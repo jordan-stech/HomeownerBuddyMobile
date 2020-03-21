@@ -8,7 +8,9 @@
              BackgroundColor="#005691">
 
     <StackLayout
-        Margin="10, 10, 10, 10"
+        Margin="10, 20, 10, 10"
+        VerticalOptions="Fill"
+        HorizontalOptions="StartAndExpand"
         Orientation="Vertical">
 
         <Frame
@@ -24,6 +26,39 @@
                 HorizontalTextAlignment="Start" />
 
         </Frame>
+
+        <StackLayout Padding="5, 20, 5, 0">
+
+            <ScrollView>
+                <ListView
+                        x:Name="ListActionPlan"
+                        SeparatorColor="Black"
+                        RowHeight = "400">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+
+                                    <WebView
+                                        HeightRequest="250"
+                                        Source="{Binding link}"/>
+
+                                    <Label 
+                                            TextColor="#White"
+                                            FontSize="20"
+                                            FontAttributes="Bold"
+                                            Text="{Binding title}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            
+        </StackLayout>
 
     </StackLayout>
 

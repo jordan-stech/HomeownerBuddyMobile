@@ -6,14 +6,11 @@ namespace HOB_Mobile
 {
     class ContentModel
     {
-        public int Id { get; set; }
-
-
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Steps { get; set; }
-        public string Category { get; set; }
-
-        public string Tags { get; set; }
+        public int id { get; set; }
+        public string title { get; set; }
+        public string link { get; set; }
+        public string steps { get; set; }
+        public string category { get; set; }
+        public string tags { get; set; }
     }
 }

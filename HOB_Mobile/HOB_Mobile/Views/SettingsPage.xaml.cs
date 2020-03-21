@@ -39,7 +39,7 @@ namespace HOB_Mobile.Views
             {
                 // Unregister device and then return to register page
 
-                Navigation.PushAsync(new RegisterPage());
+                await Navigation.PushAsync(new RegisterPage());
             }
         }
     }

@@ -53,7 +53,7 @@ namespace HOB_Mobile.Views
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
                 var actionPlans = JsonConvert.DeserializeObject<List<ContentModel>>(content);
 
-                actionPlans = actionPlans;
+                ListActionPlan.ItemsSource = actionPlans;
             }
             else
             {
