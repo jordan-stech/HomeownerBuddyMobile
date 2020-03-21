@@ -47,7 +47,7 @@
                                         Source="{Binding link}"/>
 
                                     <Label 
-                                            TextColor="#White"
+                                            TextColor="White"
                                             FontSize="20"
                                             FontAttributes="Bold"
                                             Text="{Binding title}"/>

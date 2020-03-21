@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#005691"
+             x:Class="HOB_Mobile.YouTubeChannelPage">
+    
+    <StackLayout
+        Margin="10, 20, 10, 10"
+        VerticalOptions="Fill"
+        HorizontalOptions="StartAndExpand"
+        Orientation="Vertical">
+
+            <Frame
+                Padding="0, 0, 0, 0"
+                Margin="0, 0, 0, 10"
+                OutlineColor="#005691"
+                HasShadow="True">
+
+                <SearchBar
+                Placeholder="Search key word"
+                CancelButtonColor="#005691"
+                PlaceholderColor="#005691"
+                TextColor="#005691"
+                HorizontalTextAlignment="Start" />
+
+            </Frame>
+
+            <ListView
+                ItemsSource="{Binding Items}"
+                HasUnevenRows="True">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <StackLayout
+                            Orientation="Vertical"
+                            Padding="15,20,15,20">
+
+                                <Image
+                                Source="{Binding HighThumbnailUrl}"
+                                Aspect="AspectFill" />
+
+                                <Label
+                                Text="{Binding Title}"
+                                TextColor="White"
+                                Margin="0,5,0,0"
+                                FontSize="20"/>
+
+                                <Label
+                                Text="{Binding ChannelTitle}"
+                                Margin="0,-5,0,0"
+                                TextColor="#53B949"
+                                FontSize="15"/>
+
+                                <StackLayout Orientation="Horizontal">
+                                    
+                                    <Label
+                                    Text="{Binding ViewCount, StringFormat='{0:n0} views'}"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    FontSize="15"/>
+
+                                    <Label
+                                    Text="{Binding PublishedAtHumanized}"
+                                    TextColor="White"
+                                    FontSize="15"/>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+        </StackLayout>
+</ContentPage>

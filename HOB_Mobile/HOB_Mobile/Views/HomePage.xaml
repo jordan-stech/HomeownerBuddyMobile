@@ -12,7 +12,7 @@
         Orientation="Vertical">
 
         <Frame
-            Padding="0, 0, 0, 10"
+            Padding="0, 0, 0, 0"
             OutlineColor="#005691"
             HasShadow="True">
 
