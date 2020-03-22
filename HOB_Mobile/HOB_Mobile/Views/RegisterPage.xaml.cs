@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Views
 
@@ -16,6 +17,12 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
+            //Check and see if user registered previously, if they have, redirect them to the HomePage
+            if (!Preferences.Get("user_home_code", "default_value").Equals("default_value"))
+            {
+                Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+            }
+
             SetUpLoginPageHabitatHumanityLogo();
         }
 
@@ -28,11 +35,19 @@ namespace HOB_Mobile.Views
             string userFirstName = homeowner_buddy_first_name.Text;
             string userLastName = homeowner_buddy_last_name.Text;
 
+            var myValue = Preferences.Get("user_home_code", "default_value");
+
             if (userHomeCode == null || userFirstName == null || userLastName == null)
-            {
+            { 
                 DisplayAlert("", "All fields are required", "OK");
+
             } else
             {
+                //This is where we store the home code, we are going to use Preferences to see if a user is logged in
+                Preferences.Set("user_home_code", userHomeCode);
+                Preferences.Set("user_first_name", userFirstName);
+                Preferences.Set("user_last_name", userLastName);
+                var myValue1 = Preferences.Get("user_home_code", "default_value");
                 Navigation.PushAsync(new HomePage(userFirstName));
             }
         }
