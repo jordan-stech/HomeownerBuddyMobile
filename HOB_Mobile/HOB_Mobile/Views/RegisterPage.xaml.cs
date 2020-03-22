@@ -18,7 +18,9 @@ namespace HOB_Mobile.Views
             InitializeComponent();
 
             //Check and see if user registered previously, if they have, redirect them to the HomePage
-            if (!Preferences.Get("user_home_code", "default_value").Equals("default_value"))
+            //set the testing boolean to true to see register page for testing purposes
+            var testing = true;
+            if (!Preferences.Get("user_home_code", "default_value").Equals("default_value") && !testing)
             {
                 Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
             }
@@ -43,7 +45,7 @@ namespace HOB_Mobile.Views
 
             } else
             {
-                //This is where we store the home code, we are going to use Preferences to see if a user is logged in
+                //This is where we store the home code and name, we are going to use Preferences to see if a user is logged in
                 Preferences.Set("user_home_code", userHomeCode);
                 Preferences.Set("user_first_name", userFirstName);
                 Preferences.Set("user_last_name", userLastName);
