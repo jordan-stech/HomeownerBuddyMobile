@@ -41,21 +41,25 @@
                             Orientation="Vertical"
                             Padding="15,20,15,20">
 
-                                <Image
-                                Source="{Binding HighThumbnailUrl}"
-                                Aspect="AspectFill" />
+                            <WebView
+                                x:Name="youtubeWebView"
+                                HeightRequest="200"
+                                Source="{Binding VideoId, StringFormat='https://www.youtube.com/embed/{0:F0}'}"
+                                WidthRequest="200"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand" />
+
+                            <Label
+                                    Text="{Binding Title}"
+                                    TextColor="White"
+                                    Margin="0,5,0,0"
+                                    FontSize="20"/>
 
                                 <Label
-                                Text="{Binding Title}"
-                                TextColor="White"
-                                Margin="0,5,0,0"
-                                FontSize="20"/>
-
-                                <Label
-                                Text="{Binding ChannelTitle}"
-                                Margin="0,-5,0,0"
-                                TextColor="#53B949"
-                                FontSize="15"/>
+                                    Text="{Binding ChannelTitle}"
+                                    Margin="0,-5,0,0"
+                                    TextColor="#53B949"
+                                    FontSize="15"/>
 
                                 <StackLayout Orientation="Horizontal">
                                     
@@ -69,6 +73,7 @@
                                     Text="{Binding PublishedAtHumanized}"
                                     TextColor="White"
                                     FontSize="15"/>
+                                    
                                 </StackLayout>
                                 
                             </StackLayout>
