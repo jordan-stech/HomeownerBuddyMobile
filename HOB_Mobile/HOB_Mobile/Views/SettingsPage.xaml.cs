@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace HOB_Mobile.Views
 {
@@ -38,11 +40,35 @@ namespace HOB_Mobile.Views
 
             if (answer == true)
             {
-                Preferences.Clear();
+                // Delete the saved user data
+                Preferences.Remove("user_home_code");
+                Preferences.Remove("user_first_name");
+                Preferences.Remove("user_last_name");
+
+                DeleteMobileUser(Preferences.Get("user_id", "default"));
                 // Return to register page
 
                 Navigation.PushAsync(new RegisterPage());
             }
+        }
+
+        public async void DeleteMobileUser(String id)
+        {
+            // Set up new HttpClientHandler and its credentials so we can perform the web request
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Create new httpClient using our client handler created above
+            HttpClient httpClient = new HttpClient(clientHandler);
+
+            String apiUrl = null;
+            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/MobileUsersAPI/" + id;
+            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/MobileUsersAPI/" + id;
+
+            // Create new URI with the API url so we can perform the web request
+            var uri = new Uri(string.Format(apiUrl, string.Empty));
+
+            var response = await httpClient.DeleteAsync(uri);
         }
     }
 }

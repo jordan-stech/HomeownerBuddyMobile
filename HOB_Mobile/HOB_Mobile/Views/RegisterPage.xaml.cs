@@ -23,7 +23,7 @@ namespace HOB_Mobile.Views
 
             //Check and see if user registered previously, if they have, redirect them to the HomePage
             //set the testing boolean to true to see register page for testing purposes
-            var testing = true;
+            var testing = false;
             if (!Preferences.Get("user_home_code", "default_value").Equals("default_value") && !testing)
             {
                 Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
@@ -84,9 +84,18 @@ namespace HOB_Mobile.Views
             var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
+
+            // Keep track of id from the database - will be used to unregister home
             if (response.IsSuccessStatusCode)
             {
+                // Get response from POST request
                 var tokenJson = await response.Content.ReadAsStringAsync();
+                var array = tokenJson.Split('"');
+                String id = array[2];
+                id = id.Substring(1);
+                id = id.TrimEnd(',');
+                // Save the id in preferences
+                Preferences.Set("user_id", id);
             }
         }
 
