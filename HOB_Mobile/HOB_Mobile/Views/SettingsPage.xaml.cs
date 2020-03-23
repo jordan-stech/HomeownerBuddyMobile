@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Views
 {
@@ -37,7 +38,8 @@ namespace HOB_Mobile.Views
 
             if (answer == true)
             {
-                // Unregister device and then return to register page
+                Preferences.Clear();
+                // Return to register page
 
                 Navigation.PushAsync(new RegisterPage());
             }

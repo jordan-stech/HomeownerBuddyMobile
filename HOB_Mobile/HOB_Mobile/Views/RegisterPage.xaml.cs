@@ -3,6 +3,10 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Text;
 
 namespace HOB_Mobile.Views
 
@@ -37,8 +41,6 @@ namespace HOB_Mobile.Views
             string userFirstName = homeowner_buddy_first_name.Text;
             string userLastName = homeowner_buddy_last_name.Text;
 
-            var myValue = Preferences.Get("user_home_code", "default_value");
-
             if (userHomeCode == null || userFirstName == null || userLastName == null)
             { 
                 DisplayAlert("", "All fields are required", "OK");
@@ -49,8 +51,42 @@ namespace HOB_Mobile.Views
                 Preferences.Set("user_home_code", userHomeCode);
                 Preferences.Set("user_first_name", userFirstName);
                 Preferences.Set("user_last_name", userLastName);
-                var myValue1 = Preferences.Get("user_home_code", "default_value");
-                Navigation.PushAsync(new HomePage(userFirstName));
+
+                //POST
+                PostUserInfo(userHomeCode, userFirstName, userLastName);
+
+                Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+            }
+        }
+
+        public async void PostUserInfo(String userHomeCode, String userFirstName, String userLastName)
+        {
+            // Set up new HttpClientHandler and its credentials so we can perform the web request
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Create new httpClient using our client handler created above
+            HttpClient httpClient = new HttpClient(clientHandler);
+
+            String apiUrl = null;
+            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/MobileUsersAPI";
+            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/MobileUsersAPI";
+
+            // Create new URI with the API url so we can perform the web request
+            var uri = new Uri(string.Format(apiUrl, string.Empty));
+
+            MobileUsers user = new MobileUsers();
+            user.FName = userFirstName;
+            user.Lname = userLastName;
+            user.HomeCode = userHomeCode;
+
+            string JSONresult = JsonConvert.SerializeObject(user);
+            var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
+            if (response.IsSuccessStatusCode)
+            {
+                var tokenJson = await response.Content.ReadAsStringAsync();
             }
         }
 
