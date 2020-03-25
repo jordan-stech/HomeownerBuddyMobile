@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Net.Http.Headers;
 using System;
 
 namespace HOB_Mobile.Views
@@ -58,6 +57,27 @@ namespace HOB_Mobile.Views
             else
             {
                 Debug.WriteLine("Response not successful");
+            }
+        }
+
+        /*
+        *  Listener for action plan click.
+        */
+        private void HandleListActionPlanItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var actionPlanListView = (ListView)sender;
+            var actionPlanItem = actionPlanListView.SelectedItem;
+
+            if (actionPlanItem != null)
+            {
+                if (IsVisible)
+                {
+                    actionPlanItem.IsVisible = false;
+                }
+                else
+                {
+                    actionPlanItem.IsVisible = true;
+                }
             }
         }
     }

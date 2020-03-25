@@ -14,7 +14,7 @@
         Orientation="Vertical">
 
         <Frame
-            Padding="0, 0, 0, 10"
+            Padding="0, 0, 0, 0"
             OutlineColor="#005691"
             HasShadow="True">
 
@@ -27,37 +27,60 @@
 
         </Frame>
 
-        <StackLayout Padding="5, 20, 5, 0">
+        <StackLayout 
+            Padding="5, 20, 5, 0">
 
             <ScrollView>
                 <ListView
-                        x:Name="ListActionPlan"
-                        SeparatorColor="Black"
-                        RowHeight = "400">
+                    Margin="0, 0, 0, 10"
+                    x:Name="ListActionPlan"
+                    ItemSelected="HandleListActionPlanItemSelected"
+                    SeparatorColor="Black"
+                    HasUnevenRows="True">
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout
+                                    Padding="15,20,15,20"
                                     VerticalOptions="Center"
                                     Orientation="Vertical">
-
+                                    
                                     <WebView
-                                        HeightRequest="250"
-                                        Source="{Binding link}"/>
+                                        Source="{Binding link}"
+                                        HeightRequest="200"
+                                        WidthRequest="200"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
 
-                                    <Label 
-                                            TextColor="White"
-                                            FontSize="20"
-                                            FontAttributes="Bold"
-                                            Text="{Binding title}"/>
+                                    <Label
+                                        Text="{Binding title}"
+                                        TextColor="White"
+                                        Margin="0,5,0,0"
+                                        FontSize="20"/>
+
+                                    <Label
+                                        Text="Click to show steps"
+                                        TextColor="LightGray"
+                                        FontAttributes="Italic"
+                                        Margin="0,5,0,0"
+                                        FontSize="15"/>
+
+                                    <Label
+                                        IsVisible="False"
+                                        Text="{Binding steps}"
+                                        TextColor="White"
+                                        Margin="0,5,0,0"
+                                        FontSize="20"/>
+                                    
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
             </ScrollView>
-            
+
         </StackLayout>
 
     </StackLayout>

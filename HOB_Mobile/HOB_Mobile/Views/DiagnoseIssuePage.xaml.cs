@@ -1,5 +1,4 @@
-﻿using FreshMvvm;
-using System;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +20,7 @@ namespace HOB_Mobile.Views
          */
         private void HandleLocationOfHomeIssueImageClick(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<YouTubeChannelPageModel>()));
+            Navigation.PushAsync(new ActionPlan());
         }
 
         /*
