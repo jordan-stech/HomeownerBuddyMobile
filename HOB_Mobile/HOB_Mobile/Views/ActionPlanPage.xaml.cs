@@ -63,22 +63,15 @@ namespace HOB_Mobile.Views
         /*
         *  Listener for action plan click.
         */
-        private void HandleListActionPlanItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void HandleShowStepsClick(object sender, SelectedItemChangedEventArgs e)
         {
-            var actionPlanListView = (ListView)sender;
-            var actionPlanItem = actionPlanListView.SelectedItem;
+            var actionPlanList = (ListView)sender;
+            var actionPlanItem = (actionPlanList.SelectedItem as ContentModel);
 
-            if (actionPlanItem != null)
-            {
-                if (IsVisible)
-                {
-                    actionPlanItem.IsVisible = false;
-                }
-                else
-                {
-                    actionPlanItem.IsVisible = true;
-                }
-            }
+            Navigation.PushAsync(new ShowActionItemPage(actionPlanItem.title, actionPlanItem.link, actionPlanItem.steps));
+
+            // Unselect item.
+            actionPlanList.SelectedItem = null;
         }
     }
 }

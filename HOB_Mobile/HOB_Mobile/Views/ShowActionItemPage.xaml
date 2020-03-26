@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HOB_Mobile.Views.ShowActionItemPage"
+             BackgroundColor="#005691">
+    
+    <ContentPage.Content>
+        <StackLayout
+            Margin="10, 20, 10, 10"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            Orientation="Vertical">
+
+            <StackLayout
+                Padding="5,0,5,0"
+                VerticalOptions="Center"
+                Orientation="Vertical">
+
+                <WebView
+                    x:Name="youtubeUrl"
+                    Source=""
+                    HeightRequest="200"
+                    WidthRequest="200"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+
+                <Label
+                    x:Name="youtubeTitle"
+                    Text=""
+                    TextColor="White"
+                    Margin="0,5,0,0"
+                    FontSize="20"/>
+
+                <Label
+                    Margin="0, 20, 0, 10"
+                    Text="Steps:"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    FontSize="20"/>
+
+                <Label
+                    x:Name="youtubeSteps"
+                    Text=""
+                    TextColor="White"
+                    Margin="0,5,0,0"
+                    FontSize="20"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

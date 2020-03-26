@@ -46,12 +46,14 @@
     <PackageReference Include="FreshMvvm" Version="3.0.0" />
     <PackageReference Include="Google.Apis.YouTube.v3" Version="1.44.1.1869" />
     <PackageReference Include="Humanizer" Version="2.7.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense" Version="16.4.280" />
+    <PackageReference Include="NEST" Version="7.6.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Octane.Xam.VideoPlayer" Version="3.1.0" />
     <PackageReference Include="Plugin.Youtube" Version="1.0.1" />
-    <PackageReference Include="PropertyChanged.Fody" Version="3.2.6" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.2.7" />
     <PackageReference Include="Xam.Forms.VideoPlayer" Version="1.0.7" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
   </ItemGroup>
 
@@ -111,6 +113,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ShowActionItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

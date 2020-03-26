@@ -24,7 +24,6 @@
                 PlaceholderColor="#005691"
                 TextColor="#005691"
                 HorizontalTextAlignment="Start" />
-
         </Frame>
 
         <StackLayout 
@@ -34,7 +33,7 @@
                 <ListView
                     Margin="0, 0, 0, 10"
                     x:Name="ListActionPlan"
-                    ItemSelected="HandleListActionPlanItemSelected"
+                    ItemTapped="HandleShowStepsClick"
                     SeparatorColor="Black"
                     HasUnevenRows="True">
 
@@ -66,13 +65,6 @@
                                         Margin="0,5,0,0"
                                         FontSize="15"/>
 
-                                    <Label
-                                        IsVisible="False"
-                                        Text="{Binding steps}"
-                                        TextColor="White"
-                                        Margin="0,5,0,0"
-                                        FontSize="20"/>
-                                    
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
