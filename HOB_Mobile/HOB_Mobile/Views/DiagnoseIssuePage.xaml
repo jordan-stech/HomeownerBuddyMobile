@@ -17,10 +17,10 @@
 
                 <Label 
                     TextColor="White"
-                    FontSize="25"
+                    FontSize="30"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
-                    Text="Where is your home issue located?" />
+                    Text="Location?" />
 
             </StackLayout>
 

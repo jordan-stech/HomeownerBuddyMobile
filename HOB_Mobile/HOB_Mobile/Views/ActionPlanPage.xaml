@@ -44,8 +44,8 @@
                                     Padding="15,20,15,20"
                                     VerticalOptions="Center"
                                     Orientation="Vertical">
-                                    
-                                    <WebView
+
+                                    <WebView 
                                         Source="{Binding link}"
                                         HeightRequest="200"
                                         WidthRequest="200"
