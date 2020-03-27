@@ -12,18 +12,18 @@ namespace HOB_Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActionPlan : ContentPage
     {
-        public ActionPlan()
+        public ActionPlan(String urlEndpoint)
         {
             InitializeComponent();
 
             // Perform web request
-            GetActionPlans();
+            GetActionPlans(urlEndpoint);
         }
 
         /*
-        * Get all action plans available in the database
+        * Get all action plans, available in the database, for the respective category selected by the user
         */
-        public async void GetActionPlans()
+        public async void GetActionPlans(String category)
         {
             // Set up new HttpClientHandler and its credentials so we can perform the web request
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -33,8 +33,8 @@ namespace HOB_Mobile.Views
             HttpClient httpClient = new HttpClient(clientHandler);
 
             String apiUrl = null;
-            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/ActionPlanAPI";
-            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/ActionPlanAPI";
+            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/ActionPlanAPI/" + category;
+            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/ActionPlanAPI/" + category;
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));

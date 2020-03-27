@@ -20,7 +20,10 @@ namespace HOB_Mobile.Views
          */
         private void HandleLocationOfHomeIssueImageClick(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ActionPlan());
+            var issueImage = (ImageButton)sender;
+            var category = issueImage.StyleId;
+
+            Navigation.PushAsync(new ActionPlan(category));
         }
 
         /*
@@ -28,19 +31,19 @@ namespace HOB_Mobile.Views
          */
         private void SetUpHomeIssueImages()
         {
-            kitchen_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.kitchen.png");
-            plumbing_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.plumbing.png");
-            bedroom_home_issue_page.Source = ImageSource.FromResource("HOB_Mobile.Resources.bedroom.png");
-            bathroom_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.bathroom.png");
-            laundry_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.laundry.png");
-            exterior_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.exterior.png");
-            closet_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.closet.png");
-            hallway_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.hallway.png");
-            living_room_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.living_room.png");
-            misc_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.misc.png");
-            hvac_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.HVAC.png");
-            electrical_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.electric.png");
-            basement_home_issue_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.basement.png");
+            kitchen.Source = ImageSource.FromResource("HOB_Mobile.Resources.kitchen.png");
+            plumbing.Source = ImageSource.FromResource("HOB_Mobile.Resources.plumbing.png");
+            bedroom.Source = ImageSource.FromResource("HOB_Mobile.Resources.bedroom.png");
+            bathroom.Source = ImageSource.FromResource("HOB_Mobile.Resources.bathroom.png");
+            laundry.Source = ImageSource.FromResource("HOB_Mobile.Resources.laundry.png");
+            exterior.Source = ImageSource.FromResource("HOB_Mobile.Resources.exterior.png");
+            closet.Source = ImageSource.FromResource("HOB_Mobile.Resources.closet.png");
+            hallway.Source = ImageSource.FromResource("HOB_Mobile.Resources.hallway.png");
+            livingRoom.Source = ImageSource.FromResource("HOB_Mobile.Resources.living_room.png");
+            misc.Source = ImageSource.FromResource("HOB_Mobile.Resources.misc.png");
+            hvac.Source = ImageSource.FromResource("HOB_Mobile.Resources.HVAC.png");
+            electrical.Source = ImageSource.FromResource("HOB_Mobile.Resources.electric.png");
+            basement.Source = ImageSource.FromResource("HOB_Mobile.Resources.basement.png");
         }
     }
 }

@@ -41,7 +41,7 @@
                         Text="Kitchen" />
 
                     <ImageButton
-                        x:Name="kitchen_home_issue_image"
+                        x:Name="kitchen"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -61,7 +61,7 @@
                         Text="Plumbing" />
 
                     <ImageButton
-                        x:Name="plumbing_home_issue_image"
+                        x:Name="plumbing"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -89,7 +89,7 @@
                         Text="Electrical" />
 
                     <ImageButton
-                        x:Name="electrical_home_issue_image"
+                        x:Name="electrical"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -109,7 +109,7 @@
                         Text="HVAC" />
 
                     <ImageButton
-                        x:Name="hvac_home_issue_image"
+                        x:Name="hvac"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -137,7 +137,7 @@
                         Text="Living Room" />
 
                     <ImageButton
-                        x:Name="living_room_home_issue_image"
+                        x:Name="livingRoom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -157,7 +157,7 @@
                         Text="Bathroom" />
 
                     <ImageButton
-                        x:Name="bathroom_home_issue_image"
+                        x:Name="bathroom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -185,7 +185,7 @@
                         Text="Closet" />
 
                     <ImageButton
-                        x:Name="closet_home_issue_image"
+                        x:Name="closet"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -205,7 +205,7 @@
                         Text="Laundry" />
 
                     <ImageButton
-                        x:Name="laundry_home_issue_image"
+                        x:Name="laundry"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -233,7 +233,7 @@
                         Text="Hallway" />
 
                     <ImageButton
-                        x:Name="hallway_home_issue_image"
+                        x:Name="hallway"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -253,7 +253,7 @@
                         Text="Exterior" />
 
                     <ImageButton
-                        x:Name="exterior_home_issue_image"
+                        x:Name="exterior"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -281,7 +281,7 @@
                         Text="Bedroom" />
 
                     <ImageButton
-                        x:Name="bedroom_home_issue_page"
+                        x:Name="bedroom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -301,7 +301,7 @@
                         Text="Basement" />
 
                     <ImageButton
-                        x:Name="basement_home_issue_image"
+                        x:Name="basement"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         Margin="0, 10, 0 , 0"
@@ -324,7 +324,7 @@
                         Text="Misc." />
 
                 <ImageButton
-                        x:Name="misc_home_issue_image"
+                        x:Name="misc"
                         Clicked="HandleLocationOfHomeIssueImageClick"
                         BackgroundColor="Transparent"
                         HeightRequest="100"
