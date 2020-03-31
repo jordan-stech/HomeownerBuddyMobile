@@ -19,7 +19,7 @@
             HasShadow="True">
 
             <SearchBar
-                Placeholder="Search key word"
+                Placeholder="Search"
                 CancelButtonColor="Red"
                 PlaceholderColor="#005691"
                 TextColor="#005691"
