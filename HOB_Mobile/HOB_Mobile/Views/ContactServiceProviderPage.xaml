@@ -25,6 +25,7 @@
             <ScrollView  Padding="0, 20, 0, 0">
                 <ListView
                     x:Name="ListServiceProvider"
+                    ItemTapped="HandlePhoneNumberClick"
                     SeparatorColor="Black"
                     RowHeight = "120">
                     
