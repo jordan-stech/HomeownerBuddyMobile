@@ -10,7 +10,7 @@
     <ScrollView>
 
         <StackLayout
-            Margin="10, 20, 10, 10"
+            Margin="10, 0, 10, 10"
             Orientation="Vertical">
 
             <StackLayout Padding="0, 20, 0, 0">
@@ -30,7 +30,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -43,10 +43,11 @@
                     <ImageButton
                         x:Name="kitchen"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -63,10 +64,11 @@
                     <ImageButton
                         x:Name="plumbing"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -78,7 +80,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -91,10 +93,11 @@
                     <ImageButton
                         x:Name="electrical"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -111,10 +114,11 @@
                     <ImageButton
                         x:Name="hvac"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -126,7 +130,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -139,10 +143,11 @@
                     <ImageButton
                         x:Name="livingRoom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -159,10 +164,11 @@
                     <ImageButton
                         x:Name="bathroom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -174,7 +180,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -187,10 +193,11 @@
                     <ImageButton
                         x:Name="closet"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -207,10 +214,11 @@
                     <ImageButton
                         x:Name="laundry"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -222,7 +230,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -235,10 +243,11 @@
                     <ImageButton
                         x:Name="hallway"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -255,10 +264,11 @@
                     <ImageButton
                         x:Name="exterior"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -270,7 +280,7 @@
                 Orientation="Horizontal">
 
                 <StackLayout
-                    Margin="0, 0 , 70, 0"
+                    Margin="0, 0 , 50, 0"
                     Orientation="Vertical">
 
                     <Label 
@@ -283,10 +293,11 @@
                     <ImageButton
                         x:Name="bedroom"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -303,10 +314,11 @@
                     <ImageButton
                         x:Name="basement"
                         Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
+                        BackgroundColor="White"
+                        Padding="10,10,10,10"
                         Margin="0, 10, 0 , 0"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                        HeightRequest="140"
+                        WidthRequest="140"/>
 
                 </StackLayout>
 
@@ -317,18 +329,19 @@
                 Orientation="Vertical">
 
                 <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Misc." />
+                    TextColor="#53B949"
+                    Padding="0, 0, 0, 5"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="Misc." />
 
                 <ImageButton
-                        x:Name="misc"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="Transparent"
-                        HeightRequest="100"
-                        WidthRequest="100"/>
+                    x:Name="misc"
+                    Clicked="HandleLocationOfHomeIssueImageClick"
+                    BackgroundColor="Transparent"
+                    HeightRequest="100"
+                    WidthRequest="100"/>
 
             </StackLayout>
 
