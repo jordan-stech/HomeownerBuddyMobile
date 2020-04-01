@@ -50,7 +50,7 @@ namespace HOB_Mobile.Views
             {
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
-                System.Diagnostics.Debug.Write("JSON Response is: " + content);
+                Debug.Write("JSON Response is: " + content);
 
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
@@ -103,12 +103,12 @@ namespace HOB_Mobile.Views
             {
                 // Phone Dialer is not supported on this device. 
                 DisplayAlert("", "Phone Dialer is not supported on this device.", "", "Close");
-                System.Diagnostics.Debug.Write(ex);
+                Debug.Write(ex);
             }
             catch (Exception ex)
             {
                 // Other error has occurred.
-                System.Diagnostics.Debug.Write(ex);
+                Debug.Write(ex);
             }
         }
     }
