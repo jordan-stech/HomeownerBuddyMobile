@@ -36,6 +36,7 @@
                     TextColor="White"
                     Keyboard="Telephone"
                     Placeholder="Enter your home code"
+                    BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
                 
             </Frame>
@@ -58,6 +59,7 @@
                     TextColor="White"
                     Keyboard="Text"
                     Placeholder="Enter your first name"
+                    BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
                 
             </Frame>
@@ -80,6 +82,7 @@
                     TextColor="White"
                     Keyboard="Text"
                     Placeholder="Enter your last name"
+                    BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
                 
             </Frame>
