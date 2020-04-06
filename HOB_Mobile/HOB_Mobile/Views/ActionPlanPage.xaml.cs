@@ -32,9 +32,7 @@ namespace HOB_Mobile.Views
             // Create new httpClient using our client handler created above
             HttpClient httpClient = new HttpClient(clientHandler);
 
-            String apiUrl = null;
-            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/ActionPlanAPI/" + category;
-            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/ActionPlanAPI/" + category;
+            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/ActionPlanAPI/" + category;
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));

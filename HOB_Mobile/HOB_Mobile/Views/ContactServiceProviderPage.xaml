@@ -53,7 +53,7 @@
                                         Text="{Binding phone_number}"/>
 
                                     <Label
-                                        FontSize="15"
+                                        FontSize="18"
                                         Text="{Binding url}"/>
 
                                 </StackLayout>
