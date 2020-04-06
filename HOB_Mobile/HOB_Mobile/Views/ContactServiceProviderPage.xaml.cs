@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
@@ -48,7 +50,7 @@ namespace HOB_Mobile.Views
             {
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
-                System.Diagnostics.Debug.Write("JSON Response is: " + content);
+                Debug.Write("JSON Response is: " + content);
 
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
@@ -57,6 +59,56 @@ namespace HOB_Mobile.Views
             } else
             {
                 Debug.WriteLine("Response not successful");
+            }
+        }
+
+        /*
+        *  Listener for phone number click.
+        */
+        private async void HandlePhoneNumberClick(object sender, SelectedItemChangedEventArgs e)
+        {
+            var trustedServiceProviderList = (ListView)sender;
+            var trustedServiceProvider = (trustedServiceProviderList.SelectedItem as ServiceProviderModel);
+            var trustedServiceProvierPhoneNumber = trustedServiceProvider.phone_number;
+
+            // Display alert to confirm if user wants to unregister the device
+            bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
+
+            // If the user selected "Call", then proceed.
+            if (answer == true)
+            {
+                // If clicked phone number is not null or empty, then call trusted service provider.
+                if (!string.IsNullOrEmpty(trustedServiceProvierPhoneNumber))
+                {
+                    // Call trusted service provider number clicked by the user.
+                    Call(trustedServiceProvierPhoneNumber);
+                }
+            }
+
+            // Unselect item.
+            trustedServiceProviderList.SelectedItem = null;
+        }
+
+        /*
+        *  Listener that performs the call.
+        */
+        public void Call(string phoneNumber)
+        {
+            try
+            {
+                PhoneDialer.Open(phoneNumber);
+            }
+
+            catch (FeatureNotSupportedException ex)
+            {
+                // Phone Dialer is not supported on this device. 
+                DisplayAlert("", "Phone Dialer is not supported on this device.", "", "Close");
+                Debug.Write(ex);
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+                Debug.Write(ex);
             }
         }
     }

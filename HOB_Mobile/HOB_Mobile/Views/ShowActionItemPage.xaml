@@ -46,7 +46,7 @@
                     x:Name="youtubeSteps"
                     Text=""
                     TextColor="White"
-                    LineHeight="2"
+                    LineHeight="1.25"
                     Margin="0,5,0,0"
                     FontSize="20"/>
 

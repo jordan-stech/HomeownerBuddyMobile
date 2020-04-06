@@ -25,6 +25,7 @@
             <ScrollView  Padding="0, 20, 0, 0">
                 <ListView
                     x:Name="ListServiceProvider"
+                    ItemTapped="HandlePhoneNumberClick"
                     SeparatorColor="Black"
                     RowHeight = "120">
                     
@@ -43,15 +44,17 @@
 
                                     <Label
                                         TextColor="White"
-                                        FontSize="20"
-                                        FontAttributes="Bold"
+                                        FontSize="18"
                                         Text="{Binding service}"/>
 
                                     <Label 
                                         TextColor="White"
-                                        FontSize="20"
-                                        FontAttributes="Bold"
+                                        FontSize="18"
                                         Text="{Binding phone_number}"/>
+
+                                    <Label
+                                        FontSize="15"
+                                        Text="{Binding link}"/>
 
                                 </StackLayout>
                             </ViewCell>
