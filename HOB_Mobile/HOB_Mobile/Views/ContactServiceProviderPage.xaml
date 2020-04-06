@@ -54,7 +54,7 @@
 
                                     <Label
                                         FontSize="15"
-                                        Text="{Binding link}"/>
+                                        Text="{Binding url}"/>
 
                                 </StackLayout>
                             </ViewCell>
