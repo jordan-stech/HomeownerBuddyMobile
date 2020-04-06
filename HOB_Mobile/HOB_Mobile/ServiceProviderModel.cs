@@ -10,5 +10,6 @@ namespace HOB_Mobile
         public string name { get; set; }
         public string service { get; set; }
         public string phone_number { get; set; }
+        public string link { get; set; }
     }
 }
