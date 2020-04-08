@@ -16,21 +16,11 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Listener for "Home Issue Location" button
-         */
-        private void HandleLocationOfHomeIssueImageClick(object sender, EventArgs e)
-        {
-            var issueImage = (ImageButton)sender;
-            var category = issueImage.StyleId;
-
-            Navigation.PushAsync(new ActionPlan(category));
-        }
-
-        /*
          * Handle the display of images in the home page
          */
         private void SetUpHomeIssueImages()
         {
+            // Add each image stored in the Resources folder to its respective ImageButton in the DiagnoseIssuePage.xaml file
             kitchen.Source = ImageSource.FromResource("HOB_Mobile.Resources.kitchen.png");
             plumbing.Source = ImageSource.FromResource("HOB_Mobile.Resources.plumbing.png");
             bedroom.Source = ImageSource.FromResource("HOB_Mobile.Resources.bedroom.png");
@@ -44,6 +34,21 @@ namespace HOB_Mobile.Views
             hvac.Source = ImageSource.FromResource("HOB_Mobile.Resources.HVAC.png");
             electrical.Source = ImageSource.FromResource("HOB_Mobile.Resources.electric.png");
             basement.Source = ImageSource.FromResource("HOB_Mobile.Resources.basement.png");
+        }
+
+        /*
+        * Listener for "Home Issue Location" button
+        */
+        private void HandleLocationOfHomeIssueImageClick(object sender, EventArgs e)
+        {
+            // Get the object that triggered the function and cast it to an ImageButton
+            var issueImage = (ImageButton)sender;
+
+            // Get the ImageButton style ID (x:Name in the DiagnoseIssuePage.xaml file), which in this case we set up to be the category
+            var category = issueImage.StyleId;
+
+            // Go to the ActionPlanPage passing the selected image button's category as parameter.
+            Navigation.PushAsync(new ActionPlan(category));
         }
     }
 }

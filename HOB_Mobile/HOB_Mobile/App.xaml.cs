@@ -19,7 +19,7 @@ namespace HOB_Mobile
             // Component must be initialized
             InitializeComponent();
 
-            // Launch login page
+            // Launch register page
             MainPage = new NavigationPage(new Views.RegisterPage());
         }
 

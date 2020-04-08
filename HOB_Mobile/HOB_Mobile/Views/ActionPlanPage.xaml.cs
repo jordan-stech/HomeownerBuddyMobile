@@ -16,7 +16,7 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
-            // Perform web request
+            // Call function to perform a web request with the passed URL endpoint as parameter
             GetActionPlans(urlEndpoint);
         }
 
@@ -45,15 +45,16 @@ namespace HOB_Mobile.Views
             {
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
-                Debug.Write("JSON Response is: " + content);
 
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
                 var actionPlans = JsonConvert.DeserializeObject<List<ContentModel>>(content);
 
+                // Add JSON object returned from the web request to the ListView in the ActionPlanPage.xaml file
                 ListActionPlan.ItemsSource = actionPlans;
             }
             else
             {
+                // This prints to the Visual Studio Output window
                 Debug.WriteLine("Response not successful");
             }
         }
@@ -63,9 +64,11 @@ namespace HOB_Mobile.Views
         */
         private void HandleShowStepsClick(object sender, SelectedItemChangedEventArgs e)
         {
+            // Get the object that triggered the function, cast it to a ListView and then get its selected item
             var actionPlanList = (ListView)sender;
             var actionPlanItem = (actionPlanList.SelectedItem as ContentModel);
 
+            // Go to the ShowActionItemPage passing the selected item's title, link and steps as parameters
             Navigation.PushAsync(new ShowActionItemPage(actionPlanItem.title, actionPlanItem.link, actionPlanItem.steps));
 
             // Unselect item.

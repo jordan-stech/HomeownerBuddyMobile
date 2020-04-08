@@ -1,5 +1,10 @@
 ﻿namespace HOB_Mobile
 {
+    /*
+      * Model that handles each Action Plan information.
+      * It pulls the information stored in the Azure database through
+      * the REST API call implemented on the web app side.
+      */
     class ContentModel
     {
         public int id { get; set; }
