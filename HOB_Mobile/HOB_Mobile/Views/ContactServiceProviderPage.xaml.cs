@@ -49,10 +49,11 @@ namespace HOB_Mobile.Views
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
 
-                // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
+                // Deserialize the object. In other words, convert the returned string back to
+                // the format set by the ServiceProviderModel
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
 
-                // Add JSON object returned from the web request to the ListView in the ContactServiceProviderPage.xaml file
+                // Set the list of ServiceProviderModel to the ListView in the ContactServiceProviderPage.xaml file
                 ListServiceProvider.ItemsSource = serviceProviders;
             } else
             {

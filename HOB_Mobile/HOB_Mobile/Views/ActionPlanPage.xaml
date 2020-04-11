@@ -19,15 +19,27 @@
             HasShadow="True">
 
             <SearchBar
+                x:Name="actionPlanSearchBar"
                 Placeholder="Search"
                 CancelButtonColor="Red"
+                TextChanged="HandleTextChange"
                 PlaceholderColor="#005691"
                 TextColor="#005691"
                 HorizontalTextAlignment="Start" />
         </Frame>
 
+        <ScrollView HeightRequest="100">
+            <ListView
+                    x:Name="actionPlanSearchResults"
+                    HorizontalOptions="Fill"
+                    SeparatorColor="Black"
+                    ItemTapped="HandleSelectedActionPlan"
+                    VerticalOptions="CenterAndExpand">
+            </ListView>
+        </ScrollView>
+
         <StackLayout 
-            Padding="5, 20, 5, 0">
+            Padding="5, 10, 5, 0">
 
             <ScrollView>
                 <ListView
