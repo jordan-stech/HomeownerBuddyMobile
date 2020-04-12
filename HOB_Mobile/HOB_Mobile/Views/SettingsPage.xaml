@@ -77,25 +77,21 @@
                     BackgroundColor="#53B949">
 
                     <StackLayout
-                        Orientation="Horizontal">
+                        Orientation="Vertical">
 
-                        <StackLayout
-                            Orientation="Vertical">
+                        <Label 
+                            x:Name="emergency_phone_number"
+                            TextColor="Black"
+                            FontSize="18"
+                            HorizontalTextAlignment="Start"
+                            FontAttributes="Bold"
+                            Text="(614) 364-7023"/>
 
-                            <Label 
-                                TextColor="Black"
-                                FontSize="18"
-                                HorizontalTextAlignment="Start"
-                                FontAttributes="Bold"
-                                Text="(614) 364-7023"/>
-
-                            <Label 
-                                TextColor="White"
-                                FontSize="15"
-                                HorizontalTextAlignment="Start"
-                                Text="Call this number in case of an emergency"/>
-
-                        </StackLayout>
+                        <Label 
+                            TextColor="White"
+                            FontSize="15"
+                            HorizontalTextAlignment="Start"
+                            Text="Call this number in case of an emergency"/>
 
                     </StackLayout>
                 </Frame>
