@@ -23,13 +23,25 @@ namespace HOB_Mobile.Views
 
             //Check and see if user registered previously, if they have, redirect them to the HomePage
             //set the testing boolean to true to see register page for testing purposes
+            SetUpLoginPageHabitatHumanityLogo();
             var testing = false;
             if (!Preferences.Get("user_home_code", "default_value").Equals("default_value") && !testing)
             {
+                
                 Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                // Call function that adds the logo to the register page
+                
             }
 
-            SetUpLoginPageHabitatHumanityLogo();
+        }
+
+        /*
+         * Handle the display of the Habitat For Humanity Mid-Ohio logo
+         */
+        private void SetUpLoginPageHabitatHumanityLogo()
+        {
+            // Add the Humanity Mid-Ohio logo stored in the Resources folder to its respective Image in the RegisterPage.xaml file
+            habitat_humanity_logo.Source = ImageSource.FromResource("HOB_Mobile.Resources.habitat_midohio_logo.jpg");
         }
 
         /*
@@ -37,10 +49,13 @@ namespace HOB_Mobile.Views
          */
         private void HandleRegisterButtonClick(object sender, EventArgs e)
         {
+            // Get the text entered by the user in each of the input forms (Home Code, First Name and Last Name)
+            // by it's x:Name followed by .Text
             string userHomeCode = homeowner_buddy_home_code.Text;
             string userFirstName = homeowner_buddy_first_name.Text;
             string userLastName = homeowner_buddy_last_name.Text;
 
+            // Check if any of the input forms are empty when the user clicks the "Register" button
             if (userHomeCode == null || userFirstName == null || userLastName == null)
             { 
                 DisplayAlert("", "All fields are required", "OK");
@@ -55,7 +70,7 @@ namespace HOB_Mobile.Views
                 //POST
                 PostUserInfo(userHomeCode, userFirstName, userLastName);
 
-                Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                
             }
         }
 
@@ -78,7 +93,7 @@ namespace HOB_Mobile.Views
             MobileUsers user = new MobileUsers();
             user.FName = userFirstName;
             user.Lname = userLastName;
-            user.HomeCode = userHomeCode;
+            user.Code = userHomeCode;
 
             string JSONresult = JsonConvert.SerializeObject(user);
             var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
@@ -92,19 +107,18 @@ namespace HOB_Mobile.Views
                 var tokenJson = await response.Content.ReadAsStringAsync();
                 var array = tokenJson.Split('"');
                 String id = array[2];
+                String address = array[17];
                 id = id.Substring(1);
                 id = id.TrimEnd(',');
                 // Save the id in preferences
                 Preferences.Set("user_id", id);
+                Preferences.Set("user_address", address);
+                //Preferences.Set("user_address", )
+                await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+            } else
+            {
+                await DisplayAlert("", "HomeCode does not exist", "OK");
             }
-        }
-
-        /*
-         * Handle logo display
-         */
-        private void SetUpLoginPageHabitatHumanityLogo()
-        {
-            habitat_humanity_logo.Source = ImageSource.FromResource("HOB_Mobile.Resources.habitat_midohio_logo.jpg");
         }
     }
 }

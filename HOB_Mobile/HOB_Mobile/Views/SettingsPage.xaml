@@ -48,7 +48,7 @@
                                 TextColor="White"
                                 FontSize="15"
                                 HorizontalTextAlignment="Start"
-                                Text="Unregister house from the application"/>
+                                Text="Unregister home from the mobile app"/>
 
                         </StackLayout>
 
@@ -87,7 +87,7 @@
                                 FontSize="18"
                                 HorizontalTextAlignment="Start"
                                 FontAttributes="Bold"
-                                Text="(XXX) XXX-XXXX"/>
+                                Text="(614) 364-7023"/>
 
                             <Label 
                                 TextColor="White"
@@ -116,7 +116,7 @@
                         Orientation="Horizontal">
 
                         <StackLayout
-                            Padding="0, 0, 120, 0"
+                            Padding="0, 0, 80, 0"
                             HorizontalOptions="Start"
                             Orientation="Vertical">
 
@@ -129,7 +129,7 @@
                             <Label 
                                 TextColor="White"
                                 FontSize="15"
-                                Text="Receive task reminders"/>
+                                Text="Receive maintenance reminders"/>
 
                         </StackLayout>
 
@@ -148,14 +148,14 @@
                     FontSize="18"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
-                    Text="Version 1.1.0"/>
+                    Text="Version 2.0.0"/>
 
                 <Label 
                     TextColor="White"
                     FontSize="18"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
-                    Text="Released On: 10 Mar 2020"/>
+                    Text="Released On: 30 Mar 2020"/>
 
                 <Label
                     Margin="0, 20, 0, 0"

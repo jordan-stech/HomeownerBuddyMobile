@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
@@ -17,7 +19,7 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
-            // Perform web request
+            // Call function to perform a web request
             GetServiceProviders();
         }
 
@@ -33,9 +35,7 @@ namespace HOB_Mobile.Views
             // Create new httpClient using our client handler created above
             HttpClient httpClient = new HttpClient(clientHandler);
 
-            String apiUrl = null;
-            if (Device.RuntimePlatform == Device.Android) apiUrl = "https://10.0.2.2:5001/api/ServiceProviderAPI";
-            else if (Device.RuntimePlatform == Device.iOS) apiUrl = "https://localhost:5001/api/ServiceProviderAPI";
+            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/ServiceProviderAPI";
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
@@ -48,15 +48,70 @@ namespace HOB_Mobile.Views
             {
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
-                System.Diagnostics.Debug.Write("JSON Response is: " + content);
 
                 // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
 
+                // Add JSON object returned from the web request to the ListView in the ContactServiceProviderPage.xaml file
                 ListServiceProvider.ItemsSource = serviceProviders;
             } else
             {
+                // This prints to the Visual Studio Output window
                 Debug.WriteLine("Response not successful");
+            }
+        }
+
+        /*
+        *  Listener for phone number click.
+        */
+        private async void HandlePhoneNumberClick(object sender, SelectedItemChangedEventArgs e)
+        {
+            // Get the object that triggered the function, cast it to a ListView and then get its selected item
+            var trustedServiceProviderList = (ListView)sender;
+            var trustedServiceProvider = (trustedServiceProviderList.SelectedItem as ServiceProviderModel);
+
+            // Get the phone number associated with the selected item in the ListView
+            var trustedServiceProvierPhoneNumber = trustedServiceProvider.phone_number;
+
+            // Display alert to confirm if user wants to call the selected number or not
+            bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
+
+            // If the user selected "Call", then proceed
+            if (answer == true)
+            {
+                // If the clicked phone number is not null or empty, then call respective trusted service provider
+                if (!string.IsNullOrEmpty(trustedServiceProvierPhoneNumber))
+                {
+                    // Call function that calls the trusted service provider's phone number clicked by the user
+                    Call(trustedServiceProvierPhoneNumber);
+                }
+            }
+
+            // Unselect item.
+            trustedServiceProviderList.SelectedItem = null;
+        }
+
+        /*
+        *  Listener that performs the call.
+        */
+        public void Call(string phoneNumber)
+        {
+            try
+            {
+                // Open the phone dialer in the user's phone
+                PhoneDialer.Open(phoneNumber);
+            }
+
+            catch (FeatureNotSupportedException ex)
+            {
+                // If the PhoneDialer is not supported on the user's device, then display an alert
+                DisplayAlert("", "Phone Dialer is not supported on this device.", "", "Close");
+                Debug.Write(ex);
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred
+                Debug.Write(ex);
             }
         }
     }

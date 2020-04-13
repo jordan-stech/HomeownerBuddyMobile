@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Views
 {
@@ -18,8 +19,9 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
-            // Display user's first name in the home page
+            // Get user's first name passed as a parameter to HomePage.xaml.cs and display it in the home page
             homeowner_buddy_username.Text = userFirstName;
+            homeowner_buddy_user_address.Text = Preferences.Get("user_address", "no address found");
         }
 
         /*
@@ -27,6 +29,7 @@ namespace HOB_Mobile.Views
          */
         private void HandleHelpMeDiagnoseAnIssueButtonClick(object sender, EventArgs e)
         {
+            // Go to the DiagnoseIssuePage
             Navigation.PushAsync(new DiagnoseIssuePage());
         }
 
@@ -35,6 +38,7 @@ namespace HOB_Mobile.Views
          */
         private void HandleMaintenanceRemindersButtonClick(object sender, EventArgs e)
         {
+            // Go to the MaintenanceReminderPage
             Navigation.PushAsync(new MaintenanceReminder());
         }
 
@@ -43,6 +47,7 @@ namespace HOB_Mobile.Views
          */
         private void HandleContactServiceProvidersButtonClick(object sender, EventArgs e)
         {
+            // Go to the ContactServiceProviderPage
             Navigation.PushAsync(new ContactServiceProvider());
         }
 
@@ -51,6 +56,7 @@ namespace HOB_Mobile.Views
         */
         private void HandleSettingsButtonClick(object sender, EventArgs e)
         {
+            // Go to the SettingsPage
             Navigation.PushAsync(new Settings());
         }
     }

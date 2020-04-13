@@ -8,6 +8,7 @@ namespace HOB_Mobile
     {
         public string FName { get; set; }
         public string Lname { get; set; }
-        public string HomeCode { get; set; }
+        public string Code { get; set; }
+        public string address { get; set; }
     }
 }
