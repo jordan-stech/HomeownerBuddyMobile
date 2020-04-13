@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Views
 {
@@ -20,6 +21,7 @@ namespace HOB_Mobile.Views
 
             // Get user's first name passed as a parameter to HomePage.xaml.cs and display it in the home page
             homeowner_buddy_username.Text = userFirstName;
+            homeowner_buddy_user_address.Text = Preferences.Get("user_address", "no address found");
         }
 
         /*

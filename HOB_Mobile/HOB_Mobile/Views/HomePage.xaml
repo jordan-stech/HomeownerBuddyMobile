@@ -67,7 +67,6 @@
                     TextColor="#53B949"
                     FontSize="20"
                     FontAttributes="Bold"
-                    Text="1618 Myrtle Ave."
                     HorizontalTextAlignment="Center" />
 
             </StackLayout>
