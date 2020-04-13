@@ -17,114 +17,126 @@
             HasShadow="True">
 
             <SearchBar
+                x:Name="homePageSearchBar"
                 Placeholder="Search"
                 CancelButtonColor="Red"
+                TextChanged="HandleTextChange"
                 PlaceholderColor="#005691"
                 TextColor="#005691"
                 HorizontalTextAlignment="Start" />
-
         </Frame>
 
-        <StackLayout Padding="0, 20, 0, 0">
+        <ScrollView HeightRequest="200">
+            <ListView
+                x:Name="homePageSearchResults"
+                HorizontalOptions="Fill"
+                SeparatorColor="Black"
+                ItemTapped="HandleSelectedActionPlanHomePage"
+                VerticalOptions="CenterAndExpand">
+            </ListView>
+        </ScrollView>
 
-            <Label
-                HorizontalTextAlignment="Center">
-
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span
-                            TextColor="White"
-                            FontSize="25"
-                            FontAttributes="Bold"
-                            Text="Welcome to the Homeowner Buddy, " />
-
-                        <Span 
-                            x:Name="homeowner_buddy_username"
-                            TextColor="#53B949"
-                            FontSize="25"
-                            FontAttributes="Bold"
-                            Text=""/>
-                        
-                    </FormattedString>
-                </Label.FormattedText>
-                
-            </Label>
-
-            <StackLayout
-                Margin="0, 20, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
-                
-                <Label 
-                    TextColor="White"
-                    FontSize="20"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Address:" />
+        <ScrollView>
+            <StackLayout Padding="0, 20, 0, 0">
 
                 <Label
-                    x:Name="homeowner_buddy_user_address"
-                    TextColor="#53B949"
+                    HorizontalTextAlignment="Center">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                TextColor="White"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                Text="Welcome to the Homeowner Buddy, " />
+
+                            <Span 
+                                x:Name="homeowner_buddy_username"
+                                TextColor="#53B949"
+                                FontSize="25"
+                                FontAttributes="Bold"
+                                Text=""/>
+
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                </Label>
+
+                <StackLayout
+                    Margin="0, 20, 0, 0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+
+                    <Label 
+                        TextColor="White"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Address:" />
+
+                    <Label
+                        x:Name="homeowner_buddy_user_address"
+                        TextColor="#53B949"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Text="1618 Myrtle Ave."
+                        HorizontalTextAlignment="Center" />
+
+                </StackLayout>
+
+                <Button
+                    Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
+                    Margin="0, 40, 0, 10"
+                    Padding="5, 20, 5, 20"
+                    BorderWidth="2"
+                    BorderColor="White"
+                    BackgroundColor="#53B949"
+                    CornerRadius="20"
+                    TextColor="White"
                     FontSize="20"
                     FontAttributes="Bold"
-                    Text="1618 Myrtle Ave."
-                    HorizontalTextAlignment="Center" />
+                    Text="Help Me Diagnose an Issue" />
+
+                <Button
+                    Clicked="HandleMaintenanceRemindersButtonClick"
+                    Margin="0, 0, 0, 10"
+                    Padding="5, 20, 5, 20"
+                    BorderWidth="2"
+                    BorderColor="White"
+                    BackgroundColor="#53B949"
+                    CornerRadius="20"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Text="Maintenance Reminders" />
+
+                <Button
+                    Clicked="HandleContactServiceProvidersButtonClick"
+                    Margin="0, 0, 0, 10"
+                    Padding="5, 20, 5, 20"
+                    BorderWidth="2"
+                    BorderColor="White"
+                    BackgroundColor="#53B949"
+                    CornerRadius="20"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Text="Contact Service Providers" />
+
+                <Button
+                    Clicked="HandleSettingsButtonClick"
+                    Padding="5, 20, 5, 20"
+                    BorderWidth="2"
+                    BorderColor="White"
+                    BackgroundColor="#53B949"
+                    CornerRadius="20"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Text="Settings" />
 
             </StackLayout>
-
-            <Button
-                Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
-                Margin="0, 40, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Help Me Diagnose an Issue" />
-
-            <Button
-                Clicked="HandleMaintenanceRemindersButtonClick"
-                Margin="0, 0, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Maintenance Reminders" />
-
-            <Button
-                Clicked="HandleContactServiceProvidersButtonClick"
-                Margin="0, 0, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Contact Service Providers" />
-
-            <Button
-                Clicked="HandleSettingsButtonClick"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Settings" />
-
-        </StackLayout>
-
+        </ScrollView>
     </StackLayout>
     
 </ContentPage>

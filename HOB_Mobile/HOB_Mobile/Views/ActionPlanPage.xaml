@@ -9,7 +9,6 @@
 
     <StackLayout
         Margin="10, 20, 10, 10"
-        VerticalOptions="Fill"
         HorizontalOptions="StartAndExpand"
         Orientation="Vertical">
 

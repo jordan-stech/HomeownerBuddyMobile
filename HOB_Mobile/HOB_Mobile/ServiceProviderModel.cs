@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HOB_Mobile
+﻿namespace HOB_Mobile
 {
     /*
      * Model that handles each Trusted Service Provider information.

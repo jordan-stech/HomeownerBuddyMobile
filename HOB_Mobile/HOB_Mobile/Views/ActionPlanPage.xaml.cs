@@ -16,12 +16,12 @@ namespace HOB_Mobile.Views
 
         Dictionary<string, List<ContentModel>> tagToJsonMap = new Dictionary<string, List<ContentModel>>();
 
-        public ActionPlan(string urlEndpoint)
+        public ActionPlan(string category)
         {
             InitializeComponent();
 
-            // Call function to perform a web request with the passed URL endpoint as parameter
-            GetActionPlans(urlEndpoint);
+            // Call function to perform a web request with the passed category as parameter
+            GetActionPlans(category);
         }
 
         /*
@@ -73,7 +73,7 @@ namespace HOB_Mobile.Views
          *  Helper function that parses the returned web request response into a Map that maps tags
          *  to every JSON object that has the respective tag.
          *  
-         *  Returns a map (IDictionary<string, List<ContentModel>>)
+         *  Returns a map of format IDictionary<string, List<ContentModel>>
          */
         private Dictionary<string, List<ContentModel>> ParseRawJsonObjectHelper(string rawJson)
         {
@@ -139,7 +139,7 @@ namespace HOB_Mobile.Views
              * It loops through the tag map and print to the Output console each title, link and tags.
              */
 
-            /*foreach (String key in tagsMap.Keys)
+            /*foreach (string key in tagsMap.Keys)
             {
                 Debug.Write(key);
                 foreach (ContentModel item in tagsMap[key])
@@ -188,6 +188,9 @@ namespace HOB_Mobile.Views
                 if (actionPlan.title.Equals(selectedActionPlan))
                 {
                     Navigation.PushAsync(new ShowActionItemPage(actionPlan.title, actionPlan.link, actionPlan.steps));
+
+                    // Clear search results ListView
+                    actionPlanSearchResults.ItemsSource = null;
                 }
             }
         }
@@ -199,6 +202,12 @@ namespace HOB_Mobile.Views
         {
             // Get the object that triggered the function and cast it to a SearchBar
             SearchBar searchBar = (SearchBar)sender;
+
+            // If the search bar is empty, then clear the ListView
+            if (searchBar.Text.Equals(""))
+            {
+                actionPlanSearchResults.ItemsSource = null;
+            }
 
             string trimmedText = searchBar.Text.Trim();
 

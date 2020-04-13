@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace HOB_Mobile
+﻿namespace HOB_Mobile
 {
     /*
       * Model that handles each Action Plan information.
