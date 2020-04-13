@@ -47,6 +47,7 @@ namespace HOB_Mobile.Views
                 Preferences.Remove("user_home_code");
                 Preferences.Remove("user_first_name");
                 Preferences.Remove("user_last_name");
+                Preferences.Remove("user_address");
 
                 DeleteMobileUser(Preferences.Get("user_id", "default"));
                 // Return to register page

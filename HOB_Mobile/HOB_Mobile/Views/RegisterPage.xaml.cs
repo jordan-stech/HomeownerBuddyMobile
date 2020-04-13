@@ -21,16 +21,15 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
+            // Call function that adds the logo to the register page
+            SetUpLoginPageHabitatHumanityLogo();
+
             //Check and see if user registered previously, if they have, redirect them to the HomePage
             //set the testing boolean to true to see register page for testing purposes
-            SetUpLoginPageHabitatHumanityLogo();
             var testing = false;
             if (!Preferences.Get("user_home_code", "default_value").Equals("default_value") && !testing)
-            {
-                
+            { 
                 Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
-                // Call function that adds the logo to the register page
-                
             }
 
         }
@@ -62,15 +61,8 @@ namespace HOB_Mobile.Views
 
             } else
             {
-                //This is where we store the home code and name, we are going to use Preferences to see if a user is logged in
-                Preferences.Set("user_home_code", userHomeCode);
-                Preferences.Set("user_first_name", userFirstName);
-                Preferences.Set("user_last_name", userLastName);
-
                 //POST
-                PostUserInfo(userHomeCode, userFirstName, userLastName);
-
-                
+                PostUserInfo(userHomeCode, userFirstName, userLastName); 
             }
         }
 
@@ -111,9 +103,13 @@ namespace HOB_Mobile.Views
                 id = id.Substring(1);
                 id = id.TrimEnd(',');
                 // Save the id in preferences
+                //This is where we store the home code and name, we are going to use Preferences to see if a user is logged in
+                Preferences.Set("user_home_code", userHomeCode);
+                Preferences.Set("user_first_name", userFirstName);
+                Preferences.Set("user_last_name", userLastName);
                 Preferences.Set("user_id", id);
                 Preferences.Set("user_address", address);
-                //Preferences.Set("user_address", )
+
                 await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
             } else
             {
