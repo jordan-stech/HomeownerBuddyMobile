@@ -41,6 +41,13 @@
     <None Remove="Resources\misc.png" />
     <None Remove="Resources\phone.png" />
     <None Remove="Resources\plumbing.png" />
+    <None Remove="Resources\website.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\website.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +80,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\phone.png" />
+    <EmbeddedResource Include="Resources\phone.png" />
   </ItemGroup>
 
   <ItemGroup>

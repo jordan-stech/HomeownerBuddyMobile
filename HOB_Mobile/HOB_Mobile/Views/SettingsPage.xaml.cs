@@ -16,6 +16,9 @@ namespace HOB_Mobile.Views
             // Call function that sets up the unregiser home image
             SetUpUnregisterHomeImage();
 
+            // Call function that sets up the phone image
+            SetUpPhoneImage();
+
             // Call function that steps up the emergency phone number listener
             SetUpEmergencyPhoneNumberHandler();
         }
@@ -25,8 +28,15 @@ namespace HOB_Mobile.Views
          */
         private void SetUpUnregisterHomeImage()
         {
-            // Add the logout image stored in the Resources folder to its respective ImageButton in the SettingsPage.xaml file
             unregister_device.Source = ImageSource.FromResource("HOB_Mobile.Resources.logout_icon.png");
+        }
+
+        /*
+         * Handle the display of the phone image
+         */
+        private void SetUpPhoneImage()
+        {
+            emergency_phone_number_image.Source = ImageSource.FromResource("HOB_Mobile.Resources.phone.png");
         }
 
         /*
@@ -40,7 +50,7 @@ namespace HOB_Mobile.Views
             callEmergencyPhoneNumber.Tapped += async (sender, e) =>
             {
                 // Display alert to confirm if user wants to call the emergency phone number or not
-                bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
+                bool answer = await DisplayAlert("Emergency Only", "Would you like to call " + emergency_phone_number.Text + "?", "Call", "Cancel");
 
                 // If the user selected "Call", then proceed
                 if (answer == true)

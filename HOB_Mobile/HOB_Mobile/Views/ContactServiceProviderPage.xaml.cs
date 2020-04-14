@@ -17,9 +17,17 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
+            // Disable item tapped from ListView so we can handle phone number click and website click separately
+            ListServiceProvider.ItemTapped += HandleServiceProviderItemTapped;
+
             // Call function to perform a web request
             GetServiceProviders();
         }
+
+        /*
+         * Listener that disables the item tapped trigger for the service provider ListView
+         */
+        private void HandleServiceProviderItemTapped (object sender, ItemTappedEventArgs e) => ListServiceProvider.SelectedItem = null;
 
         /*
         * Get all service providers available in the database
@@ -51,6 +59,13 @@ namespace HOB_Mobile.Views
                 // the format set by the ServiceProviderModel
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
 
+                // Loop through every service provider and add the phone and website icon to their display
+                foreach(ServiceProviderModel model in serviceProviders)
+                {
+                    model.phone_icon = ImageSource.FromResource("HOB_Mobile.Resources.phone.png");
+                    model.website_icon = ImageSource.FromResource("HOB_Mobile.Resources.website.png");
+                }
+
                 // Set the list of ServiceProviderModel to the ListView in the ContactServiceProviderPage.xaml file
                 ListServiceProvider.ItemsSource = serviceProviders;
             } else
@@ -61,25 +76,37 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Listener for selected service provider
+         * Listener for clicked service provider website
          */
-        private async void HandleServiceProviderClick(object sender, SelectedItemChangedEventArgs e)
+        private async void HandleServiceProviderWebsiteClick(object sender, EventArgs e)
         {
-            // Get the object that triggered the function, cast it to a ListView and then get its selected item
-            var serviceProviderList = (ListView)sender;
-            var selectedServiceProvider = (serviceProviderList.SelectedItem as ServiceProviderModel);
+            // Get the object that triggered the function and cast it to a Label
+            var selectedServiceProvider = (Label)sender;
+
+            // Open selected service provider's website on the default browser
+            Uri uri = new Uri(selectedServiceProvider.Text);
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+
+        /*
+         * Listener for clicked service provider phone number
+         */
+        private async void HandleServiceProviderPhoneNumberClick(object sender, EventArgs e)
+        {
+            // Get the object that triggered the function and cast it to a Label
+            var selectedServiceProvider = (Label)sender;
 
             // Display alert to confirm if user wants to call the service provider phone number or not
-            bool answer = await DisplayAlert("", "Would you like to call " + selectedServiceProvider.name + "?", "Call", "Cancel");
+            bool answer = await DisplayAlert("Service Provider", "Would you like to call " + selectedServiceProvider.Text + "?", "Call", "Cancel");
 
             // If the user selected "Call", then proceed
             if (answer == true)
             {
                 // If the clicked service provider phone number is not null or empty, then call respective service provider
-                if (!string.IsNullOrEmpty(selectedServiceProvider.phone_number))
+                if (!string.IsNullOrEmpty(selectedServiceProvider.Text))
                 {
                     // Call function that calls the service provider phone number
-                    Call(selectedServiceProvider.phone_number);
+                    Call(selectedServiceProvider.Text);
                 }
             }
         }
