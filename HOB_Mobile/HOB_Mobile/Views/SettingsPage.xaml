@@ -9,13 +9,11 @@
     
     <ContentPage.Content>
 
-        <StackLayout
-            Margin="10, 20, 10, 10"
-            Orientation="Vertical">
+        <StackLayout>
 
             <StackLayout
-                Padding="5, 5, 5, 0"
-                Orientation="Vertical">
+                Margin="10, 20, 10, 10"
+                VerticalOptions="Start">
 
                 <Label 
                     TextColor="White"
@@ -68,7 +66,7 @@
                     FontSize="20"
                     FontAttributes="Bold"
                     Text="Emergency" />
-                
+
                 <Frame
                     Margin="0, 0, 0, 20"
                     Padding="15, 10, 0, 5"
@@ -76,8 +74,7 @@
                     BorderColor="White"
                     BackgroundColor="#53B949">
 
-                    <StackLayout
-                        Orientation="Vertical">
+                    <StackLayout>
 
                         <Label 
                             x:Name="emergency_phone_number"
@@ -95,73 +92,35 @@
 
                     </StackLayout>
                 </Frame>
-
-                <Label 
-                    TextColor="White"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    Text="Notifications" />
                 
-                <Frame
-                    Padding="15, 10, 0, 5"
-                    HeightRequest="60"
-                    BorderColor="White"
-                    BackgroundColor="#53B949">
+            </StackLayout>
 
-                    <StackLayout
-                        Orientation="Horizontal">
-
-                        <StackLayout
-                            Padding="0, 0, 80, 0"
-                            HorizontalOptions="Start"
-                            Orientation="Vertical">
-
-                            <Label 
-                                TextColor="Black"
-                                FontSize="18"
-                                FontAttributes="Bold"
-                                Text="Turn On/Off"/>
-
-                            <Label 
-                                TextColor="White"
-                                FontSize="15"
-                                Text="Receive maintenance reminders"/>
-
-                        </StackLayout>
-
-                        <Switch
-                            OnColor="LightGray"
-                            ThumbColor="Gray" 
-                            IsToggled="true"
-                            HorizontalOptions="End"/>
-
-                    </StackLayout>
-                </Frame>
+            <StackLayout 
+                Margin="0, 0, 0, 20"
+                VerticalOptions="EndAndExpand">
+                <Label 
+                        Margin="0, 0, 0, 0"
+                        TextColor="White"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Version 2.0.0"/>
 
                 <Label 
-                    Margin="0, 40, 0, 0"
-                    TextColor="White"
-                    FontSize="18"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Version 2.0.0"/>
-
-                <Label 
-                    TextColor="White"
-                    FontSize="18"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Released On: 30 Mar 2020"/>
+                        TextColor="White"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        Text="Released On: 30 Mar 2020"/>
 
                 <Label
-                    Margin="0, 20, 0, 0"
-                    TextColor="LightGray"
-                    FontSize="15"
-                    HorizontalTextAlignment="Center"
-                    Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved."/>
-
+                        Margin="0, 20, 0, 0"
+                        TextColor="LightGray"
+                        FontSize="15"
+                        HorizontalTextAlignment="Center"
+                        Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved."/>
             </StackLayout>
-            
+
         </StackLayout>
         
     </ContentPage.Content>

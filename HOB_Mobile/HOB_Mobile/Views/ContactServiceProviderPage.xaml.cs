@@ -19,9 +19,6 @@ namespace HOB_Mobile.Views
 
             // Call function to perform a web request
             GetServiceProviders();
-
-            // Call function that steps up the service provider phone number listener
-            //SetUpServiceProviderPhoneNumberHandler();
         }
 
         /*
@@ -64,97 +61,32 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Handle the service provider phone number click
-         *//*
-        private void SetUpServiceProviderPhoneNumberHandler()
-        {
-            // Create new tap gesture recognizer so we know when the user tried to click on any of the service provider's phone number
-            var callServiceProviderPhoneNumber = new TapGestureRecognizer();
-
-            // Set up the tap handler
-            callServiceProviderPhoneNumber.Tapped += async (sender, e) =>
-            {
-                // Display alert to confirm if user wants to call the service provider phone number or not
-                bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
-
-                // If the user selected "Call", then proceed
-                if (answer == true)
-                {
-                    // If the clicked emergency phone number is not null or empty, then call respective trusted service provider
-                    if (!string.IsNullOrEmpty(service_provider_phone_number.Text))
-                    {
-                        // Call function that calls the service provider phone number
-                        Call(service_provider_phone_number.Text);
-                    }
-                }
-            };
-
-            // Add the gesture recognizer to the respective service provider phone number label from ContactServiceProviderPage.xaml
-            service_provider_phone_number.GestureRecognizers.Add(callServiceProviderPhoneNumber);
-        }
-
-        *//*
-         *  Listener that performs the call.
-         *//*
-        public void Call(string phoneNumber)
-        {
-            try
-            {
-                // Open the phone dialer in the user's phone
-                PhoneDialer.Open(phoneNumber);
-            }
-
-            catch (FeatureNotSupportedException ex)
-            {
-                // If the PhoneDialer is not supported on the user's device, then display an alert
-                DisplayAlert("", "Phone Dialer is not supported on this device.", "", "Close");
-                Debug.Write(ex);
-            }
-            catch (Exception ex)
-            {
-                // Other error has occurred
-                Debug.Write(ex);
-            }
-        }*/
-
-
-
-
-
-
-        /*
-        *  Listener for phone number click.
-        *//*
-        private async void HandlePhoneNumberClick(object sender, SelectedItemChangedEventArgs e)
+         * Listener for selected service provider
+         */
+        private async void HandleServiceProviderClick(object sender, SelectedItemChangedEventArgs e)
         {
             // Get the object that triggered the function, cast it to a ListView and then get its selected item
-            var trustedServiceProviderList = (ListView)sender;
-            var trustedServiceProvider = (trustedServiceProviderList.SelectedItem as ServiceProviderModel);
+            var serviceProviderList = (ListView)sender;
+            var selectedServiceProvider = (serviceProviderList.SelectedItem as ServiceProviderModel);
 
-            // Get the phone number associated with the selected item in the ListView
-            var trustedServiceProvierPhoneNumber = trustedServiceProvider.phone_number;
-
-            // Display alert to confirm if user wants to call the selected number or not
-            bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
+            // Display alert to confirm if user wants to call the service provider phone number or not
+            bool answer = await DisplayAlert("", "Would you like to call " + selectedServiceProvider.name + "?", "Call", "Cancel");
 
             // If the user selected "Call", then proceed
             if (answer == true)
             {
-                // If the clicked phone number is not null or empty, then call respective trusted service provider
-                if (!string.IsNullOrEmpty(trustedServiceProvierPhoneNumber))
+                // If the clicked service provider phone number is not null or empty, then call respective service provider
+                if (!string.IsNullOrEmpty(selectedServiceProvider.phone_number))
                 {
-                    // Call function that calls the trusted service provider's phone number clicked by the user
-                    Call(trustedServiceProvierPhoneNumber);
+                    // Call function that calls the service provider phone number
+                    Call(selectedServiceProvider.phone_number);
                 }
             }
-
-            // Unselect item.
-            trustedServiceProviderList.SelectedItem = null;
         }
 
-        *//*
-        *  Listener that performs the call.
-        *//*
+        /*
+         *  Listener that performs the call.
+         */
         public void Call(string phoneNumber)
         {
             try
@@ -174,6 +106,6 @@ namespace HOB_Mobile.Views
                 // Other error has occurred
                 Debug.Write(ex);
             }
-        }*/
+        }
     }
 }

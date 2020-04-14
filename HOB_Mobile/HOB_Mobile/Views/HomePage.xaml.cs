@@ -104,7 +104,7 @@ namespace HOB_Mobile.Views
                 }
 
                 // Loop through the tag array
-                foreach (String tag in tagArray)
+                foreach (string tag in tagArray)
                 {
                     // Removed all spaces aroung tag so we can make sure that ContainsKey() compares the right strings
                     string trimmedTag = tag.Trim();
@@ -161,6 +161,8 @@ namespace HOB_Mobile.Views
          */
         private void HandleTextChange(object sender, EventArgs e)
         {
+            // LOOP THROUGH KEYS AND SEE IF IT CONTAINS, THEN LOOP THROUGH HASHMAP AND DISPLAY
+
             // Get the object that triggered the function and cast it to a SearchBar
             SearchBar searchBar = (SearchBar)sender;
 
