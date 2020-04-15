@@ -161,40 +161,47 @@ namespace HOB_Mobile.Views
          */
         private void HandleTextChange(object sender, EventArgs e)
         {
-            // LOOP THROUGH KEYS AND SEE IF IT CONTAINS, THEN LOOP THROUGH HASHMAP AND DISPLAY
-
             // Get the object that triggered the function and cast it to a SearchBar
             SearchBar searchBar = (SearchBar)sender;
 
+            // Remove all leading and trailing spaces from the text entered by the user
+            string trimmedText = searchBar.Text.Trim();
+
             // If the search bar is empty, then clear the ListView
-            if (searchBar.Text.Equals(""))
+            if (trimmedText.Equals("") || trimmedText == null)
             {
                 homePageSearchResults.ItemsSource = null;
             }
 
-            string trimmedText = searchBar.Text.Trim();
-
             // Get the searched text and put it in lowercase
             var normalizedQuery = trimmedText?.ToLower() ?? "";
 
-            // Create a new list of ContentModel to store JSON objects that match the tag searched
-            List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
-
-            // If the searched text exists in the tag map, then remove the value from the key value pair and store it in the list we created above
-            if (tagToJsonMap.TryGetValue(normalizedQuery, out jsonThatMatchesTagSearched))
+            // Loop through the keys of the tag Map
+            foreach (string key in tagToJsonMap.Keys)
             {
-                // Create new list of strings to store the title of the JSON objects that have the searched tag
-                List<string> searchResults = new List<string>();
-
-                // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
-                foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
+                // If the key starts with the text entered by the user, then proceed
+                if (key.StartsWith(normalizedQuery))
                 {
-                    // Add the action plan title to the search results list
-                    searchResults.Add(actionPlan.title);
-                }
+                    // Create a new list of ContentModel to store JSON objects that match the tag searched
+                    List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
 
-                // Set the list of search results to the ListView in the HomePage.xaml file
-                homePageSearchResults.ItemsSource = searchResults;
+                    // If the key exists in the tag map, then remove the value from the key value pair and store it in the list we created above
+                    if (tagToJsonMap.TryGetValue(key, out jsonThatMatchesTagSearched))
+                    {
+                        // Create new list of strings to store the title of the JSON objects that have the searched tag
+                        List<string> searchResults = new List<string>();
+
+                        // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
+                        foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
+                        {
+                            // Add the action plan title to the search results list
+                            searchResults.Add(actionPlan.title);
+                        }
+
+                        // Set the list of search results to the ListView in the HomePage.xaml file
+                        homePageSearchResults.ItemsSource = searchResults;
+                    }
+                }
             }
         }
 

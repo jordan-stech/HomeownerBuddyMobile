@@ -26,7 +26,7 @@
                 HorizontalTextAlignment="Start" />
         </Frame>
 
-        <ScrollView HeightRequest="200">
+        <ScrollView HeightRequest="150">
             <ListView
                 x:Name="homePageSearchResults"
                 HorizontalOptions="Fill"
