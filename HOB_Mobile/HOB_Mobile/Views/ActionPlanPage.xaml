@@ -35,7 +35,8 @@
                     x:Name="ListActionPlan"
                     ItemTapped="HandleShowStepsClick"
                     SeparatorColor="Black"
-                    HasUnevenRows="True">
+                    HasUnevenRows="True"
+                    BackgroundColor="#005691">
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
