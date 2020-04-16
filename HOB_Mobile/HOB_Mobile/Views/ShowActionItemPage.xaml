@@ -9,7 +9,7 @@
     
     <ContentPage.Content>
         <StackLayout
-            Margin="10, 20, 10, 10"
+            Margin="5, 20, 5, 10"
             VerticalOptions="Fill"
             HorizontalOptions="Fill"
             Orientation="Vertical">
@@ -39,7 +39,6 @@
                     Text="Steps:"
                     TextColor="White"
                     FontAttributes="Bold"
-                    HorizontalOptions="Center"
                     FontSize="20"/>
 
                 <Label
@@ -48,7 +47,7 @@
                     TextColor="White"
                     LineHeight="1.25"
                     Margin="0,5,0,0"
-                    FontSize="20"/>
+                    FontSize="18"/>
 
             </StackLayout>
 

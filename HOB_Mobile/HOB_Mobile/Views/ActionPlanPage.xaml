@@ -27,65 +27,65 @@
                 HorizontalTextAlignment="Start" />
         </Frame>
 
-        <ScrollView HeightRequest="150">
-            <ListView
+        <AbsoluteLayout>
+            <StackLayout Padding="5, 10, 5, 0">
+                <ScrollView>
+                    <ListView
+                        Margin="0, 0, 0, 10"
+                        x:Name="ListActionPlan"
+                        ItemTapped="HandleShowStepsTap"
+                        SeparatorColor="Black"
+                        HasUnevenRows="True">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        Padding="0, 20, 0, 20"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+
+                                        <WebView 
+                                            Source="{Binding link}"
+                                            HeightRequest="150"
+                                            WidthRequest="150"
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand" />
+
+                                        <Label
+                                            Text="{Binding title}"
+                                            TextColor="White"
+                                            Margin="0, 5, 0, 0"
+                                            FontSize="20"/>
+
+                                        <Label
+                                            Text="Click to show steps"
+                                            TextColor="LightGray"
+                                            FontAttributes="Italic"
+                                            FontSize="15"/>
+                                        
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+
+            <ScrollView 
+                x:Name="actionPlanPageScrollView"
+                IsVisible="False"
+                HeightRequest="180">
+                <ListView
                     x:Name="actionPlanSearchResults"
                     HorizontalOptions="Fill"
                     SeparatorColor="Black"
-                    ItemTapped="HandleSelectedActionPlan"
+                    BackgroundColor="White"
+                    ItemTapped="HandleTappedActionPlan"
                     VerticalOptions="CenterAndExpand">
-            </ListView>
-        </ScrollView>
-
-        <StackLayout 
-            Padding="5, 10, 5, 0">
-
-            <ScrollView>
-                <ListView
-                    Margin="0, 0, 0, 10"
-                    x:Name="ListActionPlan"
-                    ItemTapped="HandleShowStepsClick"
-                    SeparatorColor="Black"
-                    HasUnevenRows="True">
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout
-                                    Padding="15,20,15,20"
-                                    VerticalOptions="Center"
-                                    Orientation="Vertical">
-
-                                    <WebView 
-                                        Source="{Binding link}"
-                                        HeightRequest="200"
-                                        WidthRequest="200"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="FillAndExpand" />
-
-                                    <Label
-                                        Text="{Binding title}"
-                                        TextColor="White"
-                                        Margin="0,5,0,0"
-                                        FontSize="20"/>
-
-                                    <Label
-                                        Text="Click to show steps"
-                                        TextColor="LightGray"
-                                        FontAttributes="Italic"
-                                        Margin="0,5,0,0"
-                                        FontSize="15"/>
-
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
                 </ListView>
-                
             </ScrollView>
-
-        </StackLayout>
-
+            
+        </AbsoluteLayout>
     </StackLayout>
-
 </ContentPage>

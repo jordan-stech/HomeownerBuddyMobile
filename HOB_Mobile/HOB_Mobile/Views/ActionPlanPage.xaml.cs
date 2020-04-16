@@ -156,9 +156,68 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         *  Listener for action plan click
+         *  Listener for search bar
          */
-        private void HandleShowStepsClick(object sender, SelectedItemChangedEventArgs e)
+        private void HandleTextChange(object sender, EventArgs e)
+        {
+            // Get the object that triggered the function and cast it to a SearchBar
+            SearchBar searchBar = (SearchBar)sender;
+
+            // Remove all leading and trailing spaces from the text entered by the user
+            string trimmedText = searchBar.Text.Trim();
+
+            // If the search bar is empty, then clear the ListView
+            if (trimmedText.Equals("") || trimmedText == null)
+            {
+                actionPlanSearchResults.ItemsSource = null;
+
+                // Hide search results ScrollView
+                actionPlanPageScrollView.IsVisible = false;
+            } else
+            {
+                // Hide search results ScrollView
+                actionPlanPageScrollView.IsVisible = false;
+
+                // Get the searched text and put it in lowercase
+                var normalizedQuery = trimmedText?.ToLower() ?? "";
+
+                // Loop through the keys of the tag Map
+                foreach (string key in tagToJsonMap.Keys)
+                {
+                    // If the key starts with the text entered by the user, then proceed
+                    if (key.StartsWith(normalizedQuery))
+                    {
+                        // Show search results ScrollView
+                        actionPlanPageScrollView.IsVisible = true;
+
+                        // Create a new list of ContentModel to store JSON objects that match the tag searched
+                        List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
+
+                        // If the key exists in the tag map, then remove the value from the key value pair and store it in the list we created above
+                        if (tagToJsonMap.TryGetValue(key, out jsonThatMatchesTagSearched))
+                        {
+                            // Create new list of strings to store the title of the JSON objects that have the searched tag
+                            List<string> searchResults = new List<string>();
+
+                            // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
+                            foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
+                            {
+                                // Add the action plan title to the search results list
+                                searchResults.Add(actionPlan.title);
+                            }
+
+                            // Set the list of search results to the ListView in the ActionPlanPage.xaml file
+                            actionPlanSearchResults.ItemsSource = searchResults;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+         *  Listener for selected action plan
+         */
+        private void HandleShowStepsTap(object sender, ItemTappedEventArgs e)
         {
             // Get the object that triggered the function, cast it to a ListView and then get its selected item
             var actionPlanList = (ListView)sender;
@@ -169,12 +228,19 @@ namespace HOB_Mobile.Views
 
             // Unselect item.
             actionPlanList.SelectedItem = null;
+
+            // Clear search results ListView
+            actionPlanSearchBar.Text = "";
+            actionPlanSearchResults.ItemsSource = null;
+
+            // Hide search results ScrollView
+            actionPlanPageScrollView.IsVisible = false;
         }
 
        /*
         *  Listener for selected action plan searched
         */
-        private void HandleSelectedActionPlan(object sender, SelectedItemChangedEventArgs e)
+        private void HandleTappedActionPlan(object sender, ItemTappedEventArgs e)
         {
             // Get the object that triggered the function, cast it to a ListView and then get its selected item
             var searchResultList = (ListView)sender;
@@ -190,56 +256,11 @@ namespace HOB_Mobile.Views
                     Navigation.PushAsync(new ShowActionItemPage(actionPlan.title, actionPlan.link, actionPlan.steps));
 
                     // Clear search results ListView
+                    actionPlanSearchBar.Text = "";
                     actionPlanSearchResults.ItemsSource = null;
-                }
-            }
-        }
 
-        /*
-         *  Listener for search bar
-         */
-        private void HandleTextChange(object sender, EventArgs e)
-        {
-            // Get the object that triggered the function and cast it to a SearchBar
-            SearchBar searchBar = (SearchBar)sender;
-
-            // Remove all leading and trailing spaces from the text entered by the user
-            string trimmedText = searchBar.Text.Trim();
-
-            // If the search bar is empty, then clear the ListView
-            if (trimmedText.Equals("") || trimmedText == null)
-            {
-                actionPlanSearchResults.ItemsSource = null;
-            }
-
-            // Get the searched text and put it in lowercase
-            var normalizedQuery = trimmedText?.ToLower() ?? "";
-
-            // Loop through the keys of the tag Map
-            foreach (string key in tagToJsonMap.Keys)
-            {
-                // If the key starts with the text entered by the user, then proceed
-                if (key.StartsWith(normalizedQuery))
-                {
-                    // Create a new list of ContentModel to store JSON objects that match the tag searched
-                    List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
-
-                    // If the key exists in the tag map, then remove the value from the key value pair and store it in the list we created above
-                    if (tagToJsonMap.TryGetValue(key, out jsonThatMatchesTagSearched))
-                    {
-                        // Create new list of strings to store the title of the JSON objects that have the searched tag
-                        List<string> searchResults = new List<string>();
-
-                        // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
-                        foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
-                        {
-                            // Add the action plan title to the search results list
-                            searchResults.Add(actionPlan.title);
-                        }
-
-                        // Set the list of search results to the ListView in the ActionPlanPage.xaml file
-                        actionPlanSearchResults.ItemsSource = searchResults;
-                    }
+                    // Hide search results ScrollView
+                    actionPlanPageScrollView.IsVisible = false;
                 }
             }
         }

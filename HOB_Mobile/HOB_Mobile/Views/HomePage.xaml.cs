@@ -171,35 +171,46 @@ namespace HOB_Mobile.Views
             if (trimmedText.Equals("") || trimmedText == null)
             {
                 homePageSearchResults.ItemsSource = null;
+
+                // Hide search results ScrollView
+                homePageScrollView.IsVisible = false;
             }
-
-            // Get the searched text and put it in lowercase
-            var normalizedQuery = trimmedText?.ToLower() ?? "";
-
-            // Loop through the keys of the tag Map
-            foreach (string key in tagToJsonMap.Keys)
+            else
             {
-                // If the key starts with the text entered by the user, then proceed
-                if (key.StartsWith(normalizedQuery))
+                // Hide search results ScrollView
+                homePageScrollView.IsVisible = false;
+
+                // Get the searched text and put it in lowercase
+                var normalizedQuery = trimmedText?.ToLower() ?? "";
+
+                // Loop through the keys of the tag Map
+                foreach (string key in tagToJsonMap.Keys)
                 {
-                    // Create a new list of ContentModel to store JSON objects that match the tag searched
-                    List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
-
-                    // If the key exists in the tag map, then remove the value from the key value pair and store it in the list we created above
-                    if (tagToJsonMap.TryGetValue(key, out jsonThatMatchesTagSearched))
+                    // If the key starts with the text entered by the user, then proceed
+                    if (key.StartsWith(normalizedQuery))
                     {
-                        // Create new list of strings to store the title of the JSON objects that have the searched tag
-                        List<string> searchResults = new List<string>();
+                        // Show search results ScrollView
+                        homePageScrollView.IsVisible = true;
 
-                        // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
-                        foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
+                        // Create a new list of ContentModel to store JSON objects that match the tag searched
+                        List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
+
+                        // If the key exists in the tag map, then remove the value from the key value pair and store it in the list we created above
+                        if (tagToJsonMap.TryGetValue(key, out jsonThatMatchesTagSearched))
                         {
-                            // Add the action plan title to the search results list
-                            searchResults.Add(actionPlan.title);
-                        }
+                            // Create new list of strings to store the title of the JSON objects that have the searched tag
+                            List<string> searchResults = new List<string>();
 
-                        // Set the list of search results to the ListView in the HomePage.xaml file
-                        homePageSearchResults.ItemsSource = searchResults;
+                            // Loop through the list of ContentModel that have the JSON objects that matched the searched tag
+                            foreach (ContentModel actionPlan in jsonThatMatchesTagSearched)
+                            {
+                                // Add the action plan title to the search results list
+                                searchResults.Add(actionPlan.title);
+                            }
+
+                            // Set the list of search results to the ListView in the HomePage.xaml file
+                            homePageSearchResults.ItemsSource = searchResults;
+                        }
                     }
                 }
             }
@@ -208,7 +219,7 @@ namespace HOB_Mobile.Views
         /*
         *  Listener for selected action plan searched
         */
-        private void HandleSelectedActionPlanHomePage(object sender, SelectedItemChangedEventArgs e)
+        private void HandleTappedActionPlanHomePage(object sender, ItemTappedEventArgs e)
         {
             // Get the object that triggered the function, cast it to a ListView and then get its selected item
             var searchResultList = (ListView)sender;
@@ -224,7 +235,11 @@ namespace HOB_Mobile.Views
                     Navigation.PushAsync(new ShowActionItemPage(actionPlan.title, actionPlan.link, actionPlan.steps));
 
                     // Clear search results ListView
+                    homePageSearchBar.Text = "";
                     homePageSearchResults.ItemsSource = null;
+
+                    // Hide search results ScrollView
+                    homePageScrollView.IsVisible = false;
                 }
             }
         }
@@ -236,6 +251,13 @@ namespace HOB_Mobile.Views
         {
             // Go to the DiagnoseIssuePage
             Navigation.PushAsync(new DiagnoseIssuePage());
+
+            // Clear search results ListView
+            homePageSearchBar.Text = "";
+            homePageSearchResults.ItemsSource = null;
+
+            // Hide search results ScrollView
+            homePageScrollView.IsVisible = false;
         }
 
         /*
@@ -245,6 +267,13 @@ namespace HOB_Mobile.Views
         {
             // Go to the MaintenanceReminderPage
             Navigation.PushAsync(new MaintenanceReminder());
+
+            // Clear search results ListView
+            homePageSearchBar.Text = "";
+            homePageSearchResults.ItemsSource = null;
+
+            // Hide search results ScrollView
+            homePageScrollView.IsVisible = false;
         }
 
         /*
@@ -254,6 +283,13 @@ namespace HOB_Mobile.Views
         {
             // Go to the ContactServiceProviderPage
             Navigation.PushAsync(new ContactServiceProvider());
+
+            // Clear search results ListView
+            homePageSearchBar.Text = "";
+            homePageSearchResults.ItemsSource = null;
+
+            // Hide search results ScrollView
+            homePageScrollView.IsVisible = false;
         }
 
         /*
@@ -263,6 +299,13 @@ namespace HOB_Mobile.Views
         {
             // Go to the SettingsPage
             Navigation.PushAsync(new Settings());
+
+            // Clear search results ListView
+            homePageSearchBar.Text = "";
+            homePageSearchResults.ItemsSource = null;
+
+            // Hide search results ScrollView
+            homePageScrollView.IsVisible = false;
         }
     }
 }
