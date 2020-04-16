@@ -223,18 +223,24 @@ namespace HOB_Mobile.Views
             var actionPlanList = (ListView)sender;
             var actionPlanItem = (actionPlanList.SelectedItem as ContentModel);
 
-            // Go to the ShowActionItemPage passing the selected item's title, link and steps as parameters
-            Navigation.PushAsync(new ShowActionItemPage(actionPlanItem.title, actionPlanItem.link, actionPlanItem.steps));
+            try
+            {
+                // Go to the ShowActionItemPage passing the selected item's title, link and steps as parameters
+                Navigation.PushAsync(new ShowActionItemPage(actionPlanItem.title, actionPlanItem.link, actionPlanItem.steps));
 
-            // Unselect item.
-            actionPlanList.SelectedItem = null;
+                // Unselect item.
+                actionPlanList.SelectedItem = null;
 
-            // Clear search results ListView
-            actionPlanSearchBar.Text = "";
-            actionPlanSearchResults.ItemsSource = null;
+                // Clear search results ListView
+                actionPlanSearchBar.Text = "";
+                actionPlanSearchResults.ItemsSource = null;
 
-            // Hide search results ScrollView
-            actionPlanPageScrollView.IsVisible = false;
+                // Hide search results ScrollView
+                actionPlanPageScrollView.IsVisible = false;
+            } catch(Exception error)
+            {
+                Debug.WriteLine(error);
+            }
         }
 
        /*

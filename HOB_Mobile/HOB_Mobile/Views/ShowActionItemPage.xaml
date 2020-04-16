@@ -20,12 +20,10 @@
                 Orientation="Vertical">
 
                 <WebView
-                    x:Name="youtubeUrl"
+                    x:Name="youtubeVideo"
                     Source=""
                     HeightRequest="200"
-                    WidthRequest="200"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand" />
+                    WidthRequest="200" />
 
                 <Label
                     x:Name="youtubeTitle"
