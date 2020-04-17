@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,14 +24,25 @@ namespace HOB_Mobile.Views
             // Get user's first name passed as a parameter to HomePage.xaml.cs and display it in the home page
             homeowner_buddy_username.Text = userFirstName;
 
+            // Call function to set up button icons
+            SetUpButtonIcons();
+
             // Call function to perform a web request
             GetAvailableActionPlans();
         }
 
         /*
+         * Handle the display of the home page icons
+         */
+        private void SetUpButtonIcons()
+        {
+            // Add icons to the buttons in the home page
+        }
+
+        /*
          * Get all action plans available in the database
          */
-        public async void GetAvailableActionPlans()
+        private async void GetAvailableActionPlans()
         {
             // Set up new HttpClientHandler and its credentials so we can perform the web request
             HttpClientHandler clientHandler = new HttpClientHandler();

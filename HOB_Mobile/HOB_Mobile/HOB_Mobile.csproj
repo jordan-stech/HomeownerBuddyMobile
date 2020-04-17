@@ -27,11 +27,13 @@
     <None Remove="Resources\bathroom.png" />
     <None Remove="Resources\bed.png" />
     <None Remove="Resources\bedroom.png" />
+    <None Remove="Resources\calendar.png" />
     <None Remove="Resources\closet.png" />
     <None Remove="Resources\electric.png" />
     <None Remove="Resources\exterior.png" />
     <None Remove="Resources\habitat_midohio_logo.jpg" />
     <None Remove="Resources\hallway.png" />
+    <None Remove="Resources\help.png" />
     <None Remove="Resources\HVAC.png" />
     <None Remove="Resources\kitchen.png" />
     <None Remove="Resources\laundry.png" />
@@ -41,10 +43,14 @@
     <None Remove="Resources\misc.png" />
     <None Remove="Resources\phone.png" />
     <None Remove="Resources\plumbing.png" />
+    <None Remove="Resources\settings.png" />
     <None Remove="Resources\website.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\calendar.png" />
+    <EmbeddedResource Include="Resources\help.png" />
+    <EmbeddedResource Include="Resources\settings.png" />
     <EmbeddedResource Include="Resources\website.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
