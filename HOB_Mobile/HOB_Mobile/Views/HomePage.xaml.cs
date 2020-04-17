@@ -6,6 +6,7 @@ using System.Net.Http;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Views
 {

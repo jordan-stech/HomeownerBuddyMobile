@@ -61,13 +61,12 @@
                             FontAttributes="Bold"
                             Text="Address:" />
 
-                        <Label
-                            x:Name="homeowner_buddy_user_address"
-                            TextColor="#53B949"
-                            FontSize="25"
-                            FontAttributes="Bold"
-                            Text="1618 Myrtle Ave."
-                            HorizontalTextAlignment="Center" />
+                <Label
+                    x:Name="homeowner_buddy_user_address"
+                    TextColor="#53B949"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center" />
 
                     </StackLayout>
 
