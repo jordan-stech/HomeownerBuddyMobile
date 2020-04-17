@@ -56,7 +56,7 @@
 
                         <Label 
                             TextColor="White"
-                            FontSize="25"
+                            FontSize="20"
                             HorizontalTextAlignment="Center"
                             FontAttributes="Bold"
                             Text="Address:" />

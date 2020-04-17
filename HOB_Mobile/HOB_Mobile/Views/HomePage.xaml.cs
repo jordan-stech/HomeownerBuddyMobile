@@ -25,6 +25,9 @@ namespace HOB_Mobile.Views
             // Get user's first name passed as a parameter to HomePage.xaml.cs and display it in the home page
             homeowner_buddy_username.Text = userFirstName;
 
+            homeowner_buddy_user_address.Text = Preferences.Get("user_address", "no address found");
+            homeowner_buddy_user_address.FontSize = 20;
+
             // Call function to set up button icons
             SetUpButtonIcons();
 
