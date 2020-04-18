@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -7,8 +7,6 @@ using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Net.Http.Headers;
-using System;
 
 namespace HOB_Mobile.Views
 {
@@ -19,9 +17,17 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
+            // Disable item tapped from ListView so we can handle phone number click and website click separately
+            ListServiceProvider.ItemTapped += HandleServiceProviderItemTapped;
+
             // Call function to perform a web request
             GetServiceProviders();
         }
+
+        /*
+         * Listener that disables the item tapped trigger for the service provider ListView
+         */
+        private void HandleServiceProviderItemTapped (object sender, ItemTappedEventArgs e) => ListServiceProvider.SelectedItem = null;
 
         /*
         * Get all service providers available in the database
@@ -49,10 +55,18 @@ namespace HOB_Mobile.Views
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
 
-                // Deserialize the JSON object. In other words, convert the returned string back to its original object form (JSON)
+                // Deserialize the object. In other words, convert the returned string back to
+                // the format set by the ServiceProviderModel
                 var serviceProviders = JsonConvert.DeserializeObject<List<ServiceProviderModel>>(content);
 
-                // Add JSON object returned from the web request to the ListView in the ContactServiceProviderPage.xaml file
+                // Loop through every service provider and add the phone and website icon to their display
+                foreach(ServiceProviderModel model in serviceProviders)
+                {
+                    model.phone_icon = ImageSource.FromResource("HOB_Mobile.Resources.phone.png");
+                    model.website_icon = ImageSource.FromResource("HOB_Mobile.Resources.website.png");
+                }
+
+                // Set the list of ServiceProviderModel to the ListView in the ContactServiceProviderPage.xaml file
                 ListServiceProvider.ItemsSource = serviceProviders;
             } else
             {
@@ -62,38 +76,44 @@ namespace HOB_Mobile.Views
         }
 
         /*
-        *  Listener for phone number click.
-        */
-        private async void HandlePhoneNumberClick(object sender, SelectedItemChangedEventArgs e)
+         * Listener for clicked service provider website
+         */
+        private async void HandleServiceProviderWebsiteClick(object sender, EventArgs e)
         {
-            // Get the object that triggered the function, cast it to a ListView and then get its selected item
-            var trustedServiceProviderList = (ListView)sender;
-            var trustedServiceProvider = (trustedServiceProviderList.SelectedItem as ServiceProviderModel);
+            // Get the object that triggered the function and cast it to a Label
+            var selectedServiceProvider = (Label)sender;
 
-            // Get the phone number associated with the selected item in the ListView
-            var trustedServiceProvierPhoneNumber = trustedServiceProvider.phone_number;
+            // Open selected service provider's website on the default browser
+            Uri uri = new Uri(selectedServiceProvider.Text);
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
 
-            // Display alert to confirm if user wants to call the selected number or not
-            bool answer = await DisplayAlert("", "Would you like to call this number?", "Call", "Cancel");
+        /*
+         * Listener for clicked service provider phone number
+         */
+        private async void HandleServiceProviderPhoneNumberClick(object sender, EventArgs e)
+        {
+            // Get the object that triggered the function and cast it to a Label
+            var selectedServiceProvider = (Label)sender;
+
+            // Display alert to confirm if user wants to call the service provider phone number or not
+            bool answer = await DisplayAlert("Service Provider", "Would you like to call " + selectedServiceProvider.Text + "?", "Call", "Cancel");
 
             // If the user selected "Call", then proceed
             if (answer == true)
             {
-                // If the clicked phone number is not null or empty, then call respective trusted service provider
-                if (!string.IsNullOrEmpty(trustedServiceProvierPhoneNumber))
+                // If the clicked service provider phone number is not null or empty, then call respective service provider
+                if (!string.IsNullOrEmpty(selectedServiceProvider.Text))
                 {
-                    // Call function that calls the trusted service provider's phone number clicked by the user
-                    Call(trustedServiceProvierPhoneNumber);
+                    // Call function that calls the service provider phone number
+                    Call(selectedServiceProvider.Text);
                 }
             }
-
-            // Unselect item.
-            trustedServiceProviderList.SelectedItem = null;
         }
 
         /*
-        *  Listener that performs the call.
-        */
+         *  Listener that performs the call.
+         */
         public void Call(string phoneNumber)
         {
             try

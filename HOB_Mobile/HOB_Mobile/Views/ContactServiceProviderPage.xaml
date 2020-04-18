@@ -25,10 +25,9 @@
             <ScrollView  Padding="0, 20, 0, 0">
                 <ListView
                     x:Name="ListServiceProvider"
-                    ItemTapped="HandlePhoneNumberClick"
                     SeparatorColor="Black"
-                    RowHeight = "120">
-                    
+                    RowHeight = "140"
+                    BackgroundColor="#005691">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -47,14 +46,50 @@
                                         FontSize="18"
                                         Text="{Binding service}"/>
 
-                                    <Label 
-                                        TextColor="White"
-                                        FontSize="18"
-                                        Text="{Binding phone_number}"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image
+                                            Source="{Binding phone_icon}"
+                                            Margin="0, 0, 5, 0"
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="25"
+                                            WidthRequest="25">
+                                            
+                                        </Image>
 
-                                    <Label
-                                        FontSize="18"
-                                        Text="{Binding url}"/>
+                                        <Label 
+                                            TextColor="White"
+                                            FontSize="18"
+                                            Text="{Binding phone_number}">
+
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="HandleServiceProviderPhoneNumberClick"/>
+                                            </Label.GestureRecognizers>
+
+                                        </Label>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image
+                                            Source="{Binding website_icon}"
+                                            Margin="0, 0, 5, 0"
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="25"
+                                            WidthRequest="25">
+                                            
+                                        </Image>
+
+                                        <Label
+                                            TextColor="WhiteSmoke"
+                                            FontSize="14"
+                                            Text="{Binding url}">
+                                            
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="HandleServiceProviderWebsiteClick"/>
+                                            </Label.GestureRecognizers>
+                                            
+                                        </Label>
+
+                                    </StackLayout>
 
                                 </StackLayout>
                             </ViewCell>

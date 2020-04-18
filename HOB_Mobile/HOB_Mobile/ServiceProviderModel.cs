@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Xamarin.Forms;
 
 namespace HOB_Mobile
 {
@@ -16,5 +14,7 @@ namespace HOB_Mobile
         public string service { get; set; }
         public string phone_number { get; set; }
         public string url { get; set; }
+        public ImageSource phone_icon { get; set; }
+        public ImageSource website_icon { get; set; }
     }
 }

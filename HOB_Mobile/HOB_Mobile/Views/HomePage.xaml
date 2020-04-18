@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.HomePage"
              BackgroundColor="#005691">
-    
+
     <StackLayout
         Margin="10, 10, 10, 10"
         Orientation="Vertical">
@@ -17,50 +17,49 @@
             HasShadow="True">
 
             <SearchBar
+                x:Name="homePageSearchBar"
                 Placeholder="Search"
                 CancelButtonColor="Red"
+                TextChanged="HandleTextChange"
                 PlaceholderColor="#005691"
                 TextColor="#005691"
                 HorizontalTextAlignment="Start" />
-
         </Frame>
 
-        <StackLayout Padding="0, 20, 0, 0">
+        <AbsoluteLayout>
+            <ScrollView>
+                <StackLayout Padding="0, 20, 0, 0">
+                    <Label HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    TextColor="White"
+                                    FontSize="25"
+                                    FontAttributes="Bold"
+                                    Text="Welcome to the Homeowner Buddy, " />
 
-            <Label
-                HorizontalTextAlignment="Center">
+                                <Span 
+                                    x:Name="homeowner_buddy_username"
+                                    TextColor="#53B949"
+                                    FontSize="25"
+                                    FontAttributes="Bold"
+                                    Text=""/>
 
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <StackLayout
+                        Margin="0, 20, 0, 0"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal">
+
+                        <Label 
                             TextColor="White"
-                            FontSize="25"
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
                             FontAttributes="Bold"
-                            Text="Welcome to the Homeowner Buddy, " />
-
-                        <Span 
-                            x:Name="homeowner_buddy_username"
-                            TextColor="#53B949"
-                            FontSize="25"
-                            FontAttributes="Bold"
-                            Text=""/>
-                        
-                    </FormattedString>
-                </Label.FormattedText>
-                
-            </Label>
-
-            <StackLayout
-                Margin="0, 20, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
-                
-                <Label 
-                    TextColor="White"
-                    FontSize="20"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Address:" />
+                            Text="Address:" />
 
                 <Label
                     x:Name="homeowner_buddy_user_address"
@@ -69,61 +68,77 @@
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center" />
 
-            </StackLayout>
+                    </StackLayout>
 
-            <Button
-                Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
-                Margin="0, 40, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Help Me Diagnose an Issue" />
+                    <Button
+                        Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
+                        Margin="0, 40, 0, 10"
+                        Padding="5, 20, 5, 20"
+                        BorderWidth="2"
+                        BorderColor="White"
+                        BackgroundColor="#53B949"
+                        CornerRadius="20"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Text="Help Me Diagnose an Issue" />
 
-            <Button
-                Clicked="HandleMaintenanceRemindersButtonClick"
-                Margin="0, 0, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Maintenance Reminders" />
+                    <Button
+                        Clicked="HandleMaintenanceRemindersButtonClick"
+                        Margin="0, 0, 0, 10"
+                        Padding="5, 20, 5, 20"
+                        BorderWidth="2"
+                        BorderColor="White"
+                        BackgroundColor="#53B949"
+                        CornerRadius="20"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Text="Maintenance Reminders" />
 
-            <Button
-                Clicked="HandleContactServiceProvidersButtonClick"
-                Margin="0, 0, 0, 10"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Contact Service Providers" />
+                    <Button
+                        Clicked="HandleContactServiceProvidersButtonClick"
+                        Margin="0, 0, 0, 10"
+                        Padding="5, 20, 5, 20"
+                        BorderWidth="2"
+                        BorderColor="White"
+                        BackgroundColor="#53B949"
+                        CornerRadius="20"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Text="Contact Service Providers" />
 
-            <Button
-                Clicked="HandleSettingsButtonClick"
-                Padding="5, 20, 5, 20"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Settings" />
+                    <Button
+                        Clicked="HandleSettingsButtonClick"
+                        Padding="5, 20, 5, 20"
+                        BorderWidth="2"
+                        BorderColor="White"
+                        BackgroundColor="#53B949"
+                        CornerRadius="20"
+                        TextColor="White"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Text="Settings" />
 
-        </StackLayout>
+                </StackLayout>
+            </ScrollView>
 
+            <ScrollView
+                x:Name="homePageScrollView"
+                IsVisible="False"
+                HeightRequest="180">
+
+                <ListView
+                    x:Name="homePageSearchResults"
+                    HorizontalOptions="Fill"
+                    SeparatorColor="LightGray"
+                    BackgroundColor="White"
+                    ItemTapped="HandleTappedActionPlanHomePage"
+                    VerticalOptions="CenterAndExpand">
+                </ListView>
+            </ScrollView>
+            
+        </AbsoluteLayout>
     </StackLayout>
-    
 </ContentPage>
