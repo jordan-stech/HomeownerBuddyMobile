@@ -35,8 +35,8 @@
                         x:Name="ListActionPlan"
                         ItemTapped="HandleShowStepsTap"
                         SeparatorColor="Black"
-                        HasUnevenRows="True">
-
+                        HasUnevenRows="True"
+                        BackgroundColor="#005691">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -44,7 +44,6 @@
                                         Padding="0, 20, 0, 20"
                                         VerticalOptions="Center"
                                         Orientation="Vertical">
-
                                         <WebView 
                                             Source="{Binding link}"
                                             HeightRequest="150"

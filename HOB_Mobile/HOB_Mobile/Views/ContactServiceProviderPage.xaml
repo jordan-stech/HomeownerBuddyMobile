@@ -26,8 +26,8 @@
                 <ListView
                     x:Name="ListServiceProvider"
                     SeparatorColor="Black"
-                    RowHeight = "140">
-                    
+                    RowHeight = "140"
+                    BackgroundColor="#005691">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
