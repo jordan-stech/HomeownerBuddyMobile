@@ -81,7 +81,7 @@
                         TextColor="White"
                         FontSize="20"
                         FontAttributes="Bold"
-                        Text="Help Me Diagnose an Issue" />
+                        Text="Diagnose an Issue" />
 
                     <Button
                         Clicked="HandleMaintenanceRemindersButtonClick"
