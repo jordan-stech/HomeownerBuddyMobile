@@ -107,7 +107,7 @@
                         TextColor="White"
                         FontSize="20"
                         FontAttributes="Bold"
-                        Text="Contact Service Providers" />
+                        Text="Service Providers" />
 
                     <Button
                         Clicked="HandleSettingsButtonClick"
