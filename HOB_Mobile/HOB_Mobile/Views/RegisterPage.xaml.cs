@@ -57,7 +57,7 @@ namespace HOB_Mobile.Views
             // Check if any of the input forms are empty when the user clicks the "Register" button
             if (userHomeCode == null || userFirstName == null || userLastName == null)
             { 
-                DisplayAlert("", "All fields are required", "OK");
+                DisplayAlert("All Fields are Required", "Make sure you fill out all of the fields", "OK");
 
             } else
             {
@@ -111,7 +111,7 @@ namespace HOB_Mobile.Views
                 await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
             } else
             {
-                await DisplayAlert("", "HomeCode does not exist", "OK");
+                await DisplayAlert("Home Code does not exist", "Please double check your home code", "OK");
             }
         }
     }
