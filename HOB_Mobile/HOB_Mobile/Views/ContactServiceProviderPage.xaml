@@ -53,7 +53,6 @@
                                             BackgroundColor="Transparent"
                                             HeightRequest="25"
                                             WidthRequest="25">
-                                            
                                         </Image>
 
                                         <Label 
@@ -64,7 +63,6 @@
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="HandleServiceProviderPhoneNumberClick"/>
                                             </Label.GestureRecognizers>
-
                                         </Label>
                                     </StackLayout>
 
@@ -75,22 +73,19 @@
                                             BackgroundColor="Transparent"
                                             HeightRequest="25"
                                             WidthRequest="25">
-                                            
+
                                         </Image>
 
                                         <Label
                                             TextColor="WhiteSmoke"
                                             FontSize="14"
                                             Text="{Binding url}">
-                                            
+
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="HandleServiceProviderWebsiteClick"/>
                                             </Label.GestureRecognizers>
-                                            
                                         </Label>
-
                                     </StackLayout>
-
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

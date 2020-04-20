@@ -41,6 +41,10 @@ namespace HOB_Mobile.Views
         private void SetUpButtonIcons()
         {
             // Add icons to the buttons in the home page
+            diagnose_issue_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.help.png");
+            maintenance_reminders_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.calendar.png");
+            service_providers_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.phone.png");
+            settings_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.settings.png");
         }
 
         /*
@@ -257,9 +261,9 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Listener for "Help Me Diagnose an Issue" button
+         * Listener for "Diagnose Issue" button tap
          */
-        private void HandleHelpMeDiagnoseAnIssueButtonClick(object sender, EventArgs e)
+        private void HandleDiagnoseIssueTap(object sender, EventArgs e)
         {
             // Go to the DiagnoseIssuePage
             Navigation.PushAsync(new DiagnoseIssuePage());
@@ -273,9 +277,9 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Listener for "Maintenance Reminders" button
+         * Listener for "Maintenance Reminders" button tap
          */
-        private void HandleMaintenanceRemindersButtonClick(object sender, EventArgs e)
+        private void HandleMaintenanceRemindersTap(object sender, EventArgs e)
         {
             // Go to the MaintenanceReminderPage
             Navigation.PushAsync(new MaintenanceReminder());
@@ -289,9 +293,9 @@ namespace HOB_Mobile.Views
         }
 
         /*
-         * Listener for "Contact Service Providers" button
+         * Listener for "Service Providers" button tap
          */
-        private void HandleContactServiceProvidersButtonClick(object sender, EventArgs e)
+        private void HandleServiceProvidersTap(object sender, EventArgs e)
         {
             // Go to the ContactServiceProviderPage
             Navigation.PushAsync(new ContactServiceProvider());
@@ -305,9 +309,9 @@ namespace HOB_Mobile.Views
         }
 
         /*
-        * Listener for "Settings" button
+        * Listener for "Settings" button tap
         */
-        private void HandleSettingsButtonClick(object sender, EventArgs e)
+        private void HandleSettingsTap(object sender, EventArgs e)
         {
             // Go to the SettingsPage
             Navigation.PushAsync(new Settings());

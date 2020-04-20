@@ -27,8 +27,7 @@
         </Frame>
 
         <AbsoluteLayout>
-            <ScrollView>
-                <StackLayout Padding="0, 20, 0, 0">
+            <StackLayout Padding="0, 20, 0, 0">
                     <Label HorizontalTextAlignment="Center">
                         <Label.FormattedText>
                             <FormattedString>
@@ -61,68 +60,158 @@
                             FontAttributes="Bold"
                             Text="Address:" />
 
-                <Label
-                    x:Name="homeowner_buddy_user_address"
-                    TextColor="#53B949"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    HorizontalTextAlignment="Center" />
-
+                        <Label
+                            x:Name="homeowner_buddy_user_address"
+                            TextColor="#53B949"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center" />
                     </StackLayout>
 
-                    <Button
-                        Clicked="HandleHelpMeDiagnoseAnIssueButtonClick"
-                        Margin="0, 40, 0, 10"
-                        Padding="5, 20, 5, 20"
-                        BorderWidth="2"
-                        BorderColor="White"
-                        BackgroundColor="#53B949"
-                        CornerRadius="20"
-                        TextColor="White"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        Text="Help Me Diagnose an Issue" />
+                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical">
+                        <Frame 
+                            Margin="0, 40, 0, 10"
+                            CornerRadius="20"
+                            OutlineColor="White" 
+                            BackgroundColor="#53B949"
+                            Padding="5, 5, 5, 5"
+                        >
+                            <StackLayout
+                                Margin="50, 0, 0, 0"
+                                Orientation="Horizontal"
+                                HorizontalOptions="Start"
+                                VerticalOptions="FillAndExpand"
+                            >
+                                <Image
+                                    x:Name="diagnose_issue_button"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    Margin="0, 5, 20, 5"
+                                    Source=""
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="CenterAndExpand"/>
+                                <Label
+                                    Text="Diagnose Issue" 
+                                    TextColor="White"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"/>
+                                
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="HandleDiagnoseIssueTap"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
 
-                    <Button
-                        Clicked="HandleMaintenanceRemindersButtonClick"
-                        Margin="0, 0, 0, 10"
-                        Padding="5, 20, 5, 20"
-                        BorderWidth="2"
-                        BorderColor="White"
-                        BackgroundColor="#53B949"
-                        CornerRadius="20"
-                        TextColor="White"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        Text="Maintenance Reminders" />
+                        <Frame 
+                            Margin="0, 0, 0, 10"
+                            CornerRadius="20"
+                            OutlineColor="White" 
+                            BackgroundColor="#53B949"
+                            Padding="5, 5, 5, 5"
+                        >
+                            <StackLayout
+                                Margin="50, 0, 0, 0"
+                                Orientation="Horizontal"
+                                HorizontalOptions="Start"
+                                VerticalOptions="FillAndExpand"
+                            >
+                                <Image
+                                    x:Name="maintenance_reminders_button"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    Margin="0, 5, 20, 5"
+                                    Source=""
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="CenterAndExpand"/>
+                                <Label
+                                    Text="Maintenance Reminders" 
+                                    TextColor="White"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"/>
 
-                    <Button
-                        Clicked="HandleContactServiceProvidersButtonClick"
-                        Margin="0, 0, 0, 10"
-                        Padding="5, 20, 5, 20"
-                        BorderWidth="2"
-                        BorderColor="White"
-                        BackgroundColor="#53B949"
-                        CornerRadius="20"
-                        TextColor="White"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        Text="Contact Service Providers" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="HandleMaintenanceRemindersTap"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
 
-                    <Button
-                        Clicked="HandleSettingsButtonClick"
-                        Padding="5, 20, 5, 20"
-                        BorderWidth="2"
-                        BorderColor="White"
-                        BackgroundColor="#53B949"
-                        CornerRadius="20"
-                        TextColor="White"
-                        FontSize="20"
-                        FontAttributes="Bold"
-                        Text="Settings" />
+                        <Frame 
+                            Margin="0, 0, 0, 10"
+                            CornerRadius="20"
+                            OutlineColor="White" 
+                            BackgroundColor="#53B949"
+                            Padding="5, 5, 5, 5"
+                        >
+                            <StackLayout
+                                Margin="50, 0, 0, 0"
+                                Orientation="Horizontal"
+                                HorizontalOptions="Start"
+                                VerticalOptions="FillAndExpand"
+                            >
+                                <Image
+                                    x:Name="service_providers_button"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    Margin="0, 5, 20, 5"
+                                    Source=""
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="CenterAndExpand"/>
+                                <Label
+                                    Text="Service Providers" 
+                                    TextColor="White"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"/>
 
-                </StackLayout>
-            </ScrollView>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="HandleServiceProvidersTap"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame 
+                            Margin="0, 0, 0, 10"
+                            CornerRadius="20"
+                            OutlineColor="White" 
+                            BackgroundColor="#53B949"
+                            Padding="5, 5, 5, 5"
+                        >
+                            <StackLayout
+                                Margin="50, 0, 0, 0"
+                                Orientation="Horizontal"
+                                HorizontalOptions="Start"
+                                VerticalOptions="FillAndExpand"
+                            >
+                                <Image
+                                    x:Name="settings_button"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    Margin="0, 5, 20, 5"
+                                    Source=""
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="CenterAndExpand"/>
+                                <Label
+                                    Text="Settings" 
+                                    TextColor="White"
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="HandleSettingsTap"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
 
             <ScrollView
                 x:Name="homePageScrollView"

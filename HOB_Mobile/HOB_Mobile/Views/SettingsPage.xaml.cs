@@ -3,7 +3,6 @@ using System.Diagnostics;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
 using System.Net.Http;
 using Newtonsoft.Json;
 
