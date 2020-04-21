@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Diagnostics;
 using System.Text;
 
 namespace HOB_Mobile.Views
@@ -19,6 +18,9 @@ namespace HOB_Mobile.Views
     {
         public RegisterPage()
         {
+            // Remove navigation bar from top of the screen
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
 
             // Call function that adds the logo to the register page

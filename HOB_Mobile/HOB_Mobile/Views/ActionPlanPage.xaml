@@ -28,7 +28,15 @@
         </Frame>
 
         <AbsoluteLayout>
-            <StackLayout Padding="5, 10, 5, 0">
+            <StackLayout>
+                <Label
+                    x:Name="category_label"
+                    TextColor="White"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"
+                    Text="" />
+                
                 <ScrollView>
                     <ListView
                         Margin="0, 0, 0, 10"
@@ -48,9 +56,7 @@
                                         <WebView 
                                             Source="{Binding link}"
                                             HeightRequest="150"
-                                            WidthRequest="150"
-                                            HorizontalOptions="FillAndExpand"
-                                            VerticalOptions="FillAndExpand" />
+                                            HorizontalOptions="FillAndExpand" />
 
                                         <Label
                                             Text="{Binding title}"
@@ -75,6 +81,7 @@
             <ScrollView 
                 x:Name="actionPlanPageScrollView"
                 IsVisible="False"
+                HorizontalOptions="Fill"
                 HeightRequest="180">
                 <ListView
                     x:Name="actionPlanSearchResults"
