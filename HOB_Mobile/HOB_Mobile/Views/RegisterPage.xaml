@@ -12,8 +12,6 @@
         Margin="10, 10, 10, 10"
         Orientation="Vertical">
 
-        <Image x:Name="habitat_humanity_logo"/>
-
         <StackLayout
             Padding="5, 5, 5, 0"
             Orientation="Vertical">
@@ -26,7 +24,7 @@
 
             <Frame
                 Padding="15, 5, 15, 5"
-                HeightRequest="50"
+                HeightRequest="40"
                 BorderColor="White"
                 BackgroundColor="#53B949"
                 CornerRadius="20">
@@ -35,6 +33,7 @@
                     x:Name="homeowner_buddy_home_code"
                     TextColor="White"
                     Keyboard="Telephone"
+                    FontSize="18"
                     Placeholder="Enter your home code"
                     BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
@@ -48,7 +47,7 @@
 
             <Frame
                 Padding="15, 5, 15, 5"
-                HeightRequest="50"
+                HeightRequest="40"
                 BorderColor="White"
                 BackgroundColor="#53B949"
                 CornerRadius="20">
@@ -57,6 +56,7 @@
                     x:Name="homeowner_buddy_first_name"
                     TextColor="White"
                     Keyboard="Text"
+                    FontSize="18"
                     Placeholder="Enter your first name"
                     BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
@@ -70,7 +70,7 @@
 
             <Frame
                 Padding="15, 5, 15, 5"
-                HeightRequest="50"
+                HeightRequest="40"
                 BorderColor="White"
                 BackgroundColor="#53B949"
                 CornerRadius="20">
@@ -79,6 +79,7 @@
                     x:Name="homeowner_buddy_last_name"
                     TextColor="White"
                     Keyboard="Text"
+                    FontSize="18"
                     Placeholder="Enter your last name"
                     BackgroundColor="#53B949"
                     PlaceholderColor="White"/>
@@ -88,9 +89,10 @@
                 x:Name="register_button"
                 IsVisible="True"
                 Clicked="HandleRegisterButtonClick"
-                Margin="0, 50, 0, 0"
+                Margin="0, 30, 0, 0"
                 Padding="5, 5, 5, 5"
-                HeightRequest="60"
+                WidthRequest="50"
+                HeightRequest="50"
                 BorderWidth="2"
                 BorderColor="White"
                 BackgroundColor="#53B949"
@@ -101,5 +103,12 @@
                 Text="Register" />
 
         </StackLayout>
+
+        <Image 
+            Margin="0, 50, 0 ,0"
+            x:Name="habitat_humanity_logo"
+            WidthRequest="120"
+            HeightRequest="120"/>
+        
     </StackLayout>
 </ContentPage>
