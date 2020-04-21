@@ -10,8 +10,12 @@ namespace HOB_Mobile.Views
     {
         public DiagnoseIssuePage()
         {
+            // Remove navigation bar from top of the screen
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
 
+            // Call function to set up the home locations icons
             SetUpHomeIssueImages();
         }
 

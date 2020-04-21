@@ -8,6 +8,9 @@ namespace HOB_Mobile.Views
     {
         public ShowActionItemPage(string title, string link, string steps)
         {
+            // Remove navigation bar from top of the screen
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
 
             // Call function that sets up and display the selected ActionPlan item

@@ -17,6 +17,9 @@ namespace HOB_Mobile.Views
     {
         public MaintenanceReminder()
         {
+            // Remove navigation bar from top of the screen
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
         }
     }
