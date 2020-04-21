@@ -1,5 +1,5 @@
 # Homeowner Buddy
-Habitat Homeowner Buddy is a web-enabled phone app (Android/iOS) that will assist new Habitat for Humanity homeowners with troubleshooting and the ‘triaging’ of issues with their new homes.
+Habitat Homeowner Buddy Mobile App is a web-enabled phone app (Android/iOS) that will assist new Habitat for Humanity homeowners with troubleshooting and the ‘triaging’ of issues with their new homes.
 
 This app will help diagnose common home issues, reinforce new homeowner training and free up time-strapped Habitat staff from taking calls from new homeowners in cases where a simple app could guide them to a solution on their own.
 
