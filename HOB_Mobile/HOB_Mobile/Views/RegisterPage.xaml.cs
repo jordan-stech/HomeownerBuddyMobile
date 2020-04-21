@@ -97,18 +97,24 @@ namespace HOB_Mobile.Views
                 var tokenJson = await response.Content.ReadAsStringAsync();
                 var array = tokenJson.Split('"');
                 String id = array[2];
-                String address = array[17];
                 id = id.Substring(1);
                 id = id.TrimEnd(',');
-                // Save the id in preferences
-                //This is where we store the home code and name, we are going to use Preferences to see if a user is logged in
-                Preferences.Set("user_home_code", userHomeCode);
-                Preferences.Set("user_first_name", userFirstName);
-                Preferences.Set("user_last_name", userLastName);
-                Preferences.Set("user_id", id);
-                Preferences.Set("user_address", address);
+                if (id != "-1")
+                {
+                    String address = array[17];
+                    // Save the id in preferences
+                    //This is where we store the home code and name, we are going to use Preferences to see if a user is logged in
+                    Preferences.Set("user_home_code", userHomeCode);
+                    Preferences.Set("user_first_name", userFirstName);
+                    Preferences.Set("user_last_name", userLastName);
+                    Preferences.Set("user_id", id);
+                    Preferences.Set("user_address", address);
 
-                await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                    await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                } else
+                {
+                    await DisplayAlert("User Already Exists", "This user has already been registered on another phone, please unregister before continuing", "OK");
+                }
             } else
             {
                 await DisplayAlert("Home Code does not exist", "Please double check your home code", "OK");
