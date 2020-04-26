@@ -12,6 +12,7 @@ namespace HOB_Mobile.Views
         {
             InitializeComponent();
 
+            // Call function to set up the home locations icons
             SetUpHomeIssueImages();
         }
 

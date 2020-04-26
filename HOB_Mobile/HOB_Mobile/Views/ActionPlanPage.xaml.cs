@@ -22,6 +22,12 @@ namespace HOB_Mobile.Views
 
             // Call function to perform a web request with the passed category as parameter
             GetActionPlans(category);
+
+            // Convert category's first letter to uppercase and store in a new string.
+            string uppercaseCategory = char.ToUpper(category[0]) + category.Substring(1);
+
+            // Set title to category selected by the user.
+            category_label.Text = uppercaseCategory;
         }
 
         /*

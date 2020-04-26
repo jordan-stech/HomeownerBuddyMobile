@@ -32,7 +32,7 @@
                 <Entry
                     x:Name="homeowner_buddy_home_code"
                     TextColor="White"
-                    Keyboard="Telephone"
+                    Keyboard="Numeric"
                     FontSize="18"
                     Placeholder="Enter your home code"
                     BackgroundColor="#53B949"

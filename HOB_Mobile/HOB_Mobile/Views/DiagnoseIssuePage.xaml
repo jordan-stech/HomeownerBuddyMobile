@@ -14,14 +14,12 @@
             Orientation="Vertical">
 
             <StackLayout Padding="0, 20, 0, 0">
-
                 <Label 
                     TextColor="White"
                     FontSize="30"
                     HorizontalTextAlignment="Center"
                     FontAttributes="Bold"
                     Text="Location?" />
-
             </StackLayout>
 
             <StackLayout

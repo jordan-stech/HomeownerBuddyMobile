@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Diagnostics;
 using System.Text;
 
 namespace HOB_Mobile.Views
