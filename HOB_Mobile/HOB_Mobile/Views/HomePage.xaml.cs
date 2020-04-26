@@ -20,9 +20,6 @@ namespace HOB_Mobile.Views
 
         public HomePage(string userFirstName)
         {
-            // Remove navigation bar from top of the screen
-            NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
 
             // Get user's first name passed as a parameter to HomePage.xaml.cs and display it in the home page

@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿using System.Diagnostics;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;

@@ -15,9 +15,6 @@ namespace HOB_Mobile.Views
     {
         public ContactServiceProvider()
         {
-            // Remove navigation bar from top of the screen
-            NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
 
             // Disable item tapped from ListView so we can handle phone number click and website click separately

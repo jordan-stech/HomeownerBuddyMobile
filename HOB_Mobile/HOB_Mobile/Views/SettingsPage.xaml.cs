@@ -13,9 +13,6 @@ namespace HOB_Mobile.Views
     {
         public Settings()
         {
-            // Remove navigation bar from top of the screen
-            NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
 
             // Call function that sets up the unregiser home image

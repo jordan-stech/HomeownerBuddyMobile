@@ -18,9 +18,6 @@ namespace HOB_Mobile.Views
 
         public ActionPlan(string category)
         {
-            // Remove navigation bar from top of the screen
-            NavigationPage.SetHasNavigationBar(this, false);
-
             InitializeComponent();
 
             // Call function to perform a web request with the passed category as parameter
