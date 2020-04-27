@@ -181,8 +181,11 @@ namespace HOB_Mobile.Views
             SearchBar searchBar = (SearchBar)sender;
 
             // Remove all leading and trailing spaces from the text entered by the user
-            string trimmedText = searchBar.Text.Trim();
-
+            string trimmedText = "";
+            if (searchBar.Text != null)
+            {
+                trimmedText = searchBar.Text.Trim();
+            }
             // If the search bar is empty, then clear the ListView
             if (trimmedText.Equals("") || trimmedText == null)
             {
