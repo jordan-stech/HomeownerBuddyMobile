@@ -213,21 +213,16 @@
                 </ScrollView>
             </StackLayout>
 
-            <ScrollView
-                x:Name="homePageScrollView"
+            <ListView
+                x:Name="homePageSearchResults"
                 IsVisible="False"
-                HeightRequest="180">
-
-                <ListView
-                    x:Name="homePageSearchResults"
-                    HorizontalOptions="Fill"
-                    SeparatorColor="LightGray"
-                    BackgroundColor="White"
-                    ItemTapped="HandleTappedActionPlanHomePage"
-                    VerticalOptions="CenterAndExpand">
-                </ListView>
-            </ScrollView>
-            
+                HeightRequest="180"
+                HorizontalOptions="Fill"
+                SeparatorColor="LightGray"
+                BackgroundColor="White"
+                ItemTapped="HandleTappedActionPlanHomePage"
+                VerticalOptions="CenterAndExpand">
+            </ListView>
         </AbsoluteLayout>
     </StackLayout>
 </ContentPage>

@@ -177,12 +177,12 @@ namespace HOB_Mobile.Views
             {
                 actionPlanSearchResults.ItemsSource = null;
 
-                // Hide search results ScrollView
-                actionPlanPageScrollView.IsVisible = false;
+                // Hide search results ListView
+                actionPlanSearchResults.IsVisible = false;
             } else
             {
-                // Hide search results ScrollView
-                actionPlanPageScrollView.IsVisible = false;
+                // Hide search results ListView
+                actionPlanSearchResults.IsVisible = false;
 
                 // Get the searched text and put it in lowercase
                 var normalizedQuery = trimmedText?.ToLower() ?? "";
@@ -193,8 +193,8 @@ namespace HOB_Mobile.Views
                     // If the key starts with the text entered by the user, then proceed
                     if (key.StartsWith(normalizedQuery))
                     {
-                        // Show search results ScrollView
-                        actionPlanPageScrollView.IsVisible = true;
+                        // Show search results ListView
+                        actionPlanSearchResults.IsVisible = true;
 
                         // Create a new list of ContentModel to store JSON objects that match the tag searched
                         List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
@@ -241,8 +241,8 @@ namespace HOB_Mobile.Views
                 actionPlanSearchBar.Text = "";
                 actionPlanSearchResults.ItemsSource = null;
 
-                // Hide search results ScrollView
-                actionPlanPageScrollView.IsVisible = false;
+                // Hide search results ListView
+                actionPlanSearchResults.IsVisible = false;
             } catch(Exception error)
             {
                 Debug.WriteLine(error);
@@ -271,8 +271,8 @@ namespace HOB_Mobile.Views
                     actionPlanSearchBar.Text = "";
                     actionPlanSearchResults.ItemsSource = null;
 
-                    // Hide search results ScrollView
-                    actionPlanPageScrollView.IsVisible = false;
+                    // Hide search results ListView
+                    actionPlanSearchResults.IsVisible = false;
                 }
             }
         }

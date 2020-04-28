@@ -38,7 +38,7 @@
                     Text="" />
 
                 <ListView
-                        Margin="0, 0, 0, 10"
+                        Margin="0, 40, 0, 10"
                         x:Name="ListActionPlan"
                         ItemTapped="HandleShowStepsTap"
                         SeparatorColor="Black"
@@ -75,21 +75,16 @@
                 </ListView>
             </StackLayout>
 
-            <ScrollView 
-                x:Name="actionPlanPageScrollView"
+            <ListView
+                x:Name="actionPlanSearchResults"
                 IsVisible="False"
+                HeightRequest="180"
                 HorizontalOptions="Fill"
-                HeightRequest="180">
-                <ListView
-                    x:Name="actionPlanSearchResults"
-                    HorizontalOptions="Fill"
-                    SeparatorColor="Black"
-                    BackgroundColor="White"
-                    ItemTapped="HandleTappedActionPlan"
-                    VerticalOptions="CenterAndExpand">
-                </ListView>
-            </ScrollView>
-            
+                SeparatorColor="Black"
+                BackgroundColor="White"
+                ItemTapped="HandleTappedActionPlan"
+                VerticalOptions="CenterAndExpand">
+            </ListView>
         </AbsoluteLayout>
     </StackLayout>
 </ContentPage>

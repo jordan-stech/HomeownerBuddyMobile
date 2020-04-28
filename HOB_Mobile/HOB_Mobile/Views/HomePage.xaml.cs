@@ -188,13 +188,13 @@ namespace HOB_Mobile.Views
             {
                 homePageSearchResults.ItemsSource = null;
 
-                // Hide search results ScrollView
-                homePageScrollView.IsVisible = false;
+                // Hide search results ListView
+                homePageSearchResults.IsVisible = false;
             }
             else
             {
-                // Hide search results ScrollView
-                homePageScrollView.IsVisible = false;
+                // Hide search results ListView
+                homePageSearchResults.IsVisible = false;
 
                 // Get the searched text and put it in lowercase
                 var normalizedQuery = trimmedText?.ToLower() ?? "";
@@ -205,8 +205,8 @@ namespace HOB_Mobile.Views
                     // If the key starts with the text entered by the user, then proceed
                     if (key.StartsWith(normalizedQuery))
                     {
-                        // Show search results ScrollView
-                        homePageScrollView.IsVisible = true;
+                        // Show search results ListView
+                        homePageSearchResults.IsVisible = true;
 
                         // Create a new list of ContentModel to store JSON objects that match the tag searched
                         List<ContentModel> jsonThatMatchesTagSearched = new List<ContentModel>();
@@ -254,8 +254,8 @@ namespace HOB_Mobile.Views
                     homePageSearchBar.Text = "";
                     homePageSearchResults.ItemsSource = null;
 
-                    // Hide search results ScrollView
-                    homePageScrollView.IsVisible = false;
+                    // Hide search results ListView
+                    homePageSearchResults.IsVisible = false;
                 }
             }
         }
@@ -272,8 +272,8 @@ namespace HOB_Mobile.Views
             homePageSearchBar.Text = "";
             homePageSearchResults.ItemsSource = null;
 
-            // Hide search results ScrollView
-            homePageScrollView.IsVisible = false;
+            // Hide search results ListView
+            homePageSearchResults.IsVisible = false;
         }
 
         /*
@@ -288,8 +288,8 @@ namespace HOB_Mobile.Views
             homePageSearchBar.Text = "";
             homePageSearchResults.ItemsSource = null;
 
-            // Hide search results ScrollView
-            homePageScrollView.IsVisible = false;
+            // Hide search results ListView
+            homePageSearchResults.IsVisible = false;
         }
 
         /*
@@ -304,8 +304,8 @@ namespace HOB_Mobile.Views
             homePageSearchBar.Text = "";
             homePageSearchResults.ItemsSource = null;
 
-            // Hide search results ScrollView
-            homePageScrollView.IsVisible = false;
+            // Hide search results ListView
+            homePageSearchResults.IsVisible = false;
         }
 
         /*
@@ -320,8 +320,8 @@ namespace HOB_Mobile.Views
             homePageSearchBar.Text = "";
             homePageSearchResults.ItemsSource = null;
 
-            // Hide search results ScrollView
-            homePageScrollView.IsVisible = false;
+            // Hide search results ListView
+            homePageSearchResults.IsVisible = false;
         }
     }
 }
