@@ -83,7 +83,10 @@
                 SeparatorColor="Black"
                 BackgroundColor="White"
                 ItemTapped="HandleTappedActionPlan"
-                VerticalOptions="CenterAndExpand">
+                VerticalOptions="CenterAndExpand"
+                AbsoluteLayout.LayoutBounds="0,0,1,180"
+                AbsoluteLayout.LayoutFlags="WidthProportional"
+                >
             </ListView>
         </AbsoluteLayout>
     </StackLayout>
