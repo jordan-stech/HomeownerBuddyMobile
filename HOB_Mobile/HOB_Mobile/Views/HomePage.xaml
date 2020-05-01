@@ -221,7 +221,9 @@
                 SeparatorColor="LightGray"
                 BackgroundColor="White"
                 ItemTapped="HandleTappedActionPlanHomePage"
-                VerticalOptions="CenterAndExpand">
+                VerticalOptions="CenterAndExpand"
+                AbsoluteLayout.LayoutBounds="0,0,1,180"
+                AbsoluteLayout.LayoutFlags="WidthProportional">
             </ListView>
         </AbsoluteLayout>
     </StackLayout>
