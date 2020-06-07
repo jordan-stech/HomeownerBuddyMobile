@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.HomePage"
-             BackgroundColor="#005691">
+             BackgroundColor="#005691"
+             NavigationPage.HasBackButton="False">
 
     <StackLayout
         Margin="10, 10, 10, 10"
