@@ -326,5 +326,15 @@ namespace HOB_Mobile.Views
             // Hide search results ListView
             homePageSearchResults.IsVisible = false;
         }
+
+        /*
+        * Prevents the physical button of the device from returning to the Register Page
+        */
+        protected override bool OnBackButtonPressed()
+        {
+            //System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            //System.Environment.Exit(0);
+            return true;
+        }
     }
 }

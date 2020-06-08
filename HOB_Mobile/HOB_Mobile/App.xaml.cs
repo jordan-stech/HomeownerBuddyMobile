@@ -8,7 +8,6 @@ namespace HOB_Mobile
 {
     public partial class App : Application
     {
-
         public App()
         {
             // Component must be initialized
