@@ -112,9 +112,12 @@ namespace HOB_Mobile.Views
                 Preferences.Remove("user_address");
 
                 DeleteMobileUser(Preferences.Get("user_id", "default"));
-                // Return to register page
 
-                await Navigation.PushAsync(new RegisterPage());
+
+                // await Navigation.PushAsync(new RegisterPage());
+
+                // Return to register page and set it as  the MainPage so the back button doesn't return to previous pages 
+                Application.Current.MainPage = new NavigationPage(new Views.RegisterPage());
             }
         }
 

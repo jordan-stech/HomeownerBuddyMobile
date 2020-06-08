@@ -328,13 +328,16 @@ namespace HOB_Mobile.Views
         }
 
         /*
-        * Prevents the physical button of the device from returning to the Register Page
+        * Prevents the physical button of the device from returning to the Register Page (Left here in case the back button functionality needs changed)
         */
-        protected override bool OnBackButtonPressed()
+        /*protected override bool OnBackButtonPressed()
         {
             //System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
             //System.Environment.Exit(0);
-            return true;
-        }
+
+            // Allows the physical back button to exit the app from the Home Page           
+            Navigation.RemovePage(this.Navigation.NavigationStack[0]);
+            return false;
+        }*/
     }
 }

@@ -22,15 +22,6 @@ namespace HOB_Mobile.Views
 
             // Call function that adds the logo to the register page
             SetUpLoginPageHabitatHumanityLogo();
-
-            //Check and see if user registered previously, if they have, redirect them to the HomePage
-            //set the testing boolean to true to see register page for testing purposes
-            var testing = false;
-            if (!Preferences.Get("user_home_code", "default_value").Equals("default_value") && !testing)
-            { 
-                Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
-            }
-
         }
 
         /*
@@ -109,7 +100,10 @@ namespace HOB_Mobile.Views
                     Preferences.Set("user_id", id);
                     Preferences.Set("user_address", address);
 
-                    await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                    //await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
+                    
+                    // Sets the Home Page as the MainPage so when the physical back button is pressed immediately after registering, the app closes instead of returning to the Register Page 
+                    Application.Current.MainPage = new NavigationPage(new Views.HomePage(Preferences.Get("user_first_name", "")));
                 } else
                 {
                     await DisplayAlert("User Already Exists", "This user has already been registered on another phone, please unregister before continuing", "OK");
