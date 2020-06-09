@@ -74,8 +74,11 @@ namespace HOB_Mobile.Views
             user.FName = userFirstName;
             user.Lname = userLastName;
             user.Code = userHomeCode;
+            string regDate = DateTime.Today.ToString("dd/MM/yyyy");
+            user.date = regDate;
 
             string JSONresult = JsonConvert.SerializeObject(user);
+            Console.WriteLine(JSONresult);
             var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
@@ -85,6 +88,7 @@ namespace HOB_Mobile.Views
             {
                 // Get response from POST request
                 var tokenJson = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(tokenJson);
                 var array = tokenJson.Split('"');
                 String id = array[2];
                 id = id.Substring(1);
@@ -99,6 +103,7 @@ namespace HOB_Mobile.Views
                     Preferences.Set("user_last_name", userLastName);
                     Preferences.Set("user_id", id);
                     Preferences.Set("user_address", address);
+                    Preferences.Set("user_register_date", regDate);
 
                     //await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
                     

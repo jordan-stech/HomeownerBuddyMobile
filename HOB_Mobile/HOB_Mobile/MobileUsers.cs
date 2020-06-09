@@ -10,5 +10,6 @@ namespace HOB_Mobile
         public string Lname { get; set; }
         public string Code { get; set; }
         public string address { get; set; }
+        public string date { get; set; }
     }
 }
