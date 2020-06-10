@@ -74,7 +74,7 @@ namespace HOB_Mobile.Views
             user.FName = userFirstName;
             user.Lname = userLastName;
             user.Code = userHomeCode;
-            string regDate = DateTime.Today.ToString("dd/MM/yyyy");
+            string regDate = DateTime.Today.ToString("MM/dd/yyyy");
             user.date = regDate;
 
             string JSONresult = JsonConvert.SerializeObject(user);
