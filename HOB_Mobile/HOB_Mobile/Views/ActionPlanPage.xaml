@@ -7,87 +7,78 @@
              x:Class="HOB_Mobile.Views.ActionPlan"
              BackgroundColor="#005691">
 
-    <StackLayout
-        Margin="10, 20, 10, 10"
-        HorizontalOptions="StartAndExpand"
-        Orientation="Vertical">
+    <ScrollView>
+        <StackLayout Margin="10, 20, 10, 10"
+                     HorizontalOptions="StartAndExpand"
+                     Orientation="Vertical">
 
-        <Frame
-            Padding="0, 0, 0, 0"
-            OutlineColor="#005691"
-            HasShadow="True">
+            <Frame Padding="0, 0, 0, 0"
+                   OutlineColor="#005691"
+                   HasShadow="True">
 
-            <SearchBar
-                x:Name="actionPlanSearchBar"
-                Placeholder="Search"
-                CancelButtonColor="Red"
-                TextChanged="HandleTextChange"
-                PlaceholderColor="#005691"
-                TextColor="#005691"
-                HorizontalTextAlignment="Start" />
-        </Frame>
+                <SearchBar x:Name="actionPlanSearchBar"
+                           Placeholder="Search"
+                           CancelButtonColor="Red"
+                           TextChanged="HandleTextChange"
+                           PlaceholderColor="#005691"
+                           TextColor="#005691"
+                           HorizontalTextAlignment="Start" />
+            </Frame>
 
-        <AbsoluteLayout>
-            <StackLayout>
-                <Label
-                    x:Name="category_label"
-                    TextColor="White"
-                    FontSize="30"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="" />
+            <AbsoluteLayout>
+                <StackLayout>
+                    <Label x:Name="category_label"
+                           TextColor="White"
+                           FontSize="30"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="" />
 
-                <ListView
-                        Margin="0, 40, 0, 10"
-                        x:Name="ListActionPlan"
-                        ItemTapped="HandleShowStepsTap"
-                        SeparatorColor="Black"
-                        HasUnevenRows="True"
-                        BackgroundColor="#005691">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout
-                                        Padding="0, 20, 0, 20"
-                                        VerticalOptions="Center"
-                                        Orientation="Vertical">
-                                    <WebView 
-                                            Source="{Binding link}"
-                                            HeightRequest="150"
-                                            HorizontalOptions="FillAndExpand" />
+                    <ListView Margin="0, 40, 0, 10"
+                              x:Name="ListActionPlan"
+                              ItemTapped="HandleShowStepsTap"
+                              SeparatorColor="Black"
+                              HasUnevenRows="True"
+                              BackgroundColor="#005691">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="0, 20, 0, 20"
+                                                 VerticalOptions="Center"
+                                                 Orientation="Vertical">
+                                        <WebView Source="{Binding link}"
+                                                 HeightRequest="150"
+                                                 HorizontalOptions="FillAndExpand" />
 
-                                    <Label
-                                            Text="{Binding title}"
-                                            TextColor="White"
-                                            Margin="0, 5, 0, 0"
-                                            FontSize="20"/>
+                                        <Label Text="{Binding title}"
+                                               TextColor="White"
+                                               Margin="0, 5, 0, 0"
+                                               FontSize="20" />
 
-                                    <Label
-                                            Text="Click to show steps"
-                                            TextColor="LightGray"
-                                            FontAttributes="Italic"
-                                            FontSize="15"/>
+                                        <Label Text="Click to show steps"
+                                               TextColor="LightGray"
+                                               FontAttributes="Italic"
+                                               FontSize="15" />
 
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <ListView x:Name="actionPlanSearchResults"
+                          IsVisible="False"
+                          HeightRequest="180"
+                          HorizontalOptions="Fill"
+                          SeparatorColor="Black"
+                          BackgroundColor="White"
+                          ItemTapped="HandleTappedActionPlan"
+                          VerticalOptions="CenterAndExpand"
+                          AbsoluteLayout.LayoutBounds="0,0,1,180"
+                          AbsoluteLayout.LayoutFlags="WidthProportional">
                 </ListView>
-            </StackLayout>
-
-            <ListView
-                x:Name="actionPlanSearchResults"
-                IsVisible="False"
-                HeightRequest="180"
-                HorizontalOptions="Fill"
-                SeparatorColor="Black"
-                BackgroundColor="White"
-                ItemTapped="HandleTappedActionPlan"
-                VerticalOptions="CenterAndExpand"
-                AbsoluteLayout.LayoutBounds="0,0,1,180"
-                AbsoluteLayout.LayoutFlags="WidthProportional"
-                >
-            </ListView>
-        </AbsoluteLayout>
-    </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

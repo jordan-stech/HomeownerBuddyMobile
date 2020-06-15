@@ -6,46 +6,40 @@
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.ShowActionItemPage"
              BackgroundColor="#005691">
-    
+
     <ContentPage.Content>
-        <StackLayout
-            Margin="5, 20, 5, 10"
-            VerticalOptions="Fill"
-            HorizontalOptions="Fill"
-            Orientation="Vertical">
+        <StackLayout Margin="5, 20, 5, 10"
+                     VerticalOptions="Fill"
+                     HorizontalOptions="Fill"
+                     Orientation="Vertical">
 
-            <StackLayout
-                Padding="5,0,5,0"
-                VerticalOptions="Center"
-                Orientation="Vertical">
+            <StackLayout Padding="5,0,5,0"
+                         VerticalOptions="Center"
+                         Orientation="Vertical">
 
-                <WebView
-                    x:Name="youtubeVideo"
-                    Source=""
-                    HeightRequest="200"
-                    WidthRequest="200" />
+                <WebView x:Name="youtubeVideo"
+                         Source=""
+                         HeightRequest="200"
+                         WidthRequest="200" />
 
-                <Label
-                    x:Name="youtubeTitle"
-                    Text=""
-                    TextColor="White"
-                    Margin="0,5,0,0"
-                    FontSize="20"/>
+                <Label x:Name="youtubeTitle"
+                       Text=""
+                       TextColor="White"
+                       Margin="0,5,0,0"
+                       FontSize="20" />
 
-                <Label
-                    Margin="0, 20, 0, 10"
-                    Text="Steps:"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    FontSize="20"/>
+                <Label Margin="0, 20, 0, 10"
+                       Text="Steps:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="20" />
 
-                <Label
-                    x:Name="youtubeSteps"
-                    Text=""
-                    TextColor="White"
-                    LineHeight="1.25"
-                    Margin="0,5,0,0"
-                    FontSize="18"/>
+                <Label x:Name="youtubeSteps"
+                       Text=""
+                       TextColor="White"
+                       LineHeight="1.25"
+                       Margin="0,5,0,0"
+                       FontSize="18" />
 
             </StackLayout>
 

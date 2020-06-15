@@ -8,107 +8,94 @@
              x:Class="HOB_Mobile.Views.RegisterPage"
              BackgroundColor="#005691">
 
-    <StackLayout
-        Margin="10, 10, 10, 10"
-        Orientation="Vertical">
+    <StackLayout Margin="10, 10, 10, 10"
+                 Orientation="Vertical">
 
-        <StackLayout
-            Padding="5, 5, 5, 0"
-            Orientation="Vertical">
+        <StackLayout Padding="5, 5, 5, 0"
+                     Orientation="Vertical">
 
-            <Label 
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Home Code" />
+            <Label TextColor="White"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Text="Home Code" />
 
-            <Frame
-                Padding="15, 5, 15, 5"
-                HeightRequest="40"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20">
+            <Frame Padding="15, 5, 15, 5"
+                   HeightRequest="40"
+                   BorderColor="White"
+                   BackgroundColor="#53B949"
+                   CornerRadius="20">
 
-                <Entry
-                    x:Name="homeowner_buddy_home_code"
-                    TextColor="White"
-                    Keyboard="Numeric"
-                    FontSize="18"
-                    Placeholder="Enter your home code"
-                    BackgroundColor="#53B949"
-                    PlaceholderColor="White"/>
+                <Entry x:Name="homeowner_buddy_home_code"
+                       TextColor="White"
+                       Keyboard="Numeric"
+                       FontSize="18"
+                       Placeholder="Enter your home code"
+                       BackgroundColor="#53B949"
+                       PlaceholderColor="White" />
             </Frame>
 
-            <Label 
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="First Name" />
+            <Label TextColor="White"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Text="First Name" />
 
-            <Frame
-                Padding="15, 5, 15, 5"
-                HeightRequest="40"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20">
+            <Frame Padding="15, 5, 15, 5"
+                   HeightRequest="40"
+                   BorderColor="White"
+                   BackgroundColor="#53B949"
+                   CornerRadius="20">
 
-                <Entry 
-                    x:Name="homeowner_buddy_first_name"
-                    TextColor="White"
-                    Keyboard="Text"
-                    FontSize="18"
-                    Placeholder="Enter your first name"
-                    BackgroundColor="#53B949"
-                    PlaceholderColor="White"/>
+                <Entry x:Name="homeowner_buddy_first_name"
+                       TextColor="White"
+                       Keyboard="Text"
+                       FontSize="18"
+                       Placeholder="Enter your first name"
+                       BackgroundColor="#53B949"
+                       PlaceholderColor="White" />
             </Frame>
 
-            <Label 
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Last Name" />
+            <Label TextColor="White"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Text="Last Name" />
 
-            <Frame
-                Padding="15, 5, 15, 5"
-                HeightRequest="40"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20">
-                
-                <Entry
-                    x:Name="homeowner_buddy_last_name"
-                    TextColor="White"
-                    Keyboard="Text"
-                    FontSize="18"
-                    Placeholder="Enter your last name"
-                    BackgroundColor="#53B949"
-                    PlaceholderColor="White"/>
+            <Frame Padding="15, 5, 15, 5"
+                   HeightRequest="40"
+                   BorderColor="White"
+                   BackgroundColor="#53B949"
+                   CornerRadius="20">
+
+                <Entry x:Name="homeowner_buddy_last_name"
+                       TextColor="White"
+                       Keyboard="Text"
+                       FontSize="18"
+                       Placeholder="Enter your last name"
+                       BackgroundColor="#53B949"
+                       PlaceholderColor="White" />
             </Frame>
 
-            <Button
-                x:Name="register_button"
-                IsVisible="True"
-                Clicked="HandleRegisterButtonClick"
-                Margin="0, 30, 0, 0"
-                Padding="5, 5, 5, 5"
-                WidthRequest="50"
-                HeightRequest="50"
-                BorderWidth="2"
-                BorderColor="White"
-                BackgroundColor="#53B949"
-                CornerRadius="20"
-                TextColor="White"
-                FontSize="20"
-                FontAttributes="Bold"
-                Text="Register" />
+            <Button x:Name="register_button"
+                    IsVisible="True"
+                    Clicked="HandleRegisterButtonClick"
+                    Margin="0, 30, 0, 0"
+                    Padding="5, 5, 5, 5"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BorderWidth="2"
+                    BorderColor="White"
+                    BackgroundColor="#53B949"
+                    CornerRadius="20"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Text="Register" />
 
         </StackLayout>
 
-        <Image 
-            Margin="0, 50, 0 ,0"
-            x:Name="habitat_humanity_logo"
-            WidthRequest="120"
-            HeightRequest="120"/>
-        
+        <Image Margin="0, 50, 0 ,0"
+               x:Name="habitat_humanity_logo"
+               WidthRequest="120"
+               HeightRequest="120" />
+
     </StackLayout>
 </ContentPage>

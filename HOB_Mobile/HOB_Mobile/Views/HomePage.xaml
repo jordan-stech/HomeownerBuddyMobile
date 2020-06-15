@@ -8,205 +8,174 @@
              BackgroundColor="#005691"
              NavigationPage.HasBackButton="False">
 
-    <StackLayout
-        Margin="10, 10, 10, 10"
-        Orientation="Vertical">
+    <StackLayout Margin="10, 10, 10, 10"
+                 Orientation="Vertical">
 
-        <Frame
-            Padding="0, 0, 0, 0"
-            OutlineColor="#005691"
-            HasShadow="True">
+        <Frame Padding="0, 0, 0, 0"
+               OutlineColor="#005691"
+               HasShadow="True">
 
-            <SearchBar
-                x:Name="homePageSearchBar"
-                Placeholder="Search"
-                CancelButtonColor="Red"
-                TextChanged="HandleTextChange"
-                PlaceholderColor="#005691"
-                TextColor="#005691"
-                HorizontalTextAlignment="Start" />
+            <SearchBar x:Name="homePageSearchBar"
+                       Placeholder="Search"
+                       CancelButtonColor="Red"
+                       TextChanged="HandleTextChange"
+                       PlaceholderColor="#005691"
+                       TextColor="#005691"
+                       HorizontalTextAlignment="Start" />
         </Frame>
 
         <AbsoluteLayout>
             <StackLayout Padding="0, 20, 0, 0">
-                    <Label HorizontalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span
-                                    TextColor="White"
-                                    FontSize="25"
-                                    FontAttributes="Bold"
-                                    Text="Welcome to the Homeowner Buddy, " />
+                <Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span TextColor="White"
+                                  FontSize="25"
+                                  FontAttributes="Bold"
+                                  Text="Welcome to the Homeowner Buddy, " />
 
-                                <Span 
-                                    x:Name="homeowner_buddy_username"
-                                    TextColor="#53B949"
-                                    FontSize="25"
-                                    FontAttributes="Bold"
-                                    Text=""/>
+                            <Span x:Name="homeowner_buddy_username"
+                                  TextColor="#53B949"
+                                  FontSize="25"
+                                  FontAttributes="Bold"
+                                  Text="" />
 
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                    <StackLayout
-                        Margin="0, 20, 0, 0"
-                        HorizontalOptions="Center"
-                        Orientation="Horizontal">
+                <StackLayout Margin="0, 20, 0, 0"
+                             HorizontalOptions="Center"
+                             Orientation="Horizontal">
 
-                        <Label 
-                            TextColor="White"
-                            FontSize="20"
-                            HorizontalTextAlignment="Center"
-                            FontAttributes="Bold"
-                            Text="Address:" />
+                    <Label TextColor="White"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Address:" />
 
-                        <Label
-                            x:Name="homeowner_buddy_user_address"
-                            TextColor="#53B949"
-                            FontSize="20"
-                            FontAttributes="Bold"
-                            HorizontalTextAlignment="Center" />
-                    </StackLayout>
+                    <Label x:Name="homeowner_buddy_user_address"
+                           TextColor="#53B949"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
 
-                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ScrollView VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Vertical">
-                        <Frame 
-                            Margin="0, 40, 0, 10"
-                            CornerRadius="20"
-                            OutlineColor="White" 
-                            BackgroundColor="#53B949"
-                            Padding="5, 5, 5, 5"
-                        >
-                            <StackLayout
-                                Margin="50, 0, 0, 0"
-                                Orientation="Horizontal"
-                                HorizontalOptions="Start"
-                                VerticalOptions="FillAndExpand"
-                            >
-                                <Image
-                                    x:Name="diagnose_issue_button"
-                                    HeightRequest="50"
-                                    WidthRequest="50"
-                                    Margin="0, 5, 20, 5"
-                                    Source=""
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="CenterAndExpand"/>
-                                <Label
-                                    Text="Diagnose Issue" 
-                                    TextColor="White"
-                                    FontSize="20"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="CenterAndExpand"/>
-                                
+                        <Frame Margin="0, 40, 0, 10"
+                               CornerRadius="20"
+                               OutlineColor="White"
+                               BackgroundColor="#53B949"
+                               Padding="5, 5, 5, 5">
+                            <StackLayout Margin="50, 0, 0, 0"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="FillAndExpand">
+                                <Image x:Name="diagnose_issue_button"
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Margin="0, 5, 20, 5"
+                                       Source=""
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="Diagnose Issue"
+                                       TextColor="White"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="CenterAndExpand" />
+
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="HandleDiagnoseIssueTap"/>
+                                    <TapGestureRecognizer Tapped="HandleDiagnoseIssueTap" />
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Frame>
 
-                        <Frame 
-                            Margin="0, 0, 0, 10"
-                            CornerRadius="20"
-                            OutlineColor="White" 
-                            BackgroundColor="#53B949"
-                            Padding="5, 5, 5, 5"
-                        >
-                            <StackLayout
-                                Margin="50, 0, 0, 0"
-                                Orientation="Horizontal"
-                                HorizontalOptions="Start"
-                                VerticalOptions="FillAndExpand"
-                            >
-                                <Image
-                                    x:Name="maintenance_reminders_button"
-                                    HeightRequest="50"
-                                    WidthRequest="50"
-                                    Margin="0, 5, 20, 5"
-                                    Source=""
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="CenterAndExpand"/>
-                                <Label
-                                    Text="Maintenance Reminders" 
-                                    TextColor="White"
-                                    FontSize="20"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="CenterAndExpand"/>
+                        <Frame Margin="0, 0, 0, 10"
+                               CornerRadius="20"
+                               OutlineColor="White"
+                               BackgroundColor="#53B949"
+                               Padding="5, 5, 5, 5">
+                            <StackLayout Margin="50, 0, 0, 0"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="FillAndExpand">
+                                <Image x:Name="maintenance_reminders_button"
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Margin="0, 5, 20, 5"
+                                       Source=""
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="Maintenance Reminders"
+                                       TextColor="White"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="CenterAndExpand" />
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="HandleMaintenanceRemindersTap"/>
+                                    <TapGestureRecognizer Tapped="HandleMaintenanceRemindersTap" />
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Frame>
 
-                        <Frame 
-                            Margin="0, 0, 0, 10"
-                            CornerRadius="20"
-                            OutlineColor="White" 
-                            BackgroundColor="#53B949"
-                            Padding="5, 5, 5, 5"
-                        >
-                            <StackLayout
-                                Margin="50, 0, 0, 0"
-                                Orientation="Horizontal"
-                                HorizontalOptions="Start"
-                                VerticalOptions="FillAndExpand"
-                            >
-                                <Image
-                                    x:Name="service_providers_button"
-                                    HeightRequest="50"
-                                    WidthRequest="50"
-                                    Margin="0, 5, 20, 5"
-                                    Source=""
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="CenterAndExpand"/>
-                                <Label
-                                    Text="Service Providers" 
-                                    TextColor="White"
-                                    FontSize="20"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="CenterAndExpand"/>
+                        <Frame Margin="0, 0, 0, 10"
+                               CornerRadius="20"
+                               OutlineColor="White"
+                               BackgroundColor="#53B949"
+                               Padding="5, 5, 5, 5">
+                            <StackLayout Margin="50, 0, 0, 0"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="FillAndExpand">
+                                <Image x:Name="service_providers_button"
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Margin="0, 5, 20, 5"
+                                       Source=""
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="Service Providers"
+                                       TextColor="White"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="CenterAndExpand" />
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="HandleServiceProvidersTap"/>
+                                    <TapGestureRecognizer Tapped="HandleServiceProvidersTap" />
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Frame>
 
-                        <Frame 
-                            Margin="0, 0, 0, 10"
-                            CornerRadius="20"
-                            OutlineColor="White" 
-                            BackgroundColor="#53B949"
-                            Padding="5, 5, 5, 5"
-                        >
-                            <StackLayout
-                                Margin="50, 0, 0, 0"
-                                Orientation="Horizontal"
-                                HorizontalOptions="Start"
-                                VerticalOptions="FillAndExpand"
-                            >
-                                <Image
-                                    x:Name="settings_button"
-                                    HeightRequest="50"
-                                    WidthRequest="50"
-                                    Margin="0, 5, 20, 5"
-                                    Source=""
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="CenterAndExpand"/>
-                                <Label
-                                    Text="Settings" 
-                                    TextColor="White"
-                                    FontSize="20"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="CenterAndExpand"/>
+                        <Frame Margin="0, 0, 0, 10"
+                               CornerRadius="20"
+                               OutlineColor="White"
+                               BackgroundColor="#53B949"
+                               Padding="5, 5, 5, 5">
+                            <StackLayout Margin="50, 0, 0, 0"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="FillAndExpand">
+                                <Image x:Name="settings_button"
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Margin="0, 5, 20, 5"
+                                       Source=""
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="Settings"
+                                       TextColor="White"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="CenterAndExpand" />
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="HandleSettingsTap"/>
+                                    <TapGestureRecognizer Tapped="HandleSettingsTap" />
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Frame>
@@ -214,17 +183,16 @@
                 </ScrollView>
             </StackLayout>
 
-            <ListView
-                x:Name="homePageSearchResults"
-                IsVisible="False"
-                HeightRequest="180"
-                HorizontalOptions="Fill"
-                SeparatorColor="LightGray"
-                BackgroundColor="White"
-                ItemTapped="HandleTappedActionPlanHomePage"
-                VerticalOptions="CenterAndExpand"
-                AbsoluteLayout.LayoutBounds="0,0,1,180"
-                AbsoluteLayout.LayoutFlags="WidthProportional">
+            <ListView x:Name="homePageSearchResults"
+                      IsVisible="False"
+                      HeightRequest="180"
+                      HorizontalOptions="Fill"
+                      SeparatorColor="LightGray"
+                      BackgroundColor="White"
+                      ItemTapped="HandleTappedActionPlanHomePage"
+                      VerticalOptions="CenterAndExpand"
+                      AbsoluteLayout.LayoutBounds="0,0,1,180"
+                      AbsoluteLayout.LayoutFlags="WidthProportional">
             </ListView>
         </AbsoluteLayout>
     </StackLayout>

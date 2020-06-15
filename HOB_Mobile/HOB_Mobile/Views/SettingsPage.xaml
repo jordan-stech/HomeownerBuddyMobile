@@ -6,141 +6,124 @@
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.Settings"
              BackgroundColor="#005691">
-    
+
     <ContentPage.Content>
 
         <StackLayout>
 
-            <StackLayout
-                Margin="10, 20, 10, 10"
-                VerticalOptions="Start">
+            <StackLayout Margin="10, 20, 10, 10"
+                         VerticalOptions="Start">
 
-                <Label 
-                    TextColor="White"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    Text="Account" />
-            
-                <Frame
-                    Margin="0, 0, 0, 20"
-                    Padding="15, 10, 0, 5"
-                    HeightRequest="60"
-                    BorderColor="White"
-                    BackgroundColor="#53B949">
+                <Label TextColor="White"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Text="Account" />
 
-                    <StackLayout
-                        Orientation="Horizontal">
+                <Frame Margin="0, 0, 0, 20"
+                       Padding="15, 10, 0, 5"
+                       HeightRequest="60"
+                       BorderColor="White"
+                       BackgroundColor="#53B949">
 
-                        <StackLayout
-                            Padding="0, 0, 40, 0"
-                            Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+
+                        <StackLayout Padding="0, 0, 40, 0"
+                                     Orientation="Vertical">
 
                             <StackLayout Orientation="Horizontal">
-                                
-                                <ImageButton
-                                    x:Name="unregister_device"
-                                    Margin="0, 0, 5, 0"
-                                    BackgroundColor="Transparent"
-                                    Clicked="HandleUnregisterDeviceButtonClick"
-                                    HeightRequest="30"
-                                    WidthRequest="30"/>
-                                
-                                <Label 
-                                    TextColor="Black"
-                                    FontSize="18"
-                                    HorizontalTextAlignment="Start"
-                                    FontAttributes="Bold"
-                                    Text="Unregister Home"/>
+
+                                <ImageButton x:Name="unregister_device"
+                                             Margin="0, 0, 5, 0"
+                                             BackgroundColor="Transparent"
+                                             Clicked="HandleUnregisterDeviceButtonClick"
+                                             HeightRequest="30"
+                                             WidthRequest="30" />
+
+                                <Label TextColor="Black"
+                                       FontSize="18"
+                                       HorizontalTextAlignment="Start"
+                                       FontAttributes="Bold"
+                                       Text="Unregister Home" />
 
                             </StackLayout>
 
-                            <Label 
-                                TextColor="White"
-                                FontSize="15"
-                                HorizontalTextAlignment="Start"
-                                Text="Unregister home from the mobile app"/>
+                            <Label TextColor="White"
+                                   FontSize="15"
+                                   HorizontalTextAlignment="Start"
+                                   Text="Unregister home from the mobile app" />
 
                         </StackLayout>
 
                     </StackLayout>
-                    
+
                 </Frame>
 
-                <Label 
-                    TextColor="White"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    Text="Emergency" />
+                <Label TextColor="White"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Text="Emergency" />
 
-                <Frame
-                    Margin="0, 0, 0, 20"
-                    Padding="15, 10, 0, 5"
-                    HeightRequest="60"
-                    BorderColor="White"
-                    BackgroundColor="#53B949">
+                <Frame Margin="0, 0, 0, 20"
+                       Padding="15, 10, 0, 5"
+                       HeightRequest="60"
+                       BorderColor="White"
+                       BackgroundColor="#53B949">
 
                     <StackLayout>
 
                         <StackLayout Orientation="Horizontal">
-                            
-                            <Image  
-                                x:Name="emergency_phone_number_image"
-                                Margin="0, 0, 5, 0"
-                                BackgroundColor="Transparent"
-                                HeightRequest="25"
-                                WidthRequest="25"/>
 
-                            <Label 
-                                x:Name="emergency_phone_number"
-                                TextColor="Black"
-                                FontSize="18"
-                                HorizontalTextAlignment="Start"
-                                FontAttributes="Bold"
-                                Text="(614) 364-7023"/>
-                            
+                            <Image x:Name="emergency_phone_number_image"
+                                   Margin="0, 0, 5, 0"
+                                   BackgroundColor="Transparent"
+                                   HeightRequest="25"
+                                   WidthRequest="25" />
+
+                            <Label x:Name="emergency_phone_number"
+                                   TextColor="Black"
+                                   FontSize="18"
+                                   HorizontalTextAlignment="Start"
+                                   FontAttributes="Bold"
+                                   Text="(614) 364-7023" />
+
                         </StackLayout>
 
-                        <Label 
-                            TextColor="White"
-                            FontSize="15"
-                            HorizontalTextAlignment="Start"
-                            Text="Call this number in case of an emergency"/>
+                        <Label TextColor="White"
+                               FontSize="15"
+                               HorizontalTextAlignment="Start"
+                               Text="Call this number in case of an emergency" />
 
                     </StackLayout>
                 </Frame>
-                
+
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 0, 0, 20"
-                VerticalOptions="EndAndExpand">
-                
-                <Label 
-                        Margin="0, 0, 0, 0"
-                        TextColor="White"
-                        FontSize="18"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Version 1.0.0"/>
+            <StackLayout Margin="0, 0, 0, 20"
+                         VerticalOptions="EndAndExpand">
 
-                <Label 
-                        TextColor="White"
-                        FontSize="18"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Released On: 29 Apr 2020"/>
+                <Label Margin="0, 0, 0, 0"
+                       TextColor="White"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       Text="Version 1.0.0" />
 
-                <Label
-                        Margin="0, 20, 0, 0"
-                        TextColor="LightGray"
-                        FontSize="15"
-                        HorizontalTextAlignment="Center"
-                        Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved."/>
-                
+                <Label TextColor="White"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       Text="Released On: 29 Apr 2020" />
+
+                <Label Margin="0, 20, 0, 0"
+                       TextColor="LightGray"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center"
+                       Text="Ⓒ 2020 Habitat Humanity. All Rights Reserved." />
+
             </StackLayout>
 
         </StackLayout>
-        
+
     </ContentPage.Content>
-    
+
 </ContentPage>

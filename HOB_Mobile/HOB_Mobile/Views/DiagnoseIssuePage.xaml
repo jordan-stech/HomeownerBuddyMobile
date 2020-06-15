@@ -9,337 +9,290 @@
 
     <ScrollView>
 
-        <StackLayout
-            Margin="10, 0, 10, 10"
-            Orientation="Vertical">
+        <StackLayout Margin="10, 0, 10, 10"
+                     Orientation="Vertical">
 
             <StackLayout Padding="0, 20, 0, 0">
-                <Label 
-                    TextColor="White"
-                    FontSize="30"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Location?" />
+                <Label TextColor="White"
+                       FontSize="30"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       Text="Location?" />
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 30, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 30, 0, 0"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Kitchen" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Kitchen" />
 
-                    <ImageButton
-                        x:Name="kitchen"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="kitchen"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Plumbing" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Plumbing" />
 
-                    <ImageButton
-                        x:Name="plumbing"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="plumbing"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 50, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 50, 0, 0"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Electrical" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Electrical" />
 
-                    <ImageButton
-                        x:Name="electrical"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="electrical"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="HVAC" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="HVAC" />
 
-                    <ImageButton
-                        x:Name="hvac"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="hvac"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 50, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 50, 0, 0"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Living Room" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Living Room" />
 
-                    <ImageButton
-                        x:Name="livingRoom"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="livingRoom"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Bathroom" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Bathroom" />
 
-                    <ImageButton
-                        x:Name="bathroom"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="bathroom"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 50, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 50, 0, 0"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Closet" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Closet" />
 
-                    <ImageButton
-                        x:Name="closet"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="closet"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Laundry" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Laundry" />
 
-                    <ImageButton
-                        x:Name="laundry"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="laundry"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 50, 0, 0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 50, 0, 0"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Hallway" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Hallway" />
 
-                    <ImageButton
-                        x:Name="hallway"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="hallway"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Exterior" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Exterior" />
 
-                    <ImageButton
-                        x:Name="exterior"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="exterior"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 50, 0, 20"
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+            <StackLayout Margin="0, 50, 0, 20"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal">
 
-                <StackLayout
-                    Margin="0, 0 , 50, 0"
-                    Orientation="Vertical">
+                <StackLayout Margin="0, 0 , 50, 0"
+                             Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Bedroom" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Bedroom" />
 
-                    <ImageButton
-                        x:Name="bedroom"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="bedroom"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Vertical">
+                <StackLayout Orientation="Vertical">
 
-                    <Label 
-                        TextColor="#53B949"
-                        FontSize="25"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold"
-                        Text="Basement" />
+                    <Label TextColor="#53B949"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           Text="Basement" />
 
-                    <ImageButton
-                        x:Name="basement"
-                        Clicked="HandleLocationOfHomeIssueImageClick"
-                        BackgroundColor="White"
-                        Padding="10,10,10,10"
-                        Margin="0, 10, 0 , 0"
-                        HeightRequest="140"
-                        WidthRequest="140"/>
+                    <ImageButton x:Name="basement"
+                                 Clicked="HandleLocationOfHomeIssueImageClick"
+                                 BackgroundColor="White"
+                                 Padding="10,10,10,10"
+                                 Margin="0, 10, 0 , 0"
+                                 HeightRequest="140"
+                                 WidthRequest="140" />
 
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout
-                Margin="0, 10, 0 , 40"
-                Orientation="Vertical">
+            <StackLayout Margin="0, 10, 0 , 40"
+                         Orientation="Vertical">
 
-                <Label 
-                    TextColor="#53B949"
-                    Padding="0, 0, 0, 5"
-                    FontSize="25"
-                    HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"
-                    Text="Misc." />
+                <Label TextColor="#53B949"
+                       Padding="0, 0, 0, 5"
+                       FontSize="25"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       Text="Misc." />
 
-                <ImageButton
-                    x:Name="misc"
-                    Clicked="HandleLocationOfHomeIssueImageClick"
-                    BackgroundColor="Transparent"
-                    HeightRequest="100"
-                    WidthRequest="100"/>
+                <ImageButton x:Name="misc"
+                             Clicked="HandleLocationOfHomeIssueImageClick"
+                             BackgroundColor="Transparent"
+                             HeightRequest="100"
+                             WidthRequest="100" />
 
             </StackLayout>
 

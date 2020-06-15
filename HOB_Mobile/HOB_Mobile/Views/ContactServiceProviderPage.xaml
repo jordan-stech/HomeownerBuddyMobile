@@ -7,85 +7,74 @@
              x:Class="HOB_Mobile.Views.ContactServiceProvider"
              BackgroundColor="#005691">
 
-    <StackLayout
-        Margin="10, 20, 10, 10"
-        VerticalOptions="Fill"
-        HorizontalOptions="StartAndExpand"
-        Orientation="Vertical">
+    <StackLayout Margin="10, 20, 10, 10"
+                 VerticalOptions="Fill"
+                 HorizontalOptions="StartAndExpand"
+                 Orientation="Vertical">
 
         <StackLayout Padding="0, 20, 0, 0">
 
-            <Label
-                Padding="0, 0, 0, 20"
-                TextColor="White"
-                FontSize="25"
-                HorizontalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="Trusted Service Providers" />
+            <Label Padding="0, 0, 0, 20"
+                   TextColor="White"
+                   FontSize="25"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   Text="Trusted Service Providers" />
 
-            <ListView
-                    x:Name="ListServiceProvider"
-                    SeparatorColor="Black"
-                    BackgroundColor="#005691"
-                    HasUnevenRows="True">
+            <ListView x:Name="ListServiceProvider"
+                      SeparatorColor="Black"
+                      BackgroundColor="#005691"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout
-                                    VerticalOptions="Center"
-                                    Orientation="Vertical">
+                            <StackLayout VerticalOptions="Center"
+                                         Orientation="Vertical">
 
-                                <Label
-                                        Padding="0, 5, 0, 0"
-                                        TextColor="#53B949"
-                                        FontSize="20"
-                                        FontAttributes="Bold"
-                                        Text="{Binding name}"/>
+                                <Label Padding="0, 5, 0, 0"
+                                       TextColor="#53B949"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       Text="{Binding name}" />
 
-                                <Label
-                                        TextColor="White"
-                                        FontSize="18"
-                                        Text="{Binding service}"/>
+                                <Label TextColor="White"
+                                       FontSize="18"
+                                       Text="{Binding service}" />
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Image
-                                            Source="{Binding phone_icon}"
-                                            Margin="0, 0, 5, 0"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="25"
-                                            WidthRequest="25">
+                                    <Image Source="{Binding phone_icon}"
+                                           Margin="0, 0, 5, 0"
+                                           BackgroundColor="Transparent"
+                                           HeightRequest="25"
+                                           WidthRequest="25">
                                     </Image>
 
-                                    <Label 
-                                            TextColor="White"
-                                            FontSize="18"
-                                            Text="{Binding phone_number}">
+                                    <Label TextColor="White"
+                                           FontSize="18"
+                                           Text="{Binding phone_number}">
 
                                         <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="HandleServiceProviderPhoneNumberClick"/>
+                                            <TapGestureRecognizer Tapped="HandleServiceProviderPhoneNumberClick" />
                                         </Label.GestureRecognizers>
                                     </Label>
                                 </StackLayout>
 
-                                <StackLayout
-                                        Orientation="Horizontal"
-                                        Padding="0, 0, 0, 15">
-                                    <Image
-                                            Source="{Binding website_icon}"
-                                            Margin="0, 0, 5, 0"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="25"
-                                            WidthRequest="25">
+                                <StackLayout Orientation="Horizontal"
+                                             Padding="0, 0, 0, 15">
+                                    <Image Source="{Binding website_icon}"
+                                           Margin="0, 0, 5, 0"
+                                           BackgroundColor="Transparent"
+                                           HeightRequest="25"
+                                           WidthRequest="25">
 
                                     </Image>
 
-                                    <Label
-                                            TextColor="WhiteSmoke"
-                                            FontSize="14"
-                                            Text="{Binding url}">
+                                    <Label TextColor="WhiteSmoke"
+                                           FontSize="14"
+                                           Text="{Binding url}">
 
                                         <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="HandleServiceProviderWebsiteClick"/>
+                                            <TapGestureRecognizer Tapped="HandleServiceProviderWebsiteClick" />
                                         </Label.GestureRecognizers>
                                     </Label>
                                 </StackLayout>
