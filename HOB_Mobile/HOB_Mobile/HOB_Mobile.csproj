@@ -132,7 +132,7 @@
     <EmbeddedResource Update="Views\ShowActionItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ShowMaintenanceReminderPage.xaml">
+    <EmbeddedResource Update="Views\ShowReminderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

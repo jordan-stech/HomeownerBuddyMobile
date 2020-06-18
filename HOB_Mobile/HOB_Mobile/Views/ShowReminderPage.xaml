@@ -4,8 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.Views.MaintenanceReminder"
-             BackgroundColor="#005691">
+             x:Class="HOB_Mobile.Views.ShowReminderPage">
+
 
     <StackLayout Margin="10, 20, 10, 10"
                  VerticalOptions="Fill"
@@ -21,32 +21,19 @@
                    FontAttributes="Bold"
                    Text="Maintenance Reminders" />
 
-            <ListView x:Name="ListReminders"
+            <ListView x:Name="ReminderDetail"
                       SeparatorColor="Black"
                       BackgroundColor="#005691"
-                      HasUnevenRows="True"
-                      SelectedItem="{Binding SelectedItem}">
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell Tapped="HandleReminderClicked">
+                        <ViewCell>
                             <StackLayout VerticalOptions="Center"
                                          Orientation="Vertical">
 
                                 <Label TextColor="White"
                                        FontSize="18"
-                                       Text="{Binding id}" />
-
-                                <Label TextColor="White"
-                                       FontSize="18"
-                                       Text="{Binding reminder}" />
-
-                                <Label TextColor="White"
-                                       FontSize="18"
-                                       Text="{Binding sent}" />
-
-                                <Label TextColor="White"
-                                       FontSize="18"
-                                       Text="{Binding completed}" />
+                                       Text="{Binding title}" />
                             </StackLayout>
                         </ViewCell>
 
