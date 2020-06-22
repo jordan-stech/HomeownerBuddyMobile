@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,23 +42,41 @@ namespace HOB_Mobile.Views
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
-            // Get web request response and store it
-            var response = await httpClient.GetAsync(uri);
+            // Create new user object to send the current user data to the Maintenance Reminder API
+            MobileUsers user = new MobileUsers();
+            user.FName = Preferences.Get("user_first_name", "no first name found");
+            user.Lname = Preferences.Get("user_last_name", "no last name found");
+            user.Code = Preferences.Get("user_home_code", "no home code found");
+            user.address = Preferences.Get("user_address", "no address found");
+            user.date = Preferences.Get("user_register_date", "no date found");
 
-            // Check if the web request was successful
-            if (response.IsSuccessStatusCode)
-            {
-                // Get the JSON object returned from the web request
-                var content = await response.Content.ReadAsStringAsync();
-   
-                var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
+            string JSONresult = JsonConvert.SerializeObject(user);
+            Console.WriteLine(JSONresult);
+            var userId = new StringContent(JSONresult, Encoding.UTF8, "application/json");
 
-                ListReminders.ItemsSource = reminders;
-            }
-            else
+            HttpResponseMessage postResponse = await httpClient.PostAsync(apiUrl, userId);
+          
+            // Check if the web POST request was successful
+            if (postResponse.IsSuccessStatusCode)
             {
-                // This prints to the Visual Studio Output window
-                Debug.WriteLine("Response not successful");
+                // Get web request response and store it
+                var response = await httpClient.GetAsync(uri);
+
+                // Check if the web GET request was successful
+                if (response.IsSuccessStatusCode)
+                {
+                    // Get the JSON object returned from the web request
+                    var content = await response.Content.ReadAsStringAsync();
+
+                    var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
+
+                    ListReminders.ItemsSource = reminders;
+                }
+                else
+                {
+                    // This prints to the Visual Studio Output window
+                    Debug.WriteLine("Response not successful");
+                }
             }
         }
 
