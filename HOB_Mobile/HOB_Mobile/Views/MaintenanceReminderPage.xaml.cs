@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +23,6 @@ namespace HOB_Mobile.Views
         public MaintenanceReminder()
         {
             InitializeComponent();
-
             getReminder();
         }
 
@@ -42,41 +39,41 @@ namespace HOB_Mobile.Views
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
-            // Create new user object to send the current user data to the Maintenance Reminder API
-            MobileUsers user = new MobileUsers();
-            user.FName = Preferences.Get("user_first_name", "no first name found");
-            user.Lname = Preferences.Get("user_last_name", "no last name found");
-            user.Code = Preferences.Get("user_home_code", "no home code found");
-            user.address = Preferences.Get("user_address", "no address found");
-            user.date = Preferences.Get("user_register_date", "no date found");
+            // Get web request response and store it
+            var response = await httpClient.GetAsync(uri);
 
-            string JSONresult = JsonConvert.SerializeObject(user);
-            Console.WriteLine(JSONresult);
-            var userId = new StringContent(JSONresult, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage postResponse = await httpClient.PostAsync(apiUrl, userId);
-          
-            // Check if the web POST request was successful
-            if (postResponse.IsSuccessStatusCode)
+            // Check if the web request was successful
+            if (response.IsSuccessStatusCode)
             {
-                // Get web request response and store it
-                var response = await httpClient.GetAsync(uri);
+                // Get the JSON object returned from the web request
+                var content = await response.Content.ReadAsStringAsync();
+   
+                var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
 
-                // Check if the web GET request was successful
-                if (response.IsSuccessStatusCode)
-                {
-                    // Get the JSON object returned from the web request
-                    var content = await response.Content.ReadAsStringAsync();
+                ImageSource OverDueIcon = ImageSource.FromResource("HOB_Mobile.Resources.over_due.png");
+                ImageSource ToDoIcon = ImageSource.FromResource("HOB_Mobile.Resources.settings.png");
+                ImageSource DoingIcon = ImageSource.FromResource("HOB_Mobile.Resources.settings.png");
 
-                    var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
+                var OverDues = new List<ReminderModel>();
+                var ToDos = new List<ReminderModel>();
+                var Dones = new List<ReminderModel>();
 
-                    ListReminders.ItemsSource = reminders;
+                foreach (ReminderModel reminder in reminders) {
+                    reminder.icon = OverDueIcon;
+                    OverDues.Add(reminder);
                 }
-                else
-                {
-                    // This prints to the Visual Studio Output window
-                    Debug.WriteLine("Response not successful");
-                }
+
+                OverDue.ItemsSource = OverDues;
+
+                ToDo.ItemsSource = OverDues;
+                
+                Done.ItemsSource = OverDues;
+
+            }
+            else
+            {
+                // This prints to the Visual Studio Output window
+                Debug.WriteLine("Response not successful");
             }
         }
 
@@ -85,10 +82,9 @@ namespace HOB_Mobile.Views
             var label = (ReminderModel)box.BindingContext;
 
             var reminder = label.reminder;
-            var status = label.completed;
 
-            //Navigation.PushAsync(new ShowReminderPage(reminder, status));
-            Navigation.PushAsync(new ActionPlan(reminder));
+            Navigation.PushAsync(new ShowReminderPage(reminder));
+            //Navigation.PushAsync(new ActionPlan(reminder));
         }
 
     }

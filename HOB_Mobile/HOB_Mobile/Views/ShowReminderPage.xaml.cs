@@ -15,19 +15,32 @@ namespace HOB_Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowReminderPage : ContentPage
     {
-
-        public ShowReminderPage(string category, string reminderStatus)
+        private string actionPlanName;
+        public ShowReminderPage(String reminder)
         {
             InitializeComponent();
 
-            GetActionPlans(category);
+            SetButtonImages();
+
+            actionPlanName = reminder;
+            setVideoButtonText(reminder);
         }
 
-        public void GetActionPlans(string category)
+        private void setVideoButtonText(string reminder)
         {
-            // this function is depended on whether the video will be played on this page
-            // if the video is not necessaryly to be played here just call getActionPlans(category)
-            // from ActionPlan page
+            VideoButton.Text = "Click for " + reminder + " Action Plan Video";
+        }
+
+        private void SetButtonImages() {
+            show_video_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.video_button.png");
+        }
+
+        private void videoButtonClicked(object sender, EventArgs e) { 
+            Navigation.PushAsync(new ActionPlan(actionPlanName));
+        }
+
+        private void UpdateReminderStatus(object sender, EventArgs e) {
+            //update the status of the reminder in database
         }
     }
 }

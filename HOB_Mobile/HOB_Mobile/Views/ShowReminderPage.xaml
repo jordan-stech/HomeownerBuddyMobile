@@ -4,45 +4,79 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HOB_Mobile.Views.ShowReminderPage">
+             x:Class="HOB_Mobile.Views.ShowReminderPage"
+             BackgroundColor="#005691">
 
 
-    <StackLayout Margin="10, 20, 10, 10"
-                 VerticalOptions="Fill"
-                 HorizontalOptions="StartAndExpand"
+    <StackLayout Margin="10, 10, 10, 10"
                  Orientation="Vertical">
 
-        <StackLayout Padding="0, 20, 0, 0">
-
-            <Label Padding="0, 0, 0, 20"
+        <Label Padding="0, 10, 0, 20"
                    TextColor="White"
                    FontSize="25"
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold"
-                   Text="Maintenance Reminders" />
+                   Text="Reminder Option" />
 
-            <ListView x:Name="ReminderDetail"
-                      SeparatorColor="Black"
-                      BackgroundColor="#005691"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout VerticalOptions="Center"
-                                         Orientation="Vertical">
+        <Frame Margin="10, 150, 10, 10"
+               CornerRadius="20"
+               OutlineColor="White"
+               BackgroundColor="#53B949"
+               Padding="5, 5, 5, 5">
+            <StackLayout Margin="25, 0, 0, 0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Start"
+                         VerticalOptions="FillAndExpand">
 
-                                <Label TextColor="White"
-                                       FontSize="18"
-                                       Text="{Binding title}" />
-                            </StackLayout>
-                        </ViewCell>
+                <Image x:Name="show_video_button"
+                       Margin="0,5,20,5"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       Source=""
+                       HorizontalOptions="Start"
+                       VerticalOptions="CenterAndExpand" />
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                <Label x:Name="VideoButton"
+                       TextColor="White"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
 
-            </ListView>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="videoButtonClicked" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Frame>
 
-        </StackLayout>
+        <Frame Margin="10, 10, 10, 150"
+               CornerRadius="20"
+               OutlineColor="White"
+               BackgroundColor="#53B949"
+               Padding="5, 5, 5, 5">
+            <StackLayout Margin="30, 0, 0, 0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Start"
+                         VerticalOptions="FillAndExpand">
+
+                <CheckBox IsChecked="False"
+                          Color="Black"
+                          ScaleX="2"
+                          ScaleY="2"
+                          CheckedChanged="UpdateReminderStatus"
+                          Margin="0,5,20,5"
+                          HorizontalOptions="Start"
+                          VerticalOptions="CenterAndExpand" />
+
+                <Label Text="Click to complete task"
+                       TextColor="White"
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                
+            </StackLayout>
+        </Frame>
 
     </StackLayout>
 </ContentPage>

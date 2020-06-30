@@ -41,16 +41,23 @@
     <None Remove="Resources\living_room.svg" />
     <None Remove="Resources\logout_icon.png" />
     <None Remove="Resources\misc.png" />
+    <None Remove="Resources\over_due.png" />
     <None Remove="Resources\phone.png" />
     <None Remove="Resources\plumbing.png" />
+    <None Remove="Resources\red_signal.png" />
     <None Remove="Resources\settings.png" />
+    <None Remove="Resources\video_button.png" />
+    <None Remove="Resources\video_play_button.png" />
     <None Remove="Resources\website.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\calendar.png" />
     <EmbeddedResource Include="Resources\help.png" />
+    <EmbeddedResource Include="Resources\over_due.png" />
+    <Resource Include="Resources\red_signal.png" />
     <EmbeddedResource Include="Resources\settings.png" />
+    <EmbeddedResource Include="Resources\video_button.png" />
     <EmbeddedResource Include="Resources\website.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -87,6 +94,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\phone.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\video_play_button.png" />
   </ItemGroup>
 
   <ItemGroup>

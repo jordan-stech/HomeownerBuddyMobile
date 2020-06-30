@@ -65,11 +65,10 @@ namespace HOB_Mobile.Views
             // Create new httpClient using our client handler created above
             HttpClient httpClient = new HttpClient(clientHandler);
 
-            String usersApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MobileUsersAPI";
-            String maintenanceApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI";
+            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MobileUsersAPI";
 
             // Create new URI with the API url so we can perform the web request
-            var uri = new Uri(string.Format(usersApiUrl, string.Empty));
+            var uri = new Uri(string.Format(apiUrl, string.Empty));
 
             MobileUsers user = new MobileUsers();
             user.FName = userFirstName;
@@ -82,13 +81,13 @@ namespace HOB_Mobile.Views
             Console.WriteLine(JSONresult);
             var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage userResponse = await httpClient.PostAsync(usersApiUrl, content);
+            HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content);
 
             // Keep track of id from the database - will be used to unregister home
-            if (userResponse.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 // Get response from POST request
-                var tokenJson = await userResponse.Content.ReadAsStringAsync();
+                var tokenJson = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(tokenJson);
                 var array = tokenJson.Split('"');
                 String id = array[2];
@@ -107,10 +106,7 @@ namespace HOB_Mobile.Views
                     Preferences.Set("user_register_date", regDate);
 
                     //await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
-
-                    // Send this user's data to the maintenance reminder api to have the current maintenance reminders tied to their id
-                    HttpResponseMessage maintenanceResponse = await httpClient.PostAsync(maintenanceApiUrl, content);
-
+                    
                     // Sets the Home Page as the MainPage so when the physical back button is pressed immediately after registering, the app closes instead of returning to the Register Page 
                     Application.Current.MainPage = new NavigationPage(new Views.HomePage(Preferences.Get("user_first_name", "")));
                 } else
