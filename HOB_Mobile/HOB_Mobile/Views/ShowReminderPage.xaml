@@ -52,6 +52,7 @@
         <Frame Margin="10, 10, 10, 150"
                CornerRadius="20"
                OutlineColor="White"
+               HeightRequest="60"
                BackgroundColor="#53B949"
                Padding="5, 5, 5, 5">
             <StackLayout Margin="30, 0, 0, 0"

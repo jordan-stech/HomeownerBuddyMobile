@@ -59,15 +59,19 @@ namespace HOB_Mobile.Views
                 var Dones = new List<ReminderModel>();
 
                 foreach (ReminderModel reminder in reminders) {
+
                     reminder.icon = OverDueIcon;
+                    ToDos.Add(reminder);
                     OverDues.Add(reminder);
+                    Dones.Add(reminder);
+
                 }
 
                 OverDue.ItemsSource = OverDues;
 
-                ToDo.ItemsSource = OverDues;
+                ToDo.ItemsSource = ToDos;
                 
-                Done.ItemsSource = OverDues;
+                Done.ItemsSource = Dones;
 
             }
             else

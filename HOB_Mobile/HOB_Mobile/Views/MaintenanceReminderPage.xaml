@@ -39,7 +39,7 @@
                                     HeightRequest="90"
                                     BackgroundColor="#53B949"
                                     Padding="10, 10, 10, 10">
-                                    <StackLayout Margin="50, 0, 0, 0"
+                                    <StackLayout Margin="30, 0, 0, 0"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Start"
                                          VerticalOptions="FillAndExpand">
@@ -52,10 +52,18 @@
                                             HorizontalOptions="Start"
                                             VerticalOptions="CenterAndExpand" />
 
-                                        <Label TextColor="White"
+                                        <StackLayout Orientation="Vertical">
+
+                                            <Label TextColor="White"
                                                 FontSize="18"
                                                 Text="{Binding reminder}" 
                                                 HeightRequest="20"/>
+
+                                            <Label TextColor="White"
+                                                FontSize="18"
+                                                Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                HeightRequest="20"/>
+                                        </StackLayout>
 
                                     </StackLayout>
                                 </Frame>
@@ -84,7 +92,7 @@
                                     HeightRequest="90"
                                     BackgroundColor="#53B949"
                                     Padding="10, 10, 10, 10">
-                                    <StackLayout Margin="50, 0, 0, 0"
+                                    <StackLayout Margin="30, 0, 0, 0"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Start"
                                          VerticalOptions="FillAndExpand">
@@ -97,10 +105,18 @@
                                             HorizontalOptions="Start"
                                             VerticalOptions="CenterAndExpand" />
 
-                                        <Label TextColor="White"
+                                        <StackLayout Orientation="Vertical">
+
+                                            <Label TextColor="White"
                                                 FontSize="18"
                                                 Text="{Binding reminder}" 
                                                 HeightRequest="20"/>
+
+                                            <Label TextColor="White"
+                                                FontSize="18"
+                                                Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}"
+                                                HeightRequest="20"/>
+                                        </StackLayout>
 
                                     </StackLayout>
                                 </Frame>
@@ -129,7 +145,7 @@
                                     HeightRequest="90"
                                     BackgroundColor="#53B949"
                                     Padding="10, 10, 10, 10">
-                                    <StackLayout Margin="50, 0, 0, 0"
+                                    <StackLayout Margin="30, 0, 0, 0"
                                          Orientation="Horizontal"
                                          HorizontalOptions="Start"
                                          VerticalOptions="FillAndExpand">
@@ -142,10 +158,18 @@
                                             HorizontalOptions="Start"
                                             VerticalOptions="CenterAndExpand" />
 
-                                        <Label TextColor="White"
+                                        <StackLayout Orientation="Vertical">
+
+                                            <Label TextColor="White"
                                                 FontSize="18"
                                                 Text="{Binding reminder}" 
                                                 HeightRequest="20"/>
+
+                                            <Label TextColor="White"
+                                                FontSize="18"
+                                                Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                HeightRequest="20"/>
+                                        </StackLayout>
 
                                     </StackLayout>
                                 </Frame>
