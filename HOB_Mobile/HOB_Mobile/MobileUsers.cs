@@ -6,6 +6,7 @@ namespace HOB_Mobile
 {
     class MobileUsers
     {
+        public int Id { get; set; }
         public string FName { get; set; }
         public string Lname { get; set; }
         public string Code { get; set; }

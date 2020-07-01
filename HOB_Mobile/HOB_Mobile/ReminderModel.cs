@@ -19,7 +19,6 @@ namespace HOB_Mobile
 
         public string description { get; set; }
         public int userId { get; set; }
-        // The Mobile User's first name
         public string notificationInterval { get; set; }
         public string seasonSpring { get; set; }
         public string seasonSummer { get; set; }

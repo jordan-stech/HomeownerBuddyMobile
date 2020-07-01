@@ -58,6 +58,15 @@ namespace HOB_Mobile.Views
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
+            // Create new user object to pass into the POST request
+            MobileUsers user = new MobileUsers();
+            int tempId = Int32.Parse(Preferences.Get("user_id", "no user id"));
+            user.Id = tempId;
+            user.FName = Preferences.Get("user_first_name", "no first name found");
+            user.Lname = Preferences.Get("user_last_name", "no last name found");
+            user.Code = Preferences.Get("user_home_code", "no home code found");
+            user.date = Preferences.Get("user_register_code", "no register date found");
+
             // Get web request response and store it
             var response = await httpClient.GetAsync(uri);
 
@@ -69,25 +78,38 @@ namespace HOB_Mobile.Views
 
                 var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
 
-                //foreach (ReminderModel reminder in reminders)
-                //{
-                    //string taskName = reminder.reminder;
-                    //if (taskName.Equals(actionPlanName)) {
-                        //string JSONresult = JsonConvert.SerializeObject(reminder);
-                        //Console.WriteLine(JSONresult);
-                        //var newContent = new StringContent(JSONresult, Encoding.UTF8, "application/json");
-                        //HttpResponseMessage newResponse = await httpClient.PostAsync(apiUrl, newContent);
-                        //if (newResponse.IsSuccessStatusCode) {
-                            //var tokenJson = await newResponse.Content.ReadAsStringAsync();
-                            //Console.WriteLine(tokenJson);
-                            //var array = tokenJson.Split('"');
-                            //String completed = array[14];
-                            //Preferences.Set("completed","done");
-                            //await DisplayAlert(completed," result ","OK");
-                            //Application.Current.MainPage = new NavigationPage(new Views.MaintenanceReminder());
-                        //}
-                    //}
-                //}
+                foreach (ReminderModel reminder in reminders)
+                {
+                    string taskName = reminder.reminder;
+                    if (taskName.Equals(actionPlanName)) {
+
+                        string JSONresult = JsonConvert.SerializeObject(user);
+                        Console.WriteLine(JSONresult);
+                        var newContent = new StringContent(JSONresult, Encoding.UTF8, "application/json");
+                        HttpResponseMessage newResponse = await httpClient.PostAsync(apiUrl, newContent);
+
+                        if (newResponse.IsSuccessStatusCode)
+                        {
+                            var tokenJson = await newResponse.Content.ReadAsStringAsync();
+                            Console.WriteLine(tokenJson);
+                            var array = tokenJson.Split('"');
+                            String completed = array[14];
+                            Preferences.Set("completed", "done");
+                           
+
+                            String putApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + Preferences.Get("user_id", "no user id");
+                            var putResponse = await httpClient.GetAsync(uri);
+
+                            if (putResponse.IsSuccessStatusCode)
+                            {
+                                await DisplayAlert(completed, " result ", "OK");
+                                Application.Current.MainPage = new NavigationPage(new Views.MaintenanceReminder());
+                            }
+                        
+                        }
+                    }
+                }
+
             }
             else
             {

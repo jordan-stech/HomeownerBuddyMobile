@@ -66,6 +66,7 @@ namespace HOB_Mobile.Views
             HttpClient httpClient = new HttpClient(clientHandler);
 
             String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MobileUsersAPI";
+            String maintenanceApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI";
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
@@ -106,7 +107,10 @@ namespace HOB_Mobile.Views
                     Preferences.Set("user_register_date", regDate);
 
                     //await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
-                    
+
+                    // Send this user's data to the maintenance reminder api to have the current maintenance reminders tied to their id
+                    HttpResponseMessage maintenanceResponse = await httpClient.PostAsync(maintenanceApiUrl, content);
+
                     // Sets the Home Page as the MainPage so when the physical back button is pressed immediately after registering, the app closes instead of returning to the Register Page 
                     Application.Current.MainPage = new NavigationPage(new Views.HomePage(Preferences.Get("user_first_name", "")));
                 } else
