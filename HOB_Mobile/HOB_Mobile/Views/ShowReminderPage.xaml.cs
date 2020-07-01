@@ -67,6 +67,7 @@ namespace HOB_Mobile.Views
             user.Code = Preferences.Get("user_home_code", "no home code found");
             user.date = Preferences.Get("user_register_code", "no register date found");
 
+
             // Get web request response and store it
             var response = await httpClient.GetAsync(uri);
 
@@ -94,12 +95,10 @@ namespace HOB_Mobile.Views
                             Console.WriteLine(tokenJson);
                             var array = tokenJson.Split('"');
                             String completed = array[14];
-                            Preferences.Set("completed", "done");
-                           
+                            Preferences.Set("completed", "done");                      
 
-                            String putApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + Preferences.Get("user_id", "no user id");
-                            var putResponse = await httpClient.GetAsync(uri);
-
+                            var putResponse = await httpClient.PutAsync(apiUrl, newContent);
+                            
                             if (putResponse.IsSuccessStatusCode)
                             {
                                 await DisplayAlert(completed, " result ", "OK");
