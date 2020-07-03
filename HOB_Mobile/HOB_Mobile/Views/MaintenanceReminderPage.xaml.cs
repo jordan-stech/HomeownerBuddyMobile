@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Humanizer;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -55,8 +56,8 @@ namespace HOB_Mobile.Views
                 var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
 
                 ImageSource OverDueIcon = ImageSource.FromResource("HOB_Mobile.Resources.over_due.png");
-                ImageSource ToDoIcon = ImageSource.FromResource("HOB_Mobile.Resources.settings.png");
-                ImageSource DoingIcon = ImageSource.FromResource("HOB_Mobile.Resources.settings.png");
+                ImageSource ToDoIcon = ImageSource.FromResource("HOB_Mobile.Resources.to_do_icon.png");
+                ImageSource DoneIcon = ImageSource.FromResource("HOB_Mobile.Resources.done_icon.png");
 
                 var OverDues = new List<ReminderModel>();
                 var ToDos = new List<ReminderModel>();
@@ -64,19 +65,54 @@ namespace HOB_Mobile.Views
 
                 foreach (ReminderModel reminder in reminders) {
 
-                    reminder.icon = OverDueIcon;
-                    ToDos.Add(reminder);
-                    OverDues.Add(reminder);
-                    Dones.Add(reminder);
+                    
+                    if (reminder.completed.Equals("Due"))
+                    {
+                        reminder.icon = ToDoIcon;
+                        ToDos.Add(reminder);
+                    }
+                    else if (reminder.completed.Equals("Completed"))
+                    {
+                        reminder.icon = DoneIcon;
+                        Dones.Add(reminder);
+                    }
+                    else {
+                        reminder.icon = OverDueIcon;
+                        OverDues.Add(reminder);
+                    }
 
                 }
 
-                OverDue.ItemsSource = OverDues;
+                if (OverDues.Count.Equals(0))
+                {
+                    pastdues.Text = "You have no overdues";
+                    OverDueFrame.HeightRequest = 10;
+                    
+                }
+                else
+                {
+                    OverDue.ItemsSource = OverDues;
+                }
 
-                ToDo.ItemsSource = ToDos;
-                
-                Done.ItemsSource = Dones;
+                if (ToDos.Count.Equals(0))
+                {
+                    todos.Text = "You have no maintenance to do";
+                    ToDoFrame.HeightRequest = 10;
+                }
+                else
+                {
+                    ToDo.ItemsSource = ToDos;
+                }
 
+                if (Dones.Count.Equals(0))
+                {
+                    finished.Text = "You haven't done any maintenances yet";
+                    DoneFrame.HeightRequest = 10;
+                }
+                else
+                {
+                    Done.ItemsSource = Dones;
+                }
             }
             else
             {
@@ -89,10 +125,57 @@ namespace HOB_Mobile.Views
             ViewCell box = (ViewCell)sender;
             var label = (ReminderModel)box.BindingContext;
 
-            var reminder = label.reminder;
+            var reminderID = label.id;
+            var reminderName = label.reminder;
 
-            Navigation.PushAsync(new ShowReminderPage(reminder));
-            //Navigation.PushAsync(new ActionPlan(reminder));
+            Navigation.PushAsync(new ShowReminderPage(reminderID,reminderName));
+        }
+
+        private void HandleOverDueHeight(object sender, EventArgs e) {
+            ViewCell cell = (ViewCell)sender;
+            UpdateOverDueHeight(cell);
+        }
+
+        private void HandleToDoHeight(object sender, EventArgs e)
+        {
+            ViewCell cell = (ViewCell)sender;
+            UpdateToDoHeight(cell);
+        }
+
+        private void HandleDoneHeight(object sender, EventArgs e)
+        {
+            ViewCell cell = (ViewCell)sender;
+            UpdateDoneHeight(cell);
+        }
+
+        private void UpdateOverDueHeight(ViewCell viewCell) {
+            double height = 0;
+
+            foreach (var cell in OverDue.ItemsSource)
+            {
+                height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
+            }
+            OverDue.HeightRequest = height; 
+        }
+
+        private void UpdateToDoHeight(ViewCell viewCell)
+        {
+            double height = 0;
+            foreach (var cell in ToDo.ItemsSource)
+            {
+                height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
+            }
+            ToDo.HeightRequest = height;
+        }
+
+        private void UpdateDoneHeight(ViewCell viewCell)
+        {
+            double height = 0;
+            foreach (var cell in Done.ItemsSource)
+            {
+                height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;     
+            }
+            Done.HeightRequest = height;
         }
 
     }

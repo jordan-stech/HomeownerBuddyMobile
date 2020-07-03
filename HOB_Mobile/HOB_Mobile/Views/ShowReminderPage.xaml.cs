@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,36 +17,40 @@ namespace HOB_Mobile.Views
     public partial class ShowReminderPage : ContentPage
     {
         private string actionPlanName;
-
-        public ShowReminderPage(string reminder)
+        private int updaedReminderID;
+        public ShowReminderPage(int reminderID, string reminderName)
         {
             InitializeComponent();
+            actionPlanName = reminderName;
+            updaedReminderID = reminderID;
 
-            SetButtonImages();
-
-            actionPlanName = reminder;
-            setVideoButtonText(reminder);
+            SetButtonImages();          
+            setVideoButtonText(reminderName);
         }
 
-        private void setVideoButtonText(string reminder)
+        private void setVideoButtonText(string reminderName)
         {
-            VideoButton.Text = "Click for " + reminder + " Action Plan Video";
+            VideoButton.Text = reminderName + " Video";
         }
 
-        private void SetButtonImages() {
+        private void SetButtonImages()
+        {
             show_video_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.video_button.png");
         }
 
-        private void videoButtonClicked(object sender, EventArgs e) { 
+        private void videoButtonClicked(object sender, EventArgs e)
+        {
             Navigation.PushAsync(new ActionPlan(actionPlanName));
         }
 
         private void UpdateReminderStatus(object sender, EventArgs e) {
-            //update the status of the reminder in database
             UpdateReminderInDB();
         }
 
-        private async void UpdateReminderInDB() {
+        private async void UpdateReminderInDB()
+        {
+            // Id of the current reminder that the user clicked on
+            string reminderId = updaedReminderID.ToString();
             // Set up new HttpClientHandler and its credentials so we can perform the web request
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -53,62 +58,22 @@ namespace HOB_Mobile.Views
             // Create new httpClient using our client handler created above
             HttpClient httpClient = new HttpClient(clientHandler);
 
-            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI";
+            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + reminderId;
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
-            // Create new user object to pass into the POST request
-            MobileUsers user = new MobileUsers();
-            int tempId = Int32.Parse(Preferences.Get("user_id", "no user id"));
-            user.Id = tempId;
-            user.FName = Preferences.Get("user_first_name", "no first name found");
-            user.Lname = Preferences.Get("user_last_name", "no last name found");
-            user.Code = Preferences.Get("user_home_code", "no home code found");
-            user.date = Preferences.Get("user_register_code", "no register date found");
-
+            var content = new StringContent(reminderId, Encoding.UTF8, "application/json");
 
             // Get web request response and store it
-            var response = await httpClient.GetAsync(uri);
+            var response = await httpClient.PutAsync(uri, content);
 
             // Check if the web request was successful
             if (response.IsSuccessStatusCode)
             {
-                // Get the JSON object returned from the web request
-                var content = await response.Content.ReadAsStringAsync();
-
-                var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
-
-                foreach (ReminderModel reminder in reminders)
-                {
-                    string taskName = reminder.reminder;
-                    if (taskName.Equals(actionPlanName)) {
-
-                        string JSONresult = JsonConvert.SerializeObject(user);
-                        Console.WriteLine(JSONresult);
-                        var newContent = new StringContent(JSONresult, Encoding.UTF8, "application/json");
-                        HttpResponseMessage newResponse = await httpClient.PostAsync(apiUrl, newContent);
-
-                        if (newResponse.IsSuccessStatusCode)
-                        {
-                            var tokenJson = await newResponse.Content.ReadAsStringAsync();
-                            Console.WriteLine(tokenJson);
-                            var array = tokenJson.Split('"');
-                            String completed = array[14];
-                            Preferences.Set("completed", "done");                      
-
-                            var putResponse = await httpClient.PutAsync(apiUrl, newContent);
-                            
-                            if (putResponse.IsSuccessStatusCode)
-                            {
-                                await DisplayAlert(completed, " result ", "OK");
-                                Application.Current.MainPage = new NavigationPage(new Views.MaintenanceReminder());
-                            }
-                        
-                        }
-                    }
-                }
-
+                Preferences.Set("completed", "done");
+                await Navigation.PopAsync();
+                await Navigation.PushAsync(new MaintenanceReminder());
             }
             else
             {
@@ -116,5 +81,7 @@ namespace HOB_Mobile.Views
                 Debug.WriteLine("Response not successful");
             }
         }
+
+
     }
 }
