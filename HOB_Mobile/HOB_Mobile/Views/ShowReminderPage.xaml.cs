@@ -16,21 +16,44 @@ namespace HOB_Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowReminderPage : ContentPage
     {
+        private string actionTitle;
+        private string actionLink;
+        private string actionSteps;
         private string actionPlanName;
         private int updaedReminderID;
-        public ShowReminderPage(int reminderID, string reminderName)
+        public ShowReminderPage(int reminderID, string reminderItem, string reminderName, string reminderDescription, string actionPlanTitle, string actionPlanLink, string actionPlanSteps)
         {
             InitializeComponent();
-            actionPlanName = reminderName;
+            actionTitle = actionPlanTitle;
+            actionLink = actionPlanLink;
+            actionSteps = actionPlanSteps;
             updaedReminderID = reminderID;
 
+            SetItem(reminderItem);
+            SetTitle(reminderName);
+            SetDescription(reminderDescription);
             SetButtonImages();          
             setVideoButtonText(reminderName);
         }
 
+        private void SetItem(string reminderItem)
+        {
+            Item.Text = reminderItem;
+        }
+
+        private void SetTitle(string reminderName)
+        {
+            Title.Text = reminderName;
+        }
+
+        private void SetDescription(string reminderDescription)
+        {
+            Description.Text = reminderDescription;
+        }
+
         private void setVideoButtonText(string reminderName)
         {
-            VideoButton.Text = reminderName + " Video";
+            VideoButton.Text = "Action Plan Video";
         }
 
         private void SetButtonImages()
@@ -40,7 +63,8 @@ namespace HOB_Mobile.Views
 
         private void videoButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ActionPlan(actionPlanName));
+            //Navigation.PushAsync(new ActionPlan(actionPlanName));
+            Navigation.PushAsync(new ShowActionItemPage(actionTitle, actionLink, actionSteps));
         }
 
         private void UpdateReminderStatus(object sender, EventArgs e) {

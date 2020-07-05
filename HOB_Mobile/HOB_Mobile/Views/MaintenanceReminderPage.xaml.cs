@@ -76,11 +76,15 @@ namespace HOB_Mobile.Views
                         reminder.icon = DoneIcon;
                         Dones.Add(reminder);
                     }
-                    else {
+                    else if (reminder.completed.Equals("Overdue")) 
+                    {
                         reminder.icon = OverDueIcon;
                         OverDues.Add(reminder);
                     }
-
+                    else
+                    {
+                        // Not in season so don't display
+                    }
                 }
 
                 if (OverDues.Count.Equals(0))
@@ -96,7 +100,7 @@ namespace HOB_Mobile.Views
 
                 if (ToDos.Count.Equals(0))
                 {
-                    todos.Text = "You have no maintenance to do";
+                    todos.Text = "You have no maintenance tasks to do";
                     ToDoFrame.HeightRequest = 10;
                 }
                 else
@@ -106,7 +110,7 @@ namespace HOB_Mobile.Views
 
                 if (Dones.Count.Equals(0))
                 {
-                    finished.Text = "You haven't done any maintenances yet";
+                    finished.Text = "You haven't done any maintenance tasks yet";
                     DoneFrame.HeightRequest = 10;
                 }
                 else
@@ -126,9 +130,14 @@ namespace HOB_Mobile.Views
             var label = (ReminderModel)box.BindingContext;
 
             var reminderID = label.id;
+            var reminderItem = label.reminderItem;
             var reminderName = label.reminder;
+            var reminderDescription = label.reminderDescription;
+            var actionPlanTitle = label.actionPlanTitle;
+            var actionPlanLink = label.actionPlanLink;
+            var actionPlanSteps = label.actionPlanSteps;
 
-            Navigation.PushAsync(new ShowReminderPage(reminderID,reminderName));
+            Navigation.PushAsync(new ShowReminderPage(reminderID, reminderItem, reminderName, reminderDescription, actionPlanTitle, actionPlanLink, actionPlanSteps));
         }
 
         private void HandleOverDueHeight(object sender, EventArgs e) {

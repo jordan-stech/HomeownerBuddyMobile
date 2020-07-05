@@ -33,7 +33,10 @@ namespace HOB_Mobile.Views
 
             // Call function to perform a web request
             GetAvailableActionPlans();
+
+            
         }
+
 
         /*
          * Handle the display of the home page icons

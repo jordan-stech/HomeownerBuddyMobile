@@ -17,7 +17,8 @@ namespace HOB_Mobile
         public string reminder { get; set; }
         public int reminderId { get; set; }
 
-        public string description { get; set; }
+        public string reminderDescription { get; set; }
+        public string reminderItem { get; set; }
         public int userId { get; set; }
         public string notificationInterval { get; set; }
         public string seasonSpring { get; set; }
@@ -27,6 +28,9 @@ namespace HOB_Mobile
         public int actionPlanId { get; set; }
         public string actionPlanTitle { get; set; }
         public string actionPlanCategory { get; set; }
+        public string actionPlanLink { get; set; }
+        public string actionPlanSteps { get; set; }
+
         // Check to see if a homeowner completed a maintenance task
         public string completed { get; set; }
         public string dueDate { get; set; }
