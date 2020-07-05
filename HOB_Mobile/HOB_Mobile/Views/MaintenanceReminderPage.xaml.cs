@@ -138,6 +138,7 @@ namespace HOB_Mobile.Views
             var actionPlanSteps = label.actionPlanSteps;
 
             Navigation.PushAsync(new ShowReminderPage(reminderID, reminderItem, reminderName, reminderDescription, actionPlanTitle, actionPlanLink, actionPlanSteps));
+            Navigation.RemovePage(this);
         }
 
         private void HandleOverDueHeight(object sender, EventArgs e) {

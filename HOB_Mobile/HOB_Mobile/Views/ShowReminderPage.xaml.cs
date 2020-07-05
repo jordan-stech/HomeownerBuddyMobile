@@ -35,6 +35,7 @@ namespace HOB_Mobile.Views
             SetDescription(reminderDescription);
             SetButtonImages();          
             setVideoButtonText(reminderName);
+
         }
 
         private void SetItem(string reminderItem)
@@ -104,8 +105,11 @@ namespace HOB_Mobile.Views
             if (response.IsSuccessStatusCode)
             {
                 Preferences.Set("completed", "done");
-                await Navigation.PopAsync();
+
+                
                 await Navigation.PushAsync(new MaintenanceReminder());
+                Navigation.RemovePage(this);
+
             }
             else
             {
@@ -113,7 +117,6 @@ namespace HOB_Mobile.Views
                 Debug.WriteLine("Response not successful");
             }
         }
-
 
     }
 }

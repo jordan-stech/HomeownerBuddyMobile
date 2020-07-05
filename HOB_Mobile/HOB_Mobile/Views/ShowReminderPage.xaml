@@ -7,8 +7,8 @@
              x:Class="HOB_Mobile.Views.ShowReminderPage"
              BackgroundColor="#005691">
 
-
-    <StackLayout Margin="10, 10, 10, 10"
+    <ScrollView>
+        <StackLayout Margin="10, 10, 10, 10"
                  Orientation="Vertical">
 
         <Label x:Name="Item"
@@ -96,4 +96,5 @@
         </Frame>
 
     </StackLayout>
+        </ScrollView>
 </ContentPage>
