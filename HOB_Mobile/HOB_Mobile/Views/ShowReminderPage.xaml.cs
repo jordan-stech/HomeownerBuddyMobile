@@ -105,8 +105,8 @@ namespace HOB_Mobile.Views
             if (response.IsSuccessStatusCode)
             {
                 Preferences.Set("completed", "done");
+                Toast.MakeText(Android.App.Application.Context, "Task Completed!", ToastLength.Short).Show();
 
-                
                 await Navigation.PushAsync(new MaintenanceReminder());
                 Navigation.RemovePage(this);
 
