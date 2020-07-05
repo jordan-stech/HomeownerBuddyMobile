@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Android.Widget;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -61,10 +62,17 @@ namespace HOB_Mobile.Views
             show_video_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.video_button.png");
         }
 
-        private void videoButtonClicked(object sender, EventArgs e)
+        public void videoButtonClicked(object sender, EventArgs e)
         {
             //Navigation.PushAsync(new ActionPlan(actionPlanName));
-            Navigation.PushAsync(new ShowActionItemPage(actionTitle, actionLink, actionSteps));
+            if (actionTitle != "None")
+            {
+                Navigation.PushAsync(new ShowActionItemPage(actionTitle, actionLink, actionSteps));
+            }
+            else
+            {
+                Toast.MakeText(Android.App.Application.Context, "No Action Plan Video Available", ToastLength.Short).Show();
+            }
         }
 
         private void UpdateReminderStatus(object sender, EventArgs e) {
