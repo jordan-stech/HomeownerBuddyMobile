@@ -62,11 +62,17 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.LocalNotification">
+      <Version>4.1.4</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.Youtube">
       <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.Forms.VideoPlayer">
       <Version>1.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Design">
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
@@ -107,6 +113,9 @@
       <Project>{E4B7868A-A523-46E7-8F2A-04A253776CA4}</Project>
       <Name>HOB_Mobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bestpict.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
