@@ -11,12 +11,26 @@
     <StackLayout Margin="10, 10, 10, 10"
                  Orientation="Vertical">
 
-        <Label Padding="0, 10, 0, 20"
+        <Label x:Name="Item"
+                   Padding="0, 10, 0, 20"
                    TextColor="White"
                    FontSize="25"
                    HorizontalTextAlignment="Center"
-                   FontAttributes="Bold"
-                   Text="Reminder Option" />
+                   FontAttributes="Bold" />
+        
+        <Label x:Name="Title"
+                   Padding="0, 10, 0, 20"
+                   TextColor="White"
+                   FontSize="25"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" />
+
+        <Label x:Name="Description"
+                   Padding="0, 10, 0, 20"
+                   TextColor="White"
+                   FontSize="18"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" />
 
         <Frame Margin="10, 150, 10, 10"
                CornerRadius="20"
@@ -38,7 +52,7 @@
 
                 <Label x:Name="VideoButton"
                        TextColor="White"
-                       FontSize="20"
+                       FontSize="25"
                        FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="CenterAndExpand"/>
@@ -65,11 +79,13 @@
                           ScaleX="2"
                           ScaleY="2"
                           CheckedChanged="UpdateReminderStatus"
-                          Margin="0,5,20,5"
+                          Margin="15,5,5,5"
+                          HeightRequest="50"
+                          WidthRequest="50"
                           HorizontalOptions="Start"
                           VerticalOptions="CenterAndExpand" />
 
-                <Label Text="   Done"
+                <Label Text="Done"
                        TextColor="White"
                        FontSize="25"
                        FontAttributes="Bold"

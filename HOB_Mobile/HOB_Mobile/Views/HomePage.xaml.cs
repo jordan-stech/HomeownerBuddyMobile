@@ -115,6 +115,7 @@ namespace HOB_Mobile.Views
             }
         }
 
+
         /*
          * Handle the display of the home page icons
          */
