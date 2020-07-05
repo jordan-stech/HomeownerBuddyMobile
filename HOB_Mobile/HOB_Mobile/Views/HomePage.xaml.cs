@@ -7,9 +7,12 @@ using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using Plugin.LocalNotification;
+
 
 namespace HOB_Mobile.Views
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class HomePage : ContentPage
@@ -17,6 +20,14 @@ namespace HOB_Mobile.Views
         List<ContentModel> globalActionPlans;
 
         Dictionary<string, List<ContentModel>> tagToJsonMap = new Dictionary<string, List<ContentModel>>();
+
+        public DayOfWeek DayOfWeek { get; }
+
+        Boolean weeklyScheduled = false;
+        Boolean monthlyScheduled = false;
+        Boolean quarterlyScheduled = false;
+        Boolean yearlyScheduled = false;
+
 
         public HomePage(string userFirstName)
         {
@@ -34,7 +45,74 @@ namespace HOB_Mobile.Views
             // Call function to perform a web request
             GetAvailableActionPlans();
 
-            
+            var list = new List<string>
+            {
+                typeof(HOB_Mobile.Views.MaintenanceReminder).FullName
+            };
+
+            var serializeReturningData = ObjectSerializer.SerializeObject(list);
+
+            int daysToAddWeekly = 0;
+            if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Saturday))
+            {
+                daysToAddWeekly = 1;
+            }
+            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Friday))
+            {
+                daysToAddWeekly = 2;
+            }
+            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Thursday))
+            {
+                daysToAddWeekly = 3;
+            }
+            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Wednesday))
+            {
+                daysToAddWeekly = 4;
+            }
+            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Tuesday))
+            {
+                daysToAddWeekly = 5;
+            }
+            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Monday))
+            {
+                daysToAddWeekly = 6;
+            }
+
+            int secondsToAdd = daysToAddWeekly * 86400;
+
+            if (!weeklyScheduled)
+            {
+                if (secondsToAdd == 0)
+                {
+
+                    var notification = new NotificationRequest
+                    {
+                        NotificationId = 100,
+                        Title = "Maintenance Reminder",
+                        Description = "Check the homeowner app for new maintenance reminders",
+                        ReturningData = serializeReturningData, // Returning data when tapped on notification.
+                        Repeats = NotificationRepeat.Weekly,
+                        NotifyTime = DateTime.Now.AddSeconds(10) // Used for Scheduling local notification, if not specified notification will show immediately.
+                    };
+                    NotificationCenter.Current.Show(notification);
+                    weeklyScheduled = true;
+
+                }
+                else
+                {
+                    var notification = new NotificationRequest
+                    {
+                        NotificationId = 100,
+                        Title = "Maintenance Reminder",
+                        Description = "Check the homeowner app for new maintenance reminders",
+                        ReturningData = serializeReturningData, // Returning data when tapped on notification.
+                        Repeats = NotificationRepeat.Weekly,
+                        NotifyTime = DateTime.Now.AddSeconds(secondsToAdd) // Used for Scheduling local notification, if not specified notification will show immediately.
+                    };
+                    NotificationCenter.Current.Show(notification);
+                    weeklyScheduled = true;
+                }
+            }
         }
 
 
@@ -296,6 +374,7 @@ namespace HOB_Mobile.Views
 
             // Hide search results ListView
             homePageSearchResults.IsVisible = false;
+
         }
 
         /*
