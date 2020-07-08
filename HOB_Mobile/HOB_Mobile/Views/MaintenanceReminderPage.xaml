@@ -40,7 +40,7 @@
                                         CornerRadius="20"
                                         OutlineColor="White"
                                         HeightRequest="90"
-                                        BackgroundColor="PaleVioletRed"
+                                        BackgroundColor="#E90E0E"
                                         Padding="5, 5, 5, 5">
                                         <StackLayout Margin="30, 0, 0, 0"
                                                 Orientation="Horizontal"
@@ -109,7 +109,7 @@
                                         CornerRadius="20"
                                         OutlineColor="White"
                                         HeightRequest="90"
-                                        BackgroundColor="YellowGreen"
+                                        BackgroundColor="#D6C018"
                                         Padding="10, 10, 10, 10">
                                         <StackLayout Margin="30, 0, 0, 0"
                                                 Orientation="Horizontal"
