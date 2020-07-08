@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Plugin.LocalNotification;
-
+using Android.Preferences;
 
 namespace HOB_Mobile.Views
 {
@@ -22,11 +22,6 @@ namespace HOB_Mobile.Views
         Dictionary<string, List<ContentModel>> tagToJsonMap = new Dictionary<string, List<ContentModel>>();
 
         public DayOfWeek DayOfWeek { get; }
-
-        Boolean weeklyScheduled = false;
-        Boolean monthlyScheduled = false;
-        Boolean quarterlyScheduled = false;
-        Boolean yearlyScheduled = false;
 
 
         public HomePage(string userFirstName)
@@ -44,6 +39,17 @@ namespace HOB_Mobile.Views
 
             // Call function to perform a web request
             GetAvailableActionPlans();
+
+
+            Boolean weeklyScheduled = false;
+
+            if (Preferences.ContainsKey("scheduled_notification"))
+            {
+                weeklyScheduled = Preferences.Get("scheduled_notification", false);
+            } else
+            {
+                Preferences.Set("scheduled_notification", weeklyScheduled);
+            }
 
             var list = new List<string>
             {
@@ -67,7 +73,7 @@ namespace HOB_Mobile.Views
             }
             else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Wednesday))
             {
-                daysToAddWeekly = 4;
+                daysToAddWeekly = 0;
             }
             else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Tuesday))
             {
@@ -82,36 +88,18 @@ namespace HOB_Mobile.Views
 
             if (!weeklyScheduled)
             {
-                if (secondsToAdd == 0)
+                var notification = new NotificationRequest
                 {
-
-                    var notification = new NotificationRequest
-                    {
-                        NotificationId = 100,
-                        Title = "Maintenance Reminder",
-                        Description = "Check the homeowner app for new maintenance reminders",
-                        ReturningData = serializeReturningData, // Returning data when tapped on notification.
-                        Repeats = NotificationRepeat.Weekly,
-                        NotifyTime = DateTime.Now.AddSeconds(10) // Used for Scheduling local notification, if not specified notification will show immediately.
-                    };
-                    NotificationCenter.Current.Show(notification);
-                    weeklyScheduled = true;
-
-                }
-                else
-                {
-                    var notification = new NotificationRequest
-                    {
-                        NotificationId = 100,
-                        Title = "Maintenance Reminder",
-                        Description = "Check the homeowner app for new maintenance reminders",
-                        ReturningData = serializeReturningData, // Returning data when tapped on notification.
-                        Repeats = NotificationRepeat.Weekly,
-                        NotifyTime = DateTime.Now.AddSeconds(secondsToAdd) // Used for Scheduling local notification, if not specified notification will show immediately.
-                    };
-                    NotificationCenter.Current.Show(notification);
-                    weeklyScheduled = true;
-                }
+                    NotificationId = 100,
+                    Title = "Maintenance Reminder",
+                    Description = "Check the homeowner app for new maintenance reminders.",
+                    ReturningData = serializeReturningData, // Returning data when tapped on notification.
+                    Repeats = NotificationRepeat.Daily,
+                    NotifyTime = DateTime.Now.AddSeconds(secondsToAdd + 10) // Used for Scheduling local notification, if not specified notification will show immediately.
+                };
+                NotificationCenter.Current.Show(notification);
+                weeklyScheduled = true;
+                Preferences.Set("scheduled_notification", weeklyScheduled);
             }
         }
 
