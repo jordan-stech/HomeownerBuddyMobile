@@ -47,6 +47,7 @@
     <None Remove="Resources\plumbing.png" />
     <None Remove="Resources\red_signal.png" />
     <None Remove="Resources\settings.png" />
+    <None Remove="Resources\task_done.png" />
     <None Remove="Resources\to_do_icon.png" />
     <None Remove="Resources\video_button.png" />
     <None Remove="Resources\video_play_button.png" />
@@ -58,6 +59,7 @@
     <EmbeddedResource Include="Resources\done_icon.png" />
     <EmbeddedResource Include="Resources\help.png" />
     <EmbeddedResource Include="Resources\over_due.png" />
+    <EmbeddedResource Include="Resources\task_done.png" />
     <EmbeddedResource Include="Resources\to_do_icon.png" />
     <Resource Include="Resources\red_signal.png" />
     <EmbeddedResource Include="Resources\settings.png" />

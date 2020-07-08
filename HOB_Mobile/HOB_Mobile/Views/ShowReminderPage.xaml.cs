@@ -20,7 +20,6 @@ namespace HOB_Mobile.Views
         private string actionTitle;
         private string actionLink;
         private string actionSteps;
-        private string actionPlanName;
         private int updaedReminderID;
         public ShowReminderPage(int reminderID, string reminderItem, string reminderName, string reminderDescription, string actionPlanTitle, string actionPlanLink, string actionPlanSteps)
         {
@@ -29,6 +28,10 @@ namespace HOB_Mobile.Views
             actionLink = actionPlanLink;
             actionSteps = actionPlanSteps;
             updaedReminderID = reminderID;
+
+            if (actionPlanLink==null || actionPlanLink == " ") {
+                video_task.IsVisible = false;
+            }
 
             SetItem(reminderItem);
             SetTitle(reminderName);
@@ -61,6 +64,7 @@ namespace HOB_Mobile.Views
         private void SetButtonImages()
         {
             show_video_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.video_button.png");
+            task_finished.Source = ImageSource.FromResource("HOB_Mobile.Resources.task_done.png");
         }
 
         public void videoButtonClicked(object sender, EventArgs e)
@@ -69,10 +73,6 @@ namespace HOB_Mobile.Views
             if (actionTitle != "None")
             {
                 Navigation.PushAsync(new ShowActionItemPage(actionTitle, actionLink, actionSteps));
-            }
-            else
-            {
-                Toast.MakeText(Android.App.Application.Context, "No Action Plan Video Available", ToastLength.Short).Show();
             }
         }
 

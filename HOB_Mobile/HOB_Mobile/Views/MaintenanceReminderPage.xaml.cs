@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using Xamarin.Essentials;
@@ -28,7 +29,34 @@ namespace HOB_Mobile.Views
             getReminder();
         }
 
-        public async void getReminder() {
+        public class Item {
+            public String Title { get; private set; }
+            public String Description { get; private set; }
+
+            public ImageSource Icon { get; private set; }
+
+            public Item(String title, String description, ImageSource icon){
+                Title = title;
+                Description = description;
+                Icon = icon;
+            }
+        }
+
+        public class Group : ObservableCollection<Item>
+        {
+            public String Name { get; private set; }
+            public String ShortName { get; private set; }
+
+            public Group(String Name)
+            {
+                this.Name = Name;
+            }
+
+            // Whatever other properties
+        }
+
+        public async void getReminder()
+        {
             // Grab user ID to send as a get message for user reminders
             string userId = Preferences.Get("user_id", "no address found");
 
@@ -52,7 +80,7 @@ namespace HOB_Mobile.Views
             {
                 // Get the JSON object returned from the web request
                 var content = await response.Content.ReadAsStringAsync();
-   
+
                 var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
 
                 ImageSource OverDueIcon = ImageSource.FromResource("HOB_Mobile.Resources.over_due.png");
@@ -63,9 +91,10 @@ namespace HOB_Mobile.Views
                 var ToDos = new List<ReminderModel>();
                 var Dones = new List<ReminderModel>();
 
-                foreach (ReminderModel reminder in reminders) {
+                foreach (ReminderModel reminder in reminders)
+                {
 
-                    
+
                     if (reminder.completed.Equals("Due"))
                     {
                         reminder.icon = ToDoIcon;
@@ -76,7 +105,7 @@ namespace HOB_Mobile.Views
                         reminder.icon = DoneIcon;
                         Dones.Add(reminder);
                     }
-                    else if (reminder.completed.Equals("Overdue")) 
+                    else if (reminder.completed.Equals("Overdue"))
                     {
                         reminder.icon = OverDueIcon;
                         OverDues.Add(reminder);
@@ -91,7 +120,7 @@ namespace HOB_Mobile.Views
                 {
                     pastdues.Text = "You have no overdues";
                     OverDueFrame.HeightRequest = 10;
-                    
+
                 }
                 else
                 {
@@ -125,22 +154,8 @@ namespace HOB_Mobile.Views
             }
         }
 
-        private void HandleReminderClicked(object sender, EventArgs e) {
-            ViewCell box = (ViewCell)sender;
-            var label = (ReminderModel)box.BindingContext;
-
-            var reminderID = label.id;
-            var reminderItem = label.reminderItem;
-            var reminderName = label.reminder;
-            var reminderDescription = label.reminderDescription;
-            var actionPlanTitle = label.actionPlanTitle;
-            var actionPlanLink = label.actionPlanLink;
-            var actionPlanSteps = label.actionPlanSteps;
-
-            Navigation.PushAsync(new ShowReminderPage(reminderID, reminderItem, reminderName, reminderDescription, actionPlanTitle, actionPlanLink, actionPlanSteps));
-        }
-
-        private void HandleOverDueHeight(object sender, EventArgs e) {
+        private void HandleOverDueHeight(object sender, EventArgs e)
+        {
             ViewCell cell = (ViewCell)sender;
             UpdateOverDueHeight(cell);
         }
@@ -157,14 +172,15 @@ namespace HOB_Mobile.Views
             UpdateDoneHeight(cell);
         }
 
-        private void UpdateOverDueHeight(ViewCell viewCell) {
+        private void UpdateOverDueHeight(ViewCell viewCell)
+        {
             double height = 0;
 
             foreach (var cell in OverDue.ItemsSource)
             {
                 height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
             }
-            OverDue.HeightRequest = height; 
+            OverDue.HeightRequest = height;
         }
 
         private void UpdateToDoHeight(ViewCell viewCell)
@@ -182,10 +198,30 @@ namespace HOB_Mobile.Views
             double height = 0;
             foreach (var cell in Done.ItemsSource)
             {
-                height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;     
+                height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
             }
             Done.HeightRequest = height;
         }
+
+        private void HandleReminderClicked(object sender, EventArgs e)
+        {
+            ViewCell box = (ViewCell)sender;
+            var label = (ReminderModel)box.BindingContext;
+
+            var reminderID = label.id;
+            var reminderItem = label.reminderItem;
+            var reminderName = label.reminder;
+            var reminderDescription = label.reminderDescription;
+            var actionPlanTitle = label.actionPlanTitle;
+            var actionPlanLink = label.actionPlanLink;
+            var actionPlanSteps = label.actionPlanSteps;
+
+            Navigation.PushAsync(new ShowReminderPage(reminderID, reminderItem, reminderName, reminderDescription, actionPlanTitle, actionPlanLink, actionPlanSteps));
+        }
+
+
+
+
 
     }
 }

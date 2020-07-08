@@ -32,7 +32,8 @@
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold" />
 
-        <Frame Margin="10, 150, 10, 10"
+        <Frame  x:Name="video_task"
+                Margin="10, 150, 10, 10"
                CornerRadius="20"
                OutlineColor="White"
                BackgroundColor="#53B949"
@@ -69,30 +70,31 @@
                HeightRequest="60"
                BackgroundColor="#53B949"
                Padding="5, 5, 5, 5">
-            <StackLayout Margin="25, 0, 0, 0"
+                <StackLayout Margin="25, 0, 0, 0"
                          Orientation="Horizontal"
                          HorizontalOptions="Start"
                          VerticalOptions="FillAndExpand">
 
-                <CheckBox IsChecked="False"
-                          Color="Black"
-                          ScaleX="2"
-                          ScaleY="2"
-                          CheckedChanged="UpdateReminderStatus"
-                          Margin="15,5,5,5"
-                          HeightRequest="50"
-                          WidthRequest="50"
-                          HorizontalOptions="Start"
-                          VerticalOptions="CenterAndExpand" />
+                    <Image x:Name="task_finished"
+                       Margin="0,5,20,5"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       Source=""
+                       HorizontalOptions="Start"
+                       VerticalOptions="CenterAndExpand" />
 
-                <Label Text="Done"
+                    <Label Text="Completed"
                        TextColor="White"
                        FontSize="25"
                        FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="CenterAndExpand" />
-                
-            </StackLayout>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="UpdateReminderStatus" />
+                    </StackLayout.GestureRecognizers>
+
+                </StackLayout>
         </Frame>
 
     </StackLayout>
