@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Android.Webkit;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HOB_Mobile.Views

@@ -16,7 +16,7 @@
             <StackLayout Padding="5,0,5,0"
                          VerticalOptions="Center"
                          Orientation="Vertical">
-
+                
                 <WebView x:Name="youtubeVideo"
                          Source=""
                          HeightRequest="200"
