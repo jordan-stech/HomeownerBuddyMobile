@@ -86,13 +86,14 @@ namespace HOB_Mobile.Views
 
             int secondsToAdd = daysToAddWeekly * 86400;
 
+
             if (!weeklyScheduled)
             {
                 var notification = new NotificationRequest
                 {
                     NotificationId = 100,
                     Title = "Maintenance Reminder",
-                    Description = "Check the homeowner app for new maintenance reminders.",
+                    Description = "You have a new Maintenance Reminder.",
                     ReturningData = serializeReturningData, // Returning data when tapped on notification.
                     Repeats = NotificationRepeat.Daily,
                     NotifyTime = DateTime.Now.AddSeconds(secondsToAdd + 10) // Used for Scheduling local notification, if not specified notification will show immediately.

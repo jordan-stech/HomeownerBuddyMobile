@@ -24,7 +24,7 @@
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Start"
                     FontAttributes="Bold"
-                    Text="Past Due Maintenances" />
+                    Text="Overdue:" />
                 <StackLayout x:Name="OverDueFrame">
                     <ListView x:Name="OverDue"
                         SelectionMode="None"
@@ -66,7 +66,7 @@
                                                         HeightRequest="20"/>
 
                                                 <Label TextColor="White"
-                                                        FontSize="16"
+                                                        FontSize="18"
                                                        VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}" 
@@ -93,7 +93,7 @@
                    HorizontalOptions="Center"
                     HorizontalTextAlignment="Start"
                     FontAttributes="Bold"
-                    Text="To Do List" />
+                    Text="Due:" />
 
                 <StackLayout x:Name="ToDoFrame">
                     <ListView x:Name="ToDo"
@@ -135,7 +135,7 @@
                                                         HeightRequest="20"/>
 
                                                 <Label TextColor="White"
-                                                        FontSize="16"
+                                                        FontSize="18"
                                                         Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
@@ -161,7 +161,7 @@
                    HorizontalOptions="Center"
                     HorizontalTextAlignment="Start"
                     FontAttributes="Bold"
-                    Text="Completed Maintenances" />
+                    Text="Completed:" />
 
             <StackLayout x:Name="DoneFrame">
                 <ListView x:Name="Done"

@@ -110,7 +110,7 @@ namespace HOB_Mobile.Views
 
                 if (OverDues.Count.Equals(0))
                 {
-                    pastdues.Text = "You have no overdues";
+                    pastdues.Text = "You have no overdue tasks";
                     OverDueFrame.HeightRequest = 10;
 
                 }
