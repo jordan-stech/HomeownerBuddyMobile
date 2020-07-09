@@ -34,6 +34,7 @@ namespace HOB_Mobile
         // Check to see if a homeowner completed a maintenance task
         public string completed { get; set; }
         public string dueDate { get; set; }
+        public string lastCompleted { get; set; }
 
         public ImageSource icon { get; set; }
 
