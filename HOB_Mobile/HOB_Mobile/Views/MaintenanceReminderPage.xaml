@@ -69,7 +69,7 @@
                                                         FontSize="18"
                                                        VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
-                                                        Text="{Binding dueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
+                                                        Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
                                                         HeightRequest="20"/>
                                             </StackLayout>
 
@@ -136,7 +136,7 @@
 
                                                 <Label TextColor="White"
                                                         FontSize="18"
-                                                        Text="{Binding dueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                        Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         HeightRequest="20"/>
@@ -204,7 +204,7 @@
 
                                             <Label TextColor="White"
                                                         FontSize="18"
-                                                        Text="{Binding lastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
+                                                        Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         HeightRequest="20"/>

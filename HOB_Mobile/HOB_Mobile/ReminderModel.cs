@@ -33,8 +33,24 @@ namespace HOB_Mobile
 
         // Check to see if a homeowner completed a maintenance task
         public string completed { get; set; }
-        public string dueDate { get; set; }
-        public string lastCompleted { get; set; }
+        public DateTime dueDate { get; set; }
+        public string formattedDueDate
+        {
+            get
+            {
+                return this.dueDate.ToString("MM/dd/yyyy");
+            }
+
+        }
+        public DateTime lastCompleted { get; set; }
+        public string formattedLastCompleted
+        {
+            get
+            {
+                return this.lastCompleted.ToString("MM/dd/yyyy");
+            }
+
+        }
 
         public ImageSource icon { get; set; }
 
