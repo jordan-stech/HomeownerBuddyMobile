@@ -1,10 +1,12 @@
 ﻿using Humanizer;
+using Nest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Text;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -60,83 +62,107 @@ namespace HOB_Mobile.Views
             HttpClient httpClient = new HttpClient(clientHandler);
 
             String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + userId;
+            String postApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI";
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
-            // Get web request response and store it
-            var response = await httpClient.GetAsync(uri);
+            // Grab the current users information to call the post method for checking all user due dates
+            MobileUsers user = new MobileUsers();
+            user.FName = Preferences.Get("user_first_name", "no first name found");
+            user.Lname = Preferences.Get("user_last_name", "no last name found");
+            user.Code = Preferences.Get("user_home_code", "no home code found");
+            string regDate = DateTime.Today.ToString("MM/dd/yyyy");
+            user.date = regDate;
 
-            // Check if the web request was successful
-            if (response.IsSuccessStatusCode)
+            string JSONresult = JsonConvert.SerializeObject(user);
+            Console.WriteLine(JSONresult);
+            var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage postResponse = await httpClient.PostAsync(postApiUrl, content);
+
+            // Check if the POST web request was successful
+            if (postResponse.IsSuccessStatusCode)
             {
-                // Get the JSON object returned from the web request
-                var content = await response.Content.ReadAsStringAsync();
+                // Get web request response and store it
+                var getResponse = await httpClient.GetAsync(uri);
 
-                var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(content);
-
-                ImageSource OverDueIcon = ImageSource.FromResource("HOB_Mobile.Resources.over_due.png");
-                ImageSource ToDoIcon = ImageSource.FromResource("HOB_Mobile.Resources.to_do_icon.png");
-                ImageSource DoneIcon = ImageSource.FromResource("HOB_Mobile.Resources.done_icon.png");
-
-                var OverDues = new List<ReminderModel>();
-                var ToDos = new List<ReminderModel>();
-                var Dones = new List<ReminderModel>();
-
-                foreach (ReminderModel reminder in reminders)
+                // Check if the GET web request was successful
+                if (getResponse.IsSuccessStatusCode)
                 {
+                    // Get the JSON object returned from the web request
+                    var userContent = await getResponse.Content.ReadAsStringAsync();
+
+                    var reminders = JsonConvert.DeserializeObject<List<ReminderModel>>(userContent);
+
+                    ImageSource OverDueIcon = ImageSource.FromResource("HOB_Mobile.Resources.over_due.png");
+                    ImageSource ToDoIcon = ImageSource.FromResource("HOB_Mobile.Resources.to_do_icon.png");
+                    ImageSource DoneIcon = ImageSource.FromResource("HOB_Mobile.Resources.done_icon.png");
+
+                    var OverDues = new List<ReminderModel>();
+                    var ToDos = new List<ReminderModel>();
+                    var Dones = new List<ReminderModel>();
+
+                    foreach (ReminderModel reminder in reminders)
+                    {
 
 
-                    if (reminder.completed.Equals("Due"))
-                    {
-                        reminder.icon = ToDoIcon;
-                        ToDos.Add(reminder);
+                        if (reminder.completed.Equals("Due"))
+                        {
+                            reminder.icon = ToDoIcon;
+                            ToDos.Add(reminder);
+                        }
+                        else if (reminder.completed.Equals("Completed"))
+                        {
+                            reminder.icon = DoneIcon;
+                            Dones.Add(reminder);
+                        }
+                        else if (reminder.completed.Equals("Overdue"))
+                        {
+                            reminder.icon = OverDueIcon;
+                            OverDues.Add(reminder);
+                        }
+                        else
+                        {
+                            // Not in season so don't display
+                        }
                     }
-                    else if (reminder.completed.Equals("Completed"))
+
+                    if (OverDues.Count.Equals(0))
                     {
-                        reminder.icon = DoneIcon;
-                        Dones.Add(reminder);
-                    }
-                    else if (reminder.completed.Equals("Overdue"))
-                    {
-                        reminder.icon = OverDueIcon;
-                        OverDues.Add(reminder);
+                        pastdues.Text = "You have no overdue tasks";
+                        OverDueFrame.HeightRequest = 10;
+
                     }
                     else
                     {
-                        // Not in season so don't display
+                        OverDue.ItemsSource = OverDues;
+                    }
+
+                    if (ToDos.Count.Equals(0))
+                    {
+                        todos.Text = "You have no maintenance tasks to do";
+                        ToDoFrame.HeightRequest = 10;
+                    }
+                    else
+                    {
+                        ToDo.ItemsSource = ToDos;
+                    }
+
+                    if (Dones.Count.Equals(0))
+                    {
+                        finished.Text = "You haven't done any maintenance tasks yet";
+                        DoneFrame.HeightRequest = 10;
+                    }
+                    else
+                    {
+                        Done.ItemsSource = Dones;
                     }
                 }
-
-                if (OverDues.Count.Equals(0))
-                {
-                    pastdues.Text = "You have no overdue tasks";
-                    OverDueFrame.HeightRequest = 10;
-
-                }
                 else
                 {
-                    OverDue.ItemsSource = OverDues;
-                }
-
-                if (ToDos.Count.Equals(0))
-                {
-                    todos.Text = "You have no maintenance tasks to do";
-                    ToDoFrame.HeightRequest = 10;
-                }
-                else
-                {
-                    ToDo.ItemsSource = ToDos;
-                }
-
-                if (Dones.Count.Equals(0))
-                {
-                    finished.Text = "You haven't done any maintenance tasks yet";
-                    DoneFrame.HeightRequest = 10;
-                }
-                else
-                {
-                    Done.ItemsSource = Dones;
+                    // This prints to the Visual Studio Output window
+                    Debug.WriteLine("Response not successful");
                 }
             }
             else
