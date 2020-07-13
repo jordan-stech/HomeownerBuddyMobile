@@ -80,10 +80,12 @@ namespace HOB_Mobile.Droid
             if (resultCode != ConnectionResult.Success)
             {
                 if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                    msgText.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
+                    Log.Debug(TAG, "Google API Err: " + GoogleApiAvailability.Instance.GetErrorString(resultCode));
+
                 else
                 {
                     //msgText.Text = "This device is not supported";
+                    Log.Debug(TAG, "This device is not supported");
                     Finish();
                 }
                 return false;
@@ -91,6 +93,7 @@ namespace HOB_Mobile.Droid
             else
             {
                 //msgText.Text = "Google Play Services is available.";
+                Log.Debug(TAG, "Google Play Services is available.");
                 return true;
             }
         }
