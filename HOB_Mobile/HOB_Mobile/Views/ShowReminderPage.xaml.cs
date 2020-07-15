@@ -134,7 +134,14 @@ namespace HOB_Mobile.Views
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
-            var content = new StringContent(reminderId, Encoding.UTF8, "application/json");
+            ReminderModel reminder = new ReminderModel();
+            reminder.lastCompleted = DateTime.Today;
+
+
+            string JSONresult = JsonConvert.SerializeObject(reminder);
+            Console.WriteLine(JSONresult);
+
+            var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
 
             // Get web request response and store it
             var response = await httpClient.PutAsync(uri, content);

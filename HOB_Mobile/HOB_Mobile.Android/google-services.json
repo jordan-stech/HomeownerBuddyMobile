@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "350392791388",
+    "firebase_url": "https://habitat-home-owner-buddy.firebaseio.com",
+    "project_id": "habitat-home-owner-buddy",
+    "storage_bucket": "habitat-home-owner-buddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350392791388:android:7f649a5a30f027456c1199",
+        "android_client_info": {
+          "package_name": "com.companyname.hob_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350392791388-fgp4sd9l3jua91h7mq8q7k732php4raa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-eKXjSIly3a0cE2i2IYtRHF2nqpl2cGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350392791388-fgp4sd9l3jua91h7mq8q7k732php4raa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
