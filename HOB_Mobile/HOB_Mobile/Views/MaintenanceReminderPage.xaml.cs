@@ -159,7 +159,7 @@ namespace HOB_Mobile.Views
                 headerText.Text = "To Do List";
             } else if (scroll.ScrollY > ToDoFrameBound + UISpacingError) {
                 headerText.Text = "Completed Maintenance";
-            } else if (scroll.ScrollY <= 55.0 + OverdueFramBound) {
+            } else if (scroll.ScrollY <= 55.0) {
                 headerText.Text = "Maintenance Reminders";
             }
         }
