@@ -25,6 +25,7 @@ namespace HOB_Mobile.Views
             actionLink = actionPlanLink;
             actionSteps = actionPlanSteps;
             updaedReminderID = reminderID;
+            completionDate = DateTime.Now;
 
             if (actionPlanLink==null || actionPlanLink == " ") {
                 video_task.IsVisible = false;
