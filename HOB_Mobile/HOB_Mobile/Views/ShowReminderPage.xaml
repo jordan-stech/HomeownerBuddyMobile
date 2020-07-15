@@ -70,24 +70,37 @@
                HeightRequest="60"
                BackgroundColor="#53B949"
                Padding="5, 5, 5, 5">
-                <StackLayout Margin="25, 0, 0, 0"
+                <StackLayout Margin="15, 0, 0, 0"
                          Orientation="Horizontal"
                          HorizontalOptions="Start"
                          VerticalOptions="FillAndExpand">
 
                     <Image x:Name="task_finished"
-                       Margin="0,5,20,5"
+                       Margin="0,5,10,5"
                        HeightRequest="50"
                        WidthRequest="50"
                        Source=""
                        HorizontalOptions="Start"
                        VerticalOptions="CenterAndExpand" />
 
-                    <Label Text="Completed"
+                    <Label Text="Completed on"
                        TextColor="White"
-                       FontSize="25"
+                       FontSize="20"
                        FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                    
+                    <DatePicker FontSize="20"
+                                FontAttributes="Italic"
+                                TextColor="White"
+                                DateSelected="UpdateLastCompletedDate"
+                    />
+
+                    <Image x:Name="datepicker"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       Source=""
+                       HorizontalOptions="End"
                        VerticalOptions="CenterAndExpand" />
 
                     <StackLayout.GestureRecognizers>

@@ -1,13 +1,8 @@
 ﻿using Android.Widget;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -65,6 +60,7 @@ namespace HOB_Mobile.Views
         {
             show_video_button.Source = ImageSource.FromResource("HOB_Mobile.Resources.video_button.png");
             task_finished.Source = ImageSource.FromResource("HOB_Mobile.Resources.task_done.png");
+            datepicker.Source = ImageSource.FromResource("HOB_Mobile.Resources.date.png");
         }
 
         public void videoButtonClicked(object sender, EventArgs e)
@@ -78,6 +74,48 @@ namespace HOB_Mobile.Views
 
         private void UpdateReminderStatus(object sender, EventArgs e) {
             UpdateReminderInDB();
+        }
+
+        private void UpdateLastCompletedDate(object sender, EventArgs e) {
+            Xamarin.Forms.DatePicker date = (Xamarin.Forms.DatePicker)sender;
+            DateTime newDate = date.Date;
+            UpdateLastCompletedInDB(newDate);
+        }
+
+        private async void UpdateLastCompletedInDB(DateTime newDate) {
+            string reminderId = updaedReminderID.ToString();
+            // Set up new HttpClientHandler and its credentials so we can perform the web request
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Create new httpClient using our client handler created above
+            HttpClient httpClient = new HttpClient(clientHandler);
+
+            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + reminderId;
+
+            // Create new URI with the API url so we can perform the web request
+            var uri = new Uri(string.Format(apiUrl, string.Empty));
+
+            var content = new StringContent(reminderId, Encoding.UTF8, "application/json");
+
+            // Get web request response and store it
+            var response = await httpClient.PutAsync(uri, content);
+
+            // Check if the web request was successful
+            if (response.IsSuccessStatusCode)
+            {
+                Preferences.Set("LastCompleted", newDate);
+                this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+                await Navigation.PushAsync(new MaintenanceReminder());
+                Navigation.RemovePage(this);
+
+
+            }
+            else
+            {
+                // This prints to the Visual Studio Output window
+                Debug.WriteLine("Response not successful");
+            }
         }
 
         private async void UpdateReminderInDB()

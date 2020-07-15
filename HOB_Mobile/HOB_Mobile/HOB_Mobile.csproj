@@ -29,6 +29,7 @@
     <None Remove="Resources\bedroom.png" />
     <None Remove="Resources\calendar.png" />
     <None Remove="Resources\closet.png" />
+    <None Remove="Resources\date.png" />
     <None Remove="Resources\done_icon.png" />
     <None Remove="Resources\electric.png" />
     <None Remove="Resources\exterior.png" />
@@ -56,6 +57,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\calendar.png" />
+    <EmbeddedResource Include="Resources\date.png" />
     <EmbeddedResource Include="Resources\done_icon.png" />
     <EmbeddedResource Include="Resources\help.png" />
     <EmbeddedResource Include="Resources\over_due.png" />
