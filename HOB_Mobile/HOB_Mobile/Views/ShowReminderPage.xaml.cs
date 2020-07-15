@@ -1,4 +1,5 @@
 ﻿using Android.Widget;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -16,6 +17,7 @@ namespace HOB_Mobile.Views
         private string actionLink;
         private string actionSteps;
         private int updaedReminderID;
+        private DateTime completionDate;
         public ShowReminderPage(int reminderID, string reminderItem, string reminderName, string reminderDescription, string actionPlanTitle, string actionPlanLink, string actionPlanSteps)
         {
             InitializeComponent();
@@ -79,43 +81,7 @@ namespace HOB_Mobile.Views
         private void UpdateLastCompletedDate(object sender, EventArgs e) {
             Xamarin.Forms.DatePicker date = (Xamarin.Forms.DatePicker)sender;
             DateTime newDate = date.Date;
-            UpdateLastCompletedInDB(newDate);
-        }
-
-        private async void UpdateLastCompletedInDB(DateTime newDate) {
-            string reminderId = updaedReminderID.ToString();
-            // Set up new HttpClientHandler and its credentials so we can perform the web request
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-
-            // Create new httpClient using our client handler created above
-            HttpClient httpClient = new HttpClient(clientHandler);
-
-            String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + reminderId;
-
-            // Create new URI with the API url so we can perform the web request
-            var uri = new Uri(string.Format(apiUrl, string.Empty));
-
-            var content = new StringContent(reminderId, Encoding.UTF8, "application/json");
-
-            // Get web request response and store it
-            var response = await httpClient.PutAsync(uri, content);
-
-            // Check if the web request was successful
-            if (response.IsSuccessStatusCode)
-            {
-                Preferences.Set("LastCompleted", newDate);
-                this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
-                await Navigation.PushAsync(new MaintenanceReminder());
-                Navigation.RemovePage(this);
-
-
-            }
-            else
-            {
-                // This prints to the Visual Studio Output window
-                Debug.WriteLine("Response not successful");
-            }
+            completionDate = newDate;
         }
 
         private async void UpdateReminderInDB()
@@ -150,6 +116,7 @@ namespace HOB_Mobile.Views
             if (response.IsSuccessStatusCode)
             {
                 Preferences.Set("completed", "done");
+                Preferences.Set("LastCompleted", completionDate);
                 Toast.MakeText(Android.App.Application.Context, "Task Completed!", ToastLength.Short).Show();
                 this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                 await Navigation.PushAsync(new MaintenanceReminder());

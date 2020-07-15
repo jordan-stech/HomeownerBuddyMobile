@@ -38,13 +38,13 @@
                OutlineColor="White"
                BackgroundColor="#53B949"
                Padding="5, 5, 5, 5">
-            <StackLayout Margin="25, 0, 0, 0"
+            <StackLayout Margin="20, 0, 0, 0"
                          Orientation="Horizontal"
                          HorizontalOptions="Start"
                          VerticalOptions="FillAndExpand">
 
                 <Image x:Name="show_video_button"
-                       Margin="0,5,20,5"
+                       Margin="0,5,10,5"
                        HeightRequest="50"
                        WidthRequest="50"
                        Source=""
@@ -64,13 +64,44 @@
             </StackLayout>
         </Frame>
 
-        <Frame Margin="10, 10, 10, 150"
+            <Frame Margin="10, 10, 10, 10"
                CornerRadius="20"
                OutlineColor="White"
                HeightRequest="60"
                BackgroundColor="#53B949"
                Padding="5, 5, 5, 5">
-                <StackLayout Margin="15, 0, 0, 0"
+                <StackLayout Margin="20, 0, 0, 0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Start"
+                         VerticalOptions="FillAndExpand">
+
+                    <Image x:Name="datepicker"
+                       Margin="0,5,10,5"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       Source=""
+                       HorizontalOptions="Start"
+                       VerticalOptions="CenterAndExpand" />
+
+                    
+
+                    <DatePicker x:Name="calender"
+                                FontSize="20"
+                                FontAttributes="Italic"
+                                TextColor="White"
+                                Format="D"
+                                DateSelected="UpdateLastCompletedDate"/>
+
+                </StackLayout>
+            </Frame>
+            
+            <Frame Margin="10, 10, 10, 10"
+               CornerRadius="20"
+               OutlineColor="White"
+               HeightRequest="60"
+               BackgroundColor="#53B949"
+               Padding="5, 5, 5, 5">
+                <StackLayout Margin="20, 0, 0, 0"
                          Orientation="Horizontal"
                          HorizontalOptions="Start"
                          VerticalOptions="FillAndExpand">
@@ -83,24 +114,11 @@
                        HorizontalOptions="Start"
                        VerticalOptions="CenterAndExpand" />
 
-                    <Label Text="Completed on"
+                    <Label Text="Completed"
                        TextColor="White"
-                       FontSize="20"
+                       FontSize="25"
                        FontAttributes="Bold"
                        HorizontalOptions="StartAndExpand"
-                       VerticalOptions="CenterAndExpand" />
-                    
-                    <DatePicker FontSize="20"
-                                FontAttributes="Italic"
-                                TextColor="White"
-                                DateSelected="UpdateLastCompletedDate"
-                    />
-
-                    <Image x:Name="datepicker"
-                       HeightRequest="20"
-                       WidthRequest="20"
-                       Source=""
-                       HorizontalOptions="End"
                        VerticalOptions="CenterAndExpand" />
 
                     <StackLayout.GestureRecognizers>
@@ -108,8 +126,10 @@
                     </StackLayout.GestureRecognizers>
 
                 </StackLayout>
-        </Frame>
+            </Frame>
 
-    </StackLayout>
+            
+
+        </StackLayout>
         </ScrollView>
 </ContentPage>
