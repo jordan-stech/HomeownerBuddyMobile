@@ -101,7 +101,7 @@ namespace HOB_Mobile.Views
             var uri = new Uri(string.Format(apiUrl, string.Empty));
 
             ReminderModel reminder = new ReminderModel();
-            reminder.lastCompleted = DateTime.Today;
+            reminder.lastCompleted = completionDate;
 
 
             string JSONresult = JsonConvert.SerializeObject(reminder);
