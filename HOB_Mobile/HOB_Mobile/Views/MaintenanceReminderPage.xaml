@@ -5,114 +5,205 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.MaintenanceReminder"
-             BackgroundColor="#005691">
+             BackgroundColor="#005691"
+             Title=" ">
 
-    <ScrollView>
-        <StackLayout>
-            <Label 
-                Padding="0, 10, 0, 20"
-                   TextColor="White"
-                   FontSize="25"
-                   HorizontalTextAlignment="Center"
-                   FontAttributes="Bold"
-                   Text="Maintenance Reminders" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <!--HEADER-->
+            <RowDefinition Height="*"/>
+            <!--CONTENT-->
+        </Grid.RowDefinitions>
 
-            <Label x:Name="pastdues" 
-                   TextColor="White"
-                   FontSize="20"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Start"
-                   FontAttributes="Bold"
-                   Text="Past Due Maintenances" />
+        <Label  x:Name="headerText"
+                TextColor="White"
+                FontSize="25"
+                Grid.Row="0"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Text="Maintenance Reminder" />
+        
+        <ScrollView Grid.Row="1"
+                    Scrolled="ChangeHeaderText">
 
-            <StackLayout x:Name="OverDueFrame">
-                <ListView x:Name="OverDue"
+            <StackLayout>
+
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                        <Label  x:Name="pastdues" 
+                                TextColor="White"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Start"
+                                FontAttributes="Bold"
+                                Text="Past Due Maintenances" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="OverDueFrame">
+                        <ListView x:Name="OverDue"
                         SelectionMode="None"
                         BackgroundColor="#005691"
                         HasUnevenRows="True"
                         VerticalOptions="Fill">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell
-                            Appearing="HandleOverDueHeight"
-                            Tapped="HandleReminderClicked">
-                                <Frame Margin="20, 5, 20, 0"
-                                        CornerRadius="20"
-                                        OutlineColor="White"
-                                        HeightRequest="90"
-                                        BackgroundColor="#E90E0E"
-                                        Padding="5, 5, 5, 5">
-                                    <StackLayout Margin="30, 0, 0, 0"
-                                                Orientation="Horizontal"
-                                                HorizontalOptions="Start"
-                                                VerticalOptions="FillAndExpand">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell
+                                            Appearing="HandleOverDueHeight"
+                                            Tapped="HandleReminderClicked">
+                                        <Frame  Margin="20, 5, 20, 0"
+                                                CornerRadius="20"
+                                                OutlineColor="White"
+                                                HeightRequest="90"
+                                                BackgroundColor="#E90E0E"
+                                                Padding="5, 5, 5, 5">
+                                            <StackLayout Margin="30, 0, 0, 0"
+                                                        Orientation="Horizontal"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="FillAndExpand">
 
-                                        <Image x:Name="signal_sign"
-                                                    HeightRequest="50"
-                                                    WidthRequest="50"
-                                                    Margin="0, 5, 20, 5"
-                                                    Source="{Binding icon}"
-                                                    HorizontalOptions="Start"
-                                                    VerticalOptions="CenterAndExpand" />
+                                                <Image  x:Name="signal_sign"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50"
+                                                        Margin="0, 5, 20, 5"
+                                                        Source="{Binding icon}"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="CenterAndExpand" />
 
-                                        <StackLayout Orientation="Vertical"
-                                                         Spacing="5">
+                                                <StackLayout Orientation="Vertical"
+                                                             Spacing="5">
 
-                                            <Label TextColor="White"
-                                                        FontSize="16"
-                                                        Text="{Binding reminder}" 
-                                                        VerticalOptions="FillAndExpand"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        HeightRequest="20"/>
-                                            <Label TextColor="White"
-                                                        FontSize="16"
-                                                       VerticalOptions="FillAndExpand"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
-                                                        HeightRequest="20"/>
-                                        </StackLayout>
+                                                    <Label  TextColor="White"
+                                                            FontSize="16"
+                                                            Text="{Binding reminder}" 
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            HeightRequest="20"/>
+                                                    <Label  TextColor="White"
+                                                            FontSize="16"
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
+                                                            HeightRequest="20"/>
+                                                </StackLayout>
 
-                                    </StackLayout>
-                                </Frame>
+                                            </StackLayout>
+                                        </Frame>
 
 
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
 
-                    <Label HeightRequest="20"/>
-            <StackLayout>
-                <Label x:Name="todos"
-                                    TextColor="White"
-                                    FontSize="20"
-                                    HorizontalOptions="Center"
-                                    HorizontalTextAlignment="Start"
-                                    FontAttributes="Bold"
-                                    Text="To Do List" />
-            </StackLayout>
+                <Label HeightRequest="20"/>
 
-                <StackLayout x:Name="ToDoFrame">
-                    <ListView x:Name="ToDo"
-                        BackgroundColor="#005691"
-                          SelectionMode="None"
-                        HasUnevenRows="True"
-                        VerticalOptions="Fill">
+                <StackLayout>
+                    <StackLayout    Orientation="Horizontal"
+                                    HorizontalOptions="Center">
+                        <Label x:Name="todos"
+                               TextColor="White"
+                               FontSize="20"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Start"
+                               FontAttributes="Bold"
+                               Text="To Do List" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="ToDoFrame">
+                        <ListView   x:Name="ToDo"
+                                    BackgroundColor="#005691"
+                                    SelectionMode="None"
+                                    HasUnevenRows="True"
+                                    VerticalOptions="Fill">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell   Appearing="HandleToDoHeight"
+                                                Tapped="HandleReminderClicked">
+                                        <Frame  Margin="20, 5, 20, 0"
+                                                CornerRadius="20"
+                                                OutlineColor="White"
+                                                HeightRequest="90"
+                                                BackgroundColor="#D6C018"
+                                                Padding="10, 10, 10, 10">
+                                            <StackLayout    Margin="30, 0, 0, 0"
+                                                            Orientation="Horizontal"
+                                                            HorizontalOptions="Start"
+                                                            VerticalOptions="FillAndExpand">
+
+                                                <Image  x:Name="signal_sign"
+                                                        HeightRequest="50"
+                                                        WidthRequest="50"
+                                                        Margin="0, 5, 20, 5"
+                                                        Source="{Binding icon}"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="CenterAndExpand" />
+
+                                                <StackLayout    Orientation="Vertical"
+                                                                Spacing="5">
+
+                                                    <Label  TextColor="White"
+                                                            FontSize="16"
+                                                            Text="{Binding reminder}"
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            HeightRequest="20"/>
+
+                                                    <Label  TextColor="White"
+                                                            FontSize="18"
+                                                            Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            HeightRequest="20"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </Frame>
+
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <Label HeightRequest="30"/>
+                <StackLayout>
+                    <Label  x:Name="finished"
+                            TextColor="White"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Start"
+                            FontAttributes="Bold"
+                            Text="Completed Maintenance" />
+                </StackLayout>
+
+                <StackLayout x:Name="DoneFrame">
+                    <ListView   x:Name="Done"
+                                BackgroundColor="#005691"
+                                HasUnevenRows="True"
+                                SelectionMode="None"
+                                VerticalOptions="Fill">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell Appearing="HandleToDoHeight"
-                            Tapped="HandleReminderClicked">
-                                    <Frame Margin="20, 5, 20, 0"
-                                        CornerRadius="20"
-                                        OutlineColor="White"
-                                        HeightRequest="90"
-                                        BackgroundColor="#D6C018"
-                                        Padding="10, 10, 10, 10">
-                                        <StackLayout Margin="30, 0, 0, 0"
-                                                Orientation="Horizontal"
-                                                HorizontalOptions="Start"
-                                                VerticalOptions="FillAndExpand">
+                                <ViewCell Tapped="HandleReminderClicked" 
+                                          Appearing="HandleDoneHeight">
+                                    <Frame  Margin="20, 5, 20, 0"
+                                            CornerRadius="20"
+                                            OutlineColor="White"
+                                            HeightRequest="90"
+                                            BackgroundColor="#53B949"
+                                            Padding="10, 10, 10, 10">
+                                        <StackLayout    Margin="30, 0, 0, 0"
+                                                        Orientation="Horizontal"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="FillAndExpand">
 
                                             <Image x:Name="signal_sign"
                                                     HeightRequest="50"
@@ -122,19 +213,19 @@
                                                     HorizontalOptions="Start"
                                                     VerticalOptions="CenterAndExpand" />
 
-                                            <StackLayout Orientation="Vertical"
-                                                         Spacing="5">
+                                            <StackLayout    Orientation="Vertical"
+                                                            Spacing="5">
 
                                                 <Label TextColor="White"
                                                         FontSize="16"
-                                                        Text="{Binding reminder}"
+                                                        Text="{Binding reminder}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         HeightRequest="20"/>
 
                                                 <Label TextColor="White"
                                                         FontSize="18"
-                                                        Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                        Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         HeightRequest="20"/>
@@ -142,81 +233,12 @@
 
                                         </StackLayout>
                                     </Frame>
-
-
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-
-
-            <Label HeightRequest="30"/>
-            <StackLayout>
-                <Label x:Name="finished"
-                TextColor="White"
-                    FontSize="20"
-                   HorizontalOptions="Center"
-                    HorizontalTextAlignment="Start"
-                    FontAttributes="Bold"
-                    Text="Completed Maintenance" />
             </StackLayout>
-
-            <StackLayout x:Name="DoneFrame">
-                <ListView x:Name="Done"
-                        BackgroundColor="#005691"
-                        HasUnevenRows="True"
-                          SelectionMode="None"
-                        VerticalOptions="Fill">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell Tapped="HandleReminderClicked" 
-                                Appearing="HandleDoneHeight">
-                                <Frame Margin="20, 5, 20, 0"
-                                        CornerRadius="20"
-                                        OutlineColor="White"
-                                        HeightRequest="90"
-                                        BackgroundColor="#53B949"
-                                        Padding="10, 10, 10, 10">
-                                    <StackLayout Margin="30, 0, 0, 0"
-                                                Orientation="Horizontal"
-                                                HorizontalOptions="Start"
-                                                VerticalOptions="FillAndExpand">
-
-                                        <Image x:Name="signal_sign"
-                                                    HeightRequest="50"
-                                                    WidthRequest="50"
-                                                    Margin="0, 5, 20, 5"
-                                                    Source="{Binding icon}"
-                                                    HorizontalOptions="Start"
-                                                    VerticalOptions="CenterAndExpand" />
-
-                                        <StackLayout Orientation="Vertical"
-                                                     Spacing="5">
-
-                                            <Label TextColor="White"
-                                                        FontSize="16"
-                                                        Text="{Binding reminder}" 
-                                                        VerticalOptions="FillAndExpand"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        HeightRequest="20"/>
-
-                                            <Label TextColor="White"
-                                                        FontSize="18"
-                                                        Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
-                                                        VerticalOptions="FillAndExpand"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        HeightRequest="20"/>
-                                        </StackLayout>
-
-                                    </StackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </StackLayout>
-    </ScrollView>
-
+        </ScrollView>
+    </Grid>
 </ContentPage>

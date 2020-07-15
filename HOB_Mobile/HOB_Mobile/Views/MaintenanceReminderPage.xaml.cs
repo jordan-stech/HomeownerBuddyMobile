@@ -17,36 +17,15 @@ namespace HOB_Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MaintenanceReminder : ContentPage
     {
+
+        private double OverdueFramBound;
+        private double ToDoFrameBound;
+        private double UISpacingError = 60.0;
+
         public MaintenanceReminder()
         {
             InitializeComponent();
             getReminder();
-        }
-
-        public class Item {
-            public String Title { get; private set; }
-            public String Description { get; private set; }
-
-            public ImageSource Icon { get; private set; }
-
-            public Item(String title, String description, ImageSource icon){
-                Title = title;
-                Description = description;
-                Icon = icon;
-            }
-        }
-
-        public class Group : ObservableCollection<Item>
-        {
-            public String Name { get; private set; }
-            public String ShortName { get; private set; }
-
-            public Group(String Name)
-            {
-                this.Name = Name;
-            }
-
-            // Whatever other properties
         }
 
         public async void getReminder()
@@ -172,6 +151,19 @@ namespace HOB_Mobile.Views
             }
         }
 
+        private void ChangeHeaderText(object sender, EventArgs e) {
+            ScrollView scroll = (ScrollView)sender;
+            if (scroll.ScrollY < OverdueFramBound + UISpacingError) {
+                headerText.Text = "Overdue Maintenance";
+            } else if (scroll.ScrollY > OverdueFramBound + UISpacingError && scroll.ScrollY < ToDoFrameBound + UISpacingError) {
+                headerText.Text = "To Do List";
+            } else if (scroll.ScrollY > ToDoFrameBound + UISpacingError) {
+                headerText.Text = "Completed Maintenance";
+            } else if (scroll.ScrollY <= 55.0 + OverdueFramBound) {
+                headerText.Text = "Maintenance Reminders";
+            }
+        }
+
         private void HandleOverDueHeight(object sender, EventArgs e)
         {
             ViewCell cell = (ViewCell)sender;
@@ -199,6 +191,7 @@ namespace HOB_Mobile.Views
                 height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
             }
             OverDue.HeightRequest = height;
+            OverdueFramBound = height;
         }
 
         private void UpdateToDoHeight(ViewCell viewCell)
@@ -209,6 +202,7 @@ namespace HOB_Mobile.Views
                 height += viewCell.View.Bounds.Height + viewCell.View.Margin.Top + viewCell.View.Margin.Bottom;
             }
             ToDo.HeightRequest = height;
+            ToDoFrameBound = height;
         }
 
         private void UpdateDoneHeight(ViewCell viewCell)
