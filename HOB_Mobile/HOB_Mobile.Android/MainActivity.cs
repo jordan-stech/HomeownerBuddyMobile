@@ -10,6 +10,7 @@ using Firebase.Messaging;
 using Firebase.Iid;
 using Android.Util;
 using Android.Widget;
+using Xamarin.Essentials;
 
 namespace HOB_Mobile.Droid
 {
@@ -26,6 +27,10 @@ namespace HOB_Mobile.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Log.Debug(TAG, "google app id: " + GetString(Resource.String.google_app_id));
+
+            Log.Debug(TAG, "IstanceID: " + FirebaseInstanceId.Instance.Token);
+
+            Preferences.Set("Instanceid", FirebaseInstanceId.Instance.Token);
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
@@ -50,9 +55,9 @@ namespace HOB_Mobile.Droid
 
             CreateNotificationChannel();
 
-            Log.Debug(TAG, "InstanceID token: " + FirebaseInstanceId.Instance.Token);
-
+            //Log.Debug(TAG, "InstanceID token: " + FirebaseInstanceId.Instance.Token);
             FirebaseMessaging.Instance.SubscribeToTopic("All");
+
 
             NotificationCenter.CreateNotificationChannel(new Plugin.LocalNotification.Platform.Droid.NotificationChannelRequest { });
 

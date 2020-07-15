@@ -12,5 +12,6 @@ namespace HOB_Mobile
         public string Code { get; set; }
         public string address { get; set; }
         public string date { get; set; }
+        public string Instanceid { get; set; }
     }
 }

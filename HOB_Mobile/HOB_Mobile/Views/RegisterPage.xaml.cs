@@ -77,6 +77,7 @@ namespace HOB_Mobile.Views
             user.Code = userHomeCode;
             string regDate = DateTime.Today.ToString("MM/dd/yyyy");
             user.date = regDate;
+            user.Instanceid = Preferences.Get("Instanceid", "");
 
             string JSONresult = JsonConvert.SerializeObject(user);
             Console.WriteLine(JSONresult);
