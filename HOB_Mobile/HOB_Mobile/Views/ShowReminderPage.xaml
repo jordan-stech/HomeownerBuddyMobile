@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.ShowReminderPage"
              BackgroundColor="#005691">
@@ -90,6 +91,7 @@
                                 FontAttributes="Italic"
                                 TextColor="White"
                                 Format="D"
+                                MaximumDate="{x:Static sys:DateTime.Now}"
                                 DateSelected="UpdateLastCompletedDate"/>
 
                 </StackLayout>
