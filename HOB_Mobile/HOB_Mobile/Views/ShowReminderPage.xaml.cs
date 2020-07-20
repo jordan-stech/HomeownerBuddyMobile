@@ -97,18 +97,24 @@ namespace HOB_Mobile.Views
             HttpClient httpClient = new HttpClient(clientHandler);
 
             String apiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/MaintenanceReminderAPI/" + reminderId;
+            String backgroundApiUrl = "https://habitathomeownerbuddy.azurewebsites.net/api/BackgroundAPI/" + reminderId;
 
             // Create new URI with the API url so we can perform the web request
             var uri = new Uri(string.Format(apiUrl, string.Empty));
+            var uriBackgroundApi = new Uri(string.Format(backgroundApiUrl, string.Empty));
 
             ReminderModel reminder = new ReminderModel();
             reminder.lastCompleted = completionDate;
 
-
+            // JSON for marking complete api call
             string JSONresult = JsonConvert.SerializeObject(reminder);
             Console.WriteLine(JSONresult);
-
             var content = new StringContent(JSONresult, Encoding.UTF8, "application/json");
+
+            // JSON for marking complete api call
+            string JSONresultBackground = JsonConvert.SerializeObject(reminderId);
+            Console.WriteLine(JSONresultBackground);
+            var contentBackgroundApi = new StringContent(JSONresultBackground, Encoding.UTF8, "application/json");
 
             // Get web request response and store it
             var response = await httpClient.PutAsync(uri, content);
@@ -123,7 +129,8 @@ namespace HOB_Mobile.Views
                 await Navigation.PushAsync(new MaintenanceReminder());
                 Navigation.RemovePage(this);
 
-
+                // Call BackgroundAPIController to update due dates
+                var responseBackgroundApi = await httpClient.PutAsync(uriBackgroundApi, contentBackgroundApi);
             }
             else
             {
