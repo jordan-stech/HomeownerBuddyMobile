@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using System.Diagnostics;
 
 namespace HOB_Mobile.Views
 
@@ -109,9 +110,26 @@ namespace HOB_Mobile.Views
 
                     //await Navigation.PushAsync(new HomePage(Preferences.Get("user_first_name", "")));
 
-                    // Send this user's data to the maintenance reminder api to have the current maintenance reminders tied to their id
-                    HttpResponseMessage maintenanceResponse = await httpClient.PostAsync(maintenanceApiUrl, content);
+                    int newId = Int32.Parse(Preferences.Get("user_id", "no user id found"));
 
+                    user.Id = newId;
+                    string JSONresult2 = JsonConvert.SerializeObject(user);
+                    Console.WriteLine(JSONresult2);
+                    var content2 = new StringContent(JSONresult2, Encoding.UTF8, "application/json");
+
+
+                    // Send this user's data to the maintenance reminder api to have the current maintenance reminders tied to their id
+                    HttpResponseMessage maintenanceResponse = await httpClient.PostAsync(maintenanceApiUrl, content2);
+
+                    if (maintenanceResponse.IsSuccessStatusCode)
+                    {
+                        Debug.WriteLine("SUCCESS");
+                    }
+                    else
+                    {
+                        // This prints to the Visual Studio Output window
+                        Debug.WriteLine("Response not successful");
+                    }
                     // Sets the Home Page as the MainPage so when the physical back button is pressed immediately after registering, the app closes instead of returning to the Register Page 
                     Application.Current.MainPage = new NavigationPage(new Views.HomePage(Preferences.Get("user_first_name", "")));
                 } else
