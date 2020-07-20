@@ -91,8 +91,8 @@
                                 FontAttributes="Italic"
                                 TextColor="White"
                                 Format="D"
+                                BackgroundColor="#53B949"
                                 MaximumDate="{x:Static sys:DateTime.Now}"
-                                DateSelected="UpdateLastCompletedDate"/>
 
                 </StackLayout>
             </Frame>
