@@ -90,6 +90,7 @@
                                 FontAttributes="Italic"
                                 TextColor="White"
                                 Format="D"
+                                BackgroundColor="#53B949"
                                 DateSelected="UpdateLastCompletedDate"/>
 
                 </StackLayout>
