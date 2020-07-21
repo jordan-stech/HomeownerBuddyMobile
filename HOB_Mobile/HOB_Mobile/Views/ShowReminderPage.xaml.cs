@@ -129,9 +129,6 @@ namespace HOB_Mobile.Views
                 this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                 await Navigation.PushAsync(new MaintenanceReminder());
                 Navigation.RemovePage(this);
-
-                // Call BackgroundAPIController to update due dates
-                var responseBackgroundApi = await httpClient.PutAsync(uriBackgroundApi, contentBackgroundApi);
             }
             else
             {
