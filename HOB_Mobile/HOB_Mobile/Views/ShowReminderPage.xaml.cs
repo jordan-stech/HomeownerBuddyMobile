@@ -83,6 +83,7 @@ namespace HOB_Mobile.Views
             Xamarin.Forms.DatePicker date = (Xamarin.Forms.DatePicker)sender;
             DateTime newDate = date.Date;
             completionDate = newDate;
+            Console.WriteLine(completionDate);
         }
 
         private async void UpdateReminderInDB()
