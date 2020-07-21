@@ -1,4 +1,4 @@
-﻿using Android.Webkit;
+﻿//using Android.Webkit;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

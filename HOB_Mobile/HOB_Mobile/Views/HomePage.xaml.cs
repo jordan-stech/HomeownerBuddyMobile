@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Plugin.LocalNotification;
-using Android.Preferences;
+//using Android.Preferences;
 
 namespace HOB_Mobile.Views
 {
