@@ -3,7 +3,6 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
-using Plugin.LocalNotification;
 using Android.Content;
 using Android.Gms.Common;
 using Firebase.Messaging;
@@ -21,8 +20,6 @@ namespace HOB_Mobile.Droid
 
         internal static readonly string CHANNEL_ID = "my_notification_channel";
         internal static readonly int NOTIFICATION_ID = 100;
-
-        TextView msgText;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -59,16 +56,11 @@ namespace HOB_Mobile.Droid
             FirebaseMessaging.Instance.SubscribeToTopic("All");
 
 
-            NotificationCenter.CreateNotificationChannel(new Plugin.LocalNotification.Platform.Droid.NotificationChannelRequest { });
-
             LoadApplication(new App());
-
-            NotificationCenter.NotifyNotificationTapped(Intent);
         }
 
         protected override void OnNewIntent(Intent intent)
         {
-            NotificationCenter.NotifyNotificationTapped(intent);
             base.OnNewIntent(intent);
         }
 

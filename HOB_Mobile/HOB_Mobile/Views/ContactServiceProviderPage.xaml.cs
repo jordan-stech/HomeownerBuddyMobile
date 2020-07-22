@@ -63,7 +63,10 @@ namespace HOB_Mobile.Views
                 foreach(ServiceProviderModel model in serviceProviders)
                 {
                     model.phone_icon = ImageSource.FromResource("HOB_Mobile.Resources.phone.png");
-                    model.website_icon = ImageSource.FromResource("HOB_Mobile.Resources.website.png");
+                    if (model.url != null)
+                    {
+                        model.website_icon = ImageSource.FromResource("HOB_Mobile.Resources.website.png");
+                    }
                 }
 
                 // Set the list of ServiceProviderModel to the ListView in the ContactServiceProviderPage.xaml file

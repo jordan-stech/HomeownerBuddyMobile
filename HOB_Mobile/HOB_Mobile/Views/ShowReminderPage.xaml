@@ -73,7 +73,7 @@
                Padding="5, 5, 5, 5">
                 <StackLayout Margin="20, 0, 0, 0"
                          Orientation="Horizontal"
-                         HorizontalOptions="Start"
+                         HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand">
 
                     <Image x:Name="datepicker"
@@ -87,13 +87,15 @@
 
 
                     <DatePicker x:Name="calender"
-                                FontSize="20"
+                                WidthRequest="175"
+                                FontSize="18"
                                 FontAttributes="Italic"
                                 TextColor="White"
-                                Format="D"
+                                Format="ddd, MMM dd, yyyy"
                                 BackgroundColor="#53B949"
                                 MaximumDate="{x:Static sys:DateTime.Now}"
                                 DateSelected="UpdateLastCompletedDate" />
+                    
                 </StackLayout>
             </Frame>
             

@@ -7,7 +7,6 @@ using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
-using Plugin.LocalNotification;
 //using Android.Preferences;
 
 namespace HOB_Mobile.Views
@@ -20,8 +19,6 @@ namespace HOB_Mobile.Views
         List<ContentModel> globalActionPlans;
 
         Dictionary<string, List<ContentModel>> tagToJsonMap = new Dictionary<string, List<ContentModel>>();
-
-        public DayOfWeek DayOfWeek { get; }
 
 
         public HomePage(string userFirstName)
@@ -40,68 +37,6 @@ namespace HOB_Mobile.Views
             // Call function to perform a web request
             GetAvailableActionPlans();
 
-
-            Boolean weeklyScheduled = false;
-
-            if (Preferences.ContainsKey("scheduled_notification"))
-            {
-                weeklyScheduled = Preferences.Get("scheduled_notification", false);
-            } else
-            {
-                Preferences.Set("scheduled_notification", weeklyScheduled);
-            }
-
-            var list = new List<string>
-            {
-                typeof(HOB_Mobile.Views.MaintenanceReminder).FullName
-            };
-
-            var serializeReturningData = ObjectSerializer.SerializeObject(list);
-
-            int daysToAddWeekly = 0;
-            if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Saturday))
-            {
-                daysToAddWeekly = 1;
-            }
-            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Friday))
-            {
-                daysToAddWeekly = 2;
-            }
-            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Thursday))
-            {
-                daysToAddWeekly = 3;
-            }
-            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Wednesday))
-            {
-                daysToAddWeekly = 0;
-            }
-            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Tuesday))
-            {
-                daysToAddWeekly = 5;
-            }
-            else if (DateTime.Today.DayOfWeek.Equals(DayOfWeek.Monday))
-            {
-                daysToAddWeekly = 6;
-            }
-
-            int secondsToAdd = daysToAddWeekly * 86400;
-
-
-            if (!weeklyScheduled)
-            {
-                var notification = new NotificationRequest
-                {
-                    NotificationId = 100,
-                    Title = "Maintenance Reminder",
-                    Description = "You have a new Maintenance Reminder.",
-                    ReturningData = serializeReturningData, // Returning data when tapped on notification.
-                    Repeats = NotificationRepeat.Daily,
-                    NotifyTime = DateTime.Now.AddSeconds(secondsToAdd + 10) // Used for Scheduling local notification, if not specified notification will show immediately.
-                };
-                NotificationCenter.Current.Show(notification);
-                weeklyScheduled = true;
-                Preferences.Set("scheduled_notification", weeklyScheduled);
-            }
         }
 
 

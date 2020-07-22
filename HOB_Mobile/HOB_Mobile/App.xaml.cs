@@ -3,7 +3,6 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System;
-using Plugin.LocalNotification;
 using System.Collections.Generic;
 
 /* 
@@ -40,8 +39,6 @@ namespace HOB_Mobile
                 MainPage = new NavigationPage(new Views.RegisterPage());
             }
 
-            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
-
         }
 
         protected override void OnStart()
@@ -58,28 +55,6 @@ namespace HOB_Mobile
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
-
-        private void LoadPageFromNotification(NotificationTappedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(e.Data))
-            {
-                return;
-            }
-
-            var list = ObjectSerializer.DeserializeObject<List<string>>(e.Data);
-            if (list.Count != 1)
-            {
-                return;
-            }
-            if (list[0] != typeof(HOB_Mobile.Views.MaintenanceReminder).FullName)
-            {
-                return;
-            }
-            //var tapCount = list[1];
-
-            MainPage.Navigation.PushAsync((new HomePage(Preferences.Get("user_first_name", ""))));
-            MainPage.Navigation.PushAsync((new Views.MaintenanceReminder()));
         }
     }
 }
