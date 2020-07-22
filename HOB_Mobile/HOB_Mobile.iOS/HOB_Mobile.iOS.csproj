@@ -144,6 +144,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.Toast">
+      <Version>2.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.Youtube">
       <Version>1.0.1</Version>
     </PackageReference>

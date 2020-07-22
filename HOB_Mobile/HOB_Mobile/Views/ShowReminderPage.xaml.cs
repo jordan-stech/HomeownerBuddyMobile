@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Toast;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -124,7 +125,7 @@ namespace HOB_Mobile.Views
             {
                 Preferences.Set("completed", "done");
                 Preferences.Set("LastCompleted", completionDate);
-                //Toast.MakeText(Android.App.Application.Context, "Task Completed!", ToastLength.Short).Show();
+                CrossToastPopUp.Current.ShowToastSuccess("Task Completed!");
                 this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                 await Navigation.PushAsync(new MaintenanceReminder());
                 Navigation.RemovePage(this);
