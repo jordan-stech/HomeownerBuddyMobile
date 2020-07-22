@@ -161,9 +161,7 @@ namespace HOB_Mobile.Views
                 headerText.Text = "Completed Maintenance";
             } else if (scroll.ScrollY >= 55.0 && scroll.ScrollY <= 55.0 + 30) {
                 headerText.Text = "Maintenance Reminders";
-            } else if (scroll.ScrollY == 55.0) {
-                headerText.Text = "Maintenance Reminders";
-            }
+            } 
         }
 
         private void HandleOverDueHeight(object sender, EventArgs e)

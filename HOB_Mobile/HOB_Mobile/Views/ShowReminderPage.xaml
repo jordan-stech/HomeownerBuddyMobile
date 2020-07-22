@@ -34,7 +34,7 @@
                    FontAttributes="Bold" />
 
         <Frame  x:Name="video_task"
-                Margin="10, 150, 10, 10"
+                Margin="10, 10, 10, 10"
                CornerRadius="20"
                OutlineColor="White"
                BackgroundColor="#53B949"
@@ -109,7 +109,6 @@
                          VerticalOptions="FillAndExpand">
 
                     <Image x:Name="task_finished"
-                       Margin="0,5,10,5"
                        HeightRequest="50"
                        WidthRequest="50"
                        Source=""
@@ -120,7 +119,7 @@
                        TextColor="White"
                        FontSize="25"
                        FontAttributes="Bold"
-                       HorizontalOptions="StartAndExpand"
+                       HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand" />
 
                     <StackLayout.GestureRecognizers>

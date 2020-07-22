@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.MaintenanceReminder"
              BackgroundColor="#005691"
-             Title=" ">
+             Title=" Maintenance Reminder">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,7 +23,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold"
-                Text="Maintenance Reminder" />
+                Text="Overdue Maintenance" />
         
         <ScrollView Grid.Row="1"
                     Scrolled="ChangeHeaderText">
@@ -85,6 +85,7 @@
                                                             FontSize="16"
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
+                                                            FontAttributes="Bold"
                                                             Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
                                                             HeightRequest="20"/>
                                                 </StackLayout>
@@ -155,6 +156,7 @@
 
                                                     <Label  TextColor="White"
                                                             FontSize="18"
+                                                            FontAttributes="Bold"
                                                             Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
@@ -225,6 +227,7 @@
 
                                                 <Label TextColor="White"
                                                         FontSize="18"
+                                                       FontAttributes="Bold"
                                                         Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
