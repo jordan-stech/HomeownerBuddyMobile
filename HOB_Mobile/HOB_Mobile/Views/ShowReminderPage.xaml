@@ -98,41 +98,39 @@
                     
                 </StackLayout>
             </Frame>
-            
+
             <Frame Margin="10, 10, 10, 10"
-               CornerRadius="20"
-               OutlineColor="White"
-               HeightRequest="60"
-               BackgroundColor="#53B949"
-               Padding="5, 5, 5, 5">
+                   CornerRadius="20"
+                   OutlineColor="White"
+                   HeightRequest="60"
+                   BackgroundColor="#53B949"
+                   Padding="5, 5, 5, 5">
                 <StackLayout Margin="20, 0, 0, 0"
-                         Orientation="Horizontal"
-                         HorizontalOptions="Start"
-                         VerticalOptions="FillAndExpand">
+                             Orientation="Horizontal"
+                             HorizontalOptions="Start"
+                             VerticalOptions="FillAndExpand">
 
                     <Image x:Name="task_finished"
-                       HeightRequest="50"
-                       WidthRequest="50"
-                       Source=""
-                       HorizontalOptions="Start"
-                       VerticalOptions="CenterAndExpand" />
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Source=""
+                           HorizontalOptions="Start"
+                           VerticalOptions="CenterAndExpand" />
 
                     <Label Text="Completed"
-                       TextColor="White"
-                       FontSize="25"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand" />
-
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="UpdateReminderStatus" />
-                    </StackLayout.GestureRecognizers>
+                           TextColor="White"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
 
                 </StackLayout>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="UpdateReminderStatus" />
+                </Frame.GestureRecognizers>
             </Frame>
-
             
-
         </StackLayout>
         </ScrollView>
 </ContentPage>
