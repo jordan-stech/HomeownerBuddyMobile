@@ -24,8 +24,10 @@ namespace HOB_Mobile.Views
             // Call function that steps up the emergency phone number listener
             SetUpEmergencyPhoneNumberHandler();
 
-            Version_Number.Text = "Version: ";
-            Version_Date.Text = "Release Date: " + DateTime.Today;
+            string vers = VersionTracking.CurrentVersion;
+
+            Version_Number.Text = "Version: " + vers;
+            Version_Date.Text = "Release Date: " + DateTime.Today.Month + "/" + DateTime.Today.Day + "/" + DateTime.Today.Year;
         }
 
         /*

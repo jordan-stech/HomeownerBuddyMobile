@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.MaintenanceReminder"
              BackgroundColor="#005691"
-             Title=" Maintenance Reminder">
+             Title=" Maintenance Reminders">
 
     <Grid>
         <Grid.RowDefinitions>
