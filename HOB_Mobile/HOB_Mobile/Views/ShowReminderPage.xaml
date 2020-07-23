@@ -111,13 +111,14 @@
                              VerticalOptions="FillAndExpand">
 
                     <Image x:Name="task_finished"
+                           Margin="0,5,10,5"
                            HeightRequest="50"
                            WidthRequest="50"
                            Source=""
                            HorizontalOptions="Start"
                            VerticalOptions="CenterAndExpand" />
 
-                    <Label Text="Completed"
+                    <Label Text="Complete"
                            TextColor="White"
                            FontSize="25"
                            FontAttributes="Bold"

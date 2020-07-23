@@ -5,9 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HOB_Mobile.Views.MaintenanceReminder"
-             BackgroundColor="#005691"
-             Title=" Maintenance Reminders">
+             BackgroundColor="#005691">
 
+    <NavigationPage.TitleView>
+        <Label TextColor="White"
+                FontSize="25"
+                Grid.Row="0"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Margin="-70,0,0,0"
+                FontAttributes="Bold"
+                Text="Maintenance Reminders" />
+    </NavigationPage.TitleView>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
