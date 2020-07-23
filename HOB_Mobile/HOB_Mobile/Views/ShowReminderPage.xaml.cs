@@ -125,10 +125,10 @@ namespace HOB_Mobile.Views
             {
                 Preferences.Set("completed", "done");
                 Preferences.Set("LastCompleted", completionDate);
-                CrossToastPopUp.Current.ShowToastSuccess("Task Completed!");
                 this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
                 await Navigation.PushAsync(new MaintenanceReminder());
                 Navigation.RemovePage(this);
+                CrossToastPopUp.Current.ShowToastSuccess("Task Completed!");
             }
             else
             {
