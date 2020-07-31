@@ -20,6 +20,7 @@
                        Text="Account" />
 
                 <Frame Margin="0, 0, 0, 20"
+                       CornerRadius="20"
                        Padding="15, 10, 0, 5"
                        HeightRequest="60"
                        BorderColor="White"
@@ -69,6 +70,7 @@
                        Text="Emergency" />
 
                 <Frame Margin="0, 0, 0, 20"
+                       CornerRadius="20"
                        Padding="15, 10, 0, 5"
                        HeightRequest="60"
                        BorderColor="White"

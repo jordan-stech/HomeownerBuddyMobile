@@ -90,16 +90,24 @@
                                                             Text="{Binding reminder}" 
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
-                                                            HeightRequest="20"/>
+                                                            HeightRequest="25"/>
                                                     <Label  TextColor="White"
-                                                            FontSize="16"
+                                                            FontSize="18"
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
                                                             FontAttributes="Bold"
-                                                            Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}" 
-                                                            HeightRequest="20"/>
-                                                </StackLayout>
+                                                            Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}"
+                                                            HeightRequest="8" />
+                                                    <Label  TextColor="White"
+                                                            FontSize="14"
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            Text="{Binding notificationInterval, StringFormat= 'Frequency: {0:F2}'}"
+                                                            HeightRequest="4" />
 
+                                                    
+                                                </StackLayout>
+                                                
                                             </StackLayout>
                                         </Frame>
 
@@ -162,7 +170,7 @@
                                                             Text="{Binding reminder}"
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
-                                                            HeightRequest="20"/>
+                                                            HeightRequest="25"/>
 
                                                     <Label  TextColor="White"
                                                             FontSize="18"
@@ -170,7 +178,14 @@
                                                             Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
-                                                            HeightRequest="20"/>
+                                                            HeightRequest="8"/>
+
+                                                    <Label  TextColor="White"
+                                                            FontSize="14"
+                                                            VerticalOptions="FillAndExpand"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            Text="{Binding notificationInterval, StringFormat= 'Frequency: {0:F2}'}"
+                                                            HeightRequest="4" />
                                                 </StackLayout>
 
                                             </StackLayout>
@@ -233,7 +248,7 @@
                                                         Text="{Binding reminder}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
-                                                        HeightRequest="20"/>
+                                                        HeightRequest="25"/>
 
                                                 <Label TextColor="White"
                                                         FontSize="18"
@@ -241,7 +256,14 @@
                                                         Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
-                                                        HeightRequest="20"/>
+                                                        HeightRequest="8"/>
+
+                                                <Label  TextColor="White"
+                                                        FontSize="14"
+                                                        VerticalOptions="FillAndExpand"
+                                                        HorizontalOptions="FillAndExpand"
+                                                        Text="{Binding notificationInterval, StringFormat= 'Frequency: {0:F2}'}"
+                                                        HeightRequest="4" />
                                             </StackLayout>
 
                                         </StackLayout>
