@@ -20,7 +20,7 @@ namespace HOB_Mobile.Views
 
         private double OverdueFramBound;
         private double ToDoFrameBound;
-        private double UISpacingError = 60.0;
+        private double UISpacingError = 180.0;
 
         public MaintenanceReminder()
         {

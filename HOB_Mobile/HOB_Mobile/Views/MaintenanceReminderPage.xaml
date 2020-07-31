@@ -15,7 +15,7 @@
                 HorizontalTextAlignment="Center"
                 Margin="-70,0,0,0"
                 FontAttributes="Bold"
-                Text="Maintenance Reminders" />
+                Text="  Maintenance Reminders" />
     </NavigationPage.TitleView>
     
     <Grid>
