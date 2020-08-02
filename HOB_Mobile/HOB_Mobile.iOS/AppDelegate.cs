@@ -60,6 +60,8 @@ namespace HOB_Mobile.iOS
 
             InstanceId.SharedInstance.GetInstanceId(InstanceIdResultHandler);
 
+            UINavigationBar.Appearance.BarTintColor = UIColor.SystemBlueColor;
+
             return base.FinishedLaunching(app, options);
         }
 
