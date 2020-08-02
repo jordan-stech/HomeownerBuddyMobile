@@ -48,8 +48,7 @@
                                 FontSize="20"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Start"
-                                FontAttributes="Bold"
-                                Text="Overdue Maintenance" />
+                                FontAttributes="Bold" />
                     </StackLayout>
 
                     <StackLayout x:Name="OverDueFrame">
