@@ -62,6 +62,9 @@ namespace HOB_Mobile.iOS
 
             UINavigationBar.Appearance.BarTintColor = UIColor.SystemBlueColor;
 
+            var tint = UIColor.White;
+            UIButton.AppearanceWhenContainedIn(new Type[] { typeof(UINavigationBar) }).TintColor = tint;
+
             return base.FinishedLaunching(app, options);
         }
 
