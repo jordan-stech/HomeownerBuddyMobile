@@ -56,7 +56,8 @@
                         SelectionMode="None"
                         BackgroundColor="#005691"
                         HasUnevenRows="True"
-                        VerticalOptions="Fill">
+                        VerticalOptions="Fill"
+                        VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell
@@ -137,7 +138,8 @@
                                     BackgroundColor="#005691"
                                     SelectionMode="None"
                                     HasUnevenRows="True"
-                                    VerticalOptions="Fill">
+                                    VerticalOptions="Fill"
+                                    VerticalScrollBarVisibility="Never">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell   Appearing="HandleToDoHeight"
@@ -215,7 +217,8 @@
                                 BackgroundColor="#005691"
                                 HasUnevenRows="True"
                                 SelectionMode="None"
-                                VerticalOptions="Fill">
+                                VerticalOptions="Fill"
+                                VerticalScrollBarVisibility="Never">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="HandleReminderClicked" 
