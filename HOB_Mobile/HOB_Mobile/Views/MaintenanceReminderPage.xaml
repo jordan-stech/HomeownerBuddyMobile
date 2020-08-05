@@ -68,16 +68,17 @@
                                                 OutlineColor="White"
                                                 HeightRequest="90"
                                                 BackgroundColor="#E90E0E"
-                                                Padding="10, 10, 10, 10">
-                                            <StackLayout Margin="30, 0, 0, 0"
+                                                Padding="5, 10, 10, 10">
+                                            <StackLayout Margin="5, 0, 0, 0"
                                                         Orientation="Horizontal"
                                                         HorizontalOptions="Start"
-                                                        VerticalOptions="FillAndExpand">
+                                                        VerticalOptions="FillAndExpand"
+                                                         Padding="5,0,0,0">
 
                                                 <Image  x:Name="signal_sign"
                                                         HeightRequest="50"
                                                         WidthRequest="50"
-                                                        Margin="0, 5, 20, 5"
+                                                        Margin="0, 5, 5, 5"
                                                         Source="{Binding icon}"
                                                         HorizontalOptions="Start"
                                                         VerticalOptions="CenterAndExpand" />
@@ -96,7 +97,7 @@
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
                                                             FontAttributes="Bold"
-                                                            Text="{Binding formattedDueDate, StringFormat= 'Overdue Since: {0:F2}'}"
+                                                            Text="{Binding formattedDueDate, StringFormat= 'Overdue: {0:F2}'}"
                                                             HeightRequest="8" />
                                                     <Label  TextColor="White"
                                                             FontSize="14"
@@ -149,16 +150,17 @@
                                                 OutlineColor="White"
                                                 HeightRequest="90"
                                                 BackgroundColor="#D6C018"
-                                                Padding="10, 10, 10, 10">
-                                            <StackLayout    Margin="30, 0, 0, 0"
+                                                Padding="5, 10, 10, 10">
+                                            <StackLayout    Margin="5, 0, 0, 0"
                                                             Orientation="Horizontal"
                                                             HorizontalOptions="Start"
-                                                            VerticalOptions="FillAndExpand">
+                                                            VerticalOptions="FillAndExpand"
+                                                            Padding="5,0,0,0">
 
                                                 <Image  x:Name="signal_sign"
                                                         HeightRequest="50"
                                                         WidthRequest="50"
-                                                        Margin="0, 5, 20, 5"
+                                                        Margin="0, 5, 5, 5"
                                                         Source="{Binding icon}"
                                                         HorizontalOptions="Start"
                                                         VerticalOptions="CenterAndExpand" />
@@ -176,7 +178,7 @@
                                                     <Label  TextColor="White"
                                                             FontSize="18"
                                                             FontAttributes="Bold"
-                                                            Text="{Binding formattedDueDate, StringFormat= 'Due By: {0:F2}'}" 
+                                                            Text="{Binding formattedDueDate, StringFormat= 'Due: {0:F2}'}" 
                                                             VerticalOptions="FillAndExpand"
                                                             HorizontalOptions="FillAndExpand"
                                                             HeightRequest="8"/>
@@ -228,21 +230,23 @@
                                             OutlineColor="White"
                                             HeightRequest="90"
                                             BackgroundColor="#53B949"
-                                            Padding="10, 10, 10, 10">
-                                        <StackLayout    Margin="30, 0, 0, 0"
+                                            Padding="5, 10, 10, 10">
+                                        <StackLayout    Margin="5, 0, 0, 0"
                                                         Orientation="Horizontal"
                                                         HorizontalOptions="Start"
-                                                        VerticalOptions="FillAndExpand">
+                                                        VerticalOptions="FillAndExpand"
+                                                        Padding="5,0,0,0">
 
                                             <Image x:Name="signal_sign"
                                                     HeightRequest="50"
                                                     WidthRequest="50"
-                                                    Margin="0, 5, 20, 5"
+                                                    Margin="0, 5, 5, 5"
                                                     Source="{Binding icon}"
                                                     HorizontalOptions="Start"
                                                     VerticalOptions="CenterAndExpand" />
 
-                                            <StackLayout    Orientation="Vertical"
+                                            <StackLayout
+                                                            Orientation="Vertical"
                                                             Spacing="5">
 
                                                 <Label TextColor="White"
@@ -255,7 +259,7 @@
                                                 <Label TextColor="White"
                                                         FontSize="18"
                                                        FontAttributes="Bold"
-                                                        Text="{Binding formattedLastCompleted, StringFormat= 'Completed On: {0:F2}'}" 
+                                                        Text="{Binding formattedLastCompleted, StringFormat= 'Completed: {0:F2}'}" 
                                                         VerticalOptions="FillAndExpand"
                                                         HorizontalOptions="FillAndExpand"
                                                         HeightRequest="8"/>
