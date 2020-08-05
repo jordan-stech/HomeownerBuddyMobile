@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
@@ -107,6 +108,12 @@ namespace HOB_Mobile.Views
                         }
                     }
 
+                    OverDues = OverDues.OrderBy(o => o.dueDate).ToList();
+
+                    ToDos = ToDos.OrderBy(td => td.dueDate).ToList();
+
+                    Dones = Dones.OrderByDescending(d => d.lastCompleted).ToList();
+
                     if (OverDues.Count.Equals(0))
                     {
                         pastdues.Text = "You have no overdue tasks";
@@ -137,6 +144,7 @@ namespace HOB_Mobile.Views
                     {
                         Done.ItemsSource = Dones;
                     }
+
                 }
                 else
                 {
