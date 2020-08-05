@@ -22,7 +22,7 @@
                 <Frame Margin="0, 0, 0, 20"
                        CornerRadius="20"
                        Padding="15, 10, 0, 5"
-                       HeightRequest="60"
+                       HeightRequest="70"
                        BorderColor="White"
                        BackgroundColor="#53B949">
 
@@ -72,7 +72,7 @@
                 <Frame Margin="0, 0, 0, 20"
                        CornerRadius="20"
                        Padding="15, 10, 0, 5"
-                       HeightRequest="60"
+                       HeightRequest="70"
                        BorderColor="White"
                        BackgroundColor="#53B949">
 
@@ -91,14 +91,14 @@
                                    FontSize="18"
                                    HorizontalTextAlignment="Start"
                                    FontAttributes="Bold"
-                                   Text="(614) 364-7023" />
+                                   Text="(614) 419-4386" />
 
                         </StackLayout>
 
                         <Label TextColor="White"
                                FontSize="15"
                                HorizontalTextAlignment="Start"
-                               Text="Call this number in case of an emergency" />
+                               Text="Call this number only in an emergency. This is a direct line to Erik Lambert, Director of Construction." />
 
                     </StackLayout>
                 </Frame>
